@@ -12,3 +12,10 @@ class TokenCalculator(forms.Form):
     token9 = forms.IntegerField(label='250k', initial=0)
     token10 = forms.IntegerField(label='500k', initial=0)
     token11 = forms.IntegerField(label='1m', initial=0)
+
+class BrewCalculator(forms.Form):
+    token1 = forms.IntegerField(label='10', initial=0)
+    token2 = forms.IntegerField(label='25', initial=0)
+    token3 = forms.IntegerField(label='50', initial=0)
+    token4 = forms.IntegerField(label='100', initial=0)
+    token5 = forms.IntegerField(label='250', initial=0)

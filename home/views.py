@@ -26,16 +26,16 @@ class TokenCalculator(FormView):
         token10 = form.cleaned_data['token10']
         token11 = form.cleaned_data['token11']
     
-        messages.success(self.request, f"500: {token1 * 500}")
-        messages.success(self.request, f"1k: {token2 * 1000}")
-        messages.success(self.request, f"2.5k: {token3 * 2500}")
-        messages.success(self.request, f"5k: {token4 * 5000}")
-        messages.success(self.request, f"10k: {token5 * 10000}")
-        messages.success(self.request, f"25k: {token6 * 25000}")
-        messages.success(self.request, f"50k: {token7 * 25000}")
-        messages.success(self.request, f"100k: {token8 * 25000}")
-        messages.success(self.request, f" 250k: {token9 * 250000}")
-        messages.success(self.request, f"500k: {token10 * 500000}")
-        messages.success(self.request, f"1m: {token11 * 1000000}")
+        messages.success(self.request, f"500: {token1 * 500:,}")
+        messages.success(self.request, f"1k: {token2 * 1000:,}")
+        messages.success(self.request, f"2.5k: {token3 * 2500:,}")
+        messages.success(self.request, f"5k: {token4 * 5000:,}")
+        messages.success(self.request, f"10k: {token5 * 10000:,}")
+        messages.success(self.request, f"25k: {token6 * 25000:,}")
+        messages.success(self.request, f"50k: {token7 * 25000:,}")
+        messages.success(self.request, f"100k: {token8 * 25000:,}")
+        messages.success(self.request, f" 250k: {token9 * 250000:,}")
+        messages.success(self.request, f"500k: {token10 * 500000:,}")
+        messages.success(self.request, f"1m: {token11 * 1000000:,}")
         
         return super().form_valid(form)

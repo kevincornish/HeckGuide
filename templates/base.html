@@ -11,6 +11,7 @@
   <link rel="canonical" href="https://heckguide.com">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
+
 <body>
   <header>
     <div>
@@ -20,18 +21,27 @@
             <a href="{% url 'homepage' %}">Home</a>
           </li>
           <li>
-            <a href="{% url 'TokenCalculator' %}">TokenCalculator</a>
+            <a href="{% url 'TokenCalculator' %}">Token Calculator</a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
+  <div class="clear"></div>
 
+  <div id="wrap-centered">
+    <div class="content">
+      <section>
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+      </section>
+    </div>
+  </div>
 
-
-  {% block content %}
-  <!-- Content Goes here -->
-  {% endblock content %}
+  <footer>
+    <p>HeckGuide.com</p>
+  </footer>
 </body>
 
 </html>

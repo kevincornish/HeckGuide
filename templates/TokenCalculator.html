@@ -1,11 +1,12 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
+{% load static %}
 {% block content %}
 
 {% if messages %}
 <ul>
-{% for message in messages %}
-  <li>{{ message }}</li>  
-{% endfor %}
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
 </ul>
 {% endif %}
 
@@ -14,7 +15,5 @@
   {{ form }}
   <input type="submit" value="Submit">
 </form>
-
-
 
 {%endblock%}

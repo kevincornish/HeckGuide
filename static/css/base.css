@@ -1,0 +1,92 @@
+/*					
+	Author		HeckGuide.com // Kevin Cornish & Sergio Estrada
+*/
+
+/* RESET */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+/* /END RESET */
+
+/* 
+=====================================================
+	Navigation
+===================================================== */
+nav {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #333;
+  overflow: hidden;
+  font-size: 17px;
+}
+
+nav ul {
+  list-style-type: none;
+  float: left;
+  padding: 14px 16px;
+}
+
+nav li {
+  display: inline;
+  color: #08c;
+}
+
+/* 
+=====================================================
+	Layout & Framework
+===================================================== */
+
+body {
+	background: #6d6d6d;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.content {
+  width: 70%;
+  margin:0 auto;
+}
+
+section {
+  width: 55%;
+  display: inline-block;
+  padding: 10px;
+  margin: 20px 10px;
+}
+a:link, a:visited {
+  text-decoration: none;
+  color: #F2CA4B;
+}
+a:hover {
+  text-decoration: underline;
+}
+p {
+  font-size: 0.9em;
+}
+label {
+  display: block;
+  margin: 5px 0;
+}
+input {
+  border-radius: 4px !important;
+  border: 2px solid var(--gray60);
+}
+
+/* 
+=====================================================
+	Footer
+===================================================== */
+footer {
+  margin-top: 50px;
+}
+
+footer p {
+  text-align: center;
+}

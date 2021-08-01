@@ -11,8 +11,24 @@
   <link rel="canonical" href="https://heckguide.com">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
-
 <body>
+  <header>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <a href="{% url 'homepage' %}">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'TokenCalculator' %}">TokenCalculator</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+
   {% block content %}
   <!-- Content Goes here -->
   {% endblock content %}

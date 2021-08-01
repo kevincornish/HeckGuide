@@ -1,14 +1,17 @@
 # HeckGuide
 
 Install Python
+Install Postgres
 
 Create and enter new working directory eg "HeckGuide"
 
 Create Virtual Environment 
-
-Mac/Unix
 ```
 py -m venv env
+```
+Activate Environment
+Mac/Unix
+```
 source env/bin/activate
 ```
 Windows
@@ -21,10 +24,6 @@ Install requirements for local development
 pip install -r requirements/base.txt
 pip install -r requirements/local.txt
 ```
-
-Install postgres
-
-Create a new database
 
 Fill in ```heckguide/sample.env``` and rename to ```.env```
 

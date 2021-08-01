@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+{% block content %}
+            {% for post in post_list %}
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.author }} | {{ post.created_on}} </p>
+                    <p>{{post.content|slice:":200"| safe  }}</p>
+                    <a href="{% url 'post_detail' post.slug  %}">Read More &rarr;</a>
+            {% endfor %}
+        {% if is_paginated %}
+  <nav aria-label="Page navigation conatiner"></nav>
+  <ul>
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}"> NEXT &raquo;</a></li>
+    {% endif %}
+  </ul>
+  </nav>
+</div>
+{% endif %}
+    </div>
+</div>
+{%endblock%}

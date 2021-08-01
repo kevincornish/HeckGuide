@@ -27,15 +27,6 @@ INSTALLED_APPS = [
 	'django_summernote',
 ]
 
-if not DEBUG:
-	INSTALLED_APPS = [
-	'whitenoise.runserver_nostatic',
-	]
-	
-	MIDDLEWARE = [
-	'whitenoise.middleware.WhiteNoiseMiddleware',
-	]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -45,6 +36,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if not DEBUG:
+	INSTALLED_APPS.append('whitenoise.runserver_nostatic')
+	MIDDLEWARE.append ('whitenoise.middleware.WhiteNoiseMiddleware')
 
 ROOT_URLCONF = 'heckguide.urls'
 

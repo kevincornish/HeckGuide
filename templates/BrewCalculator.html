@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
+{% block head_title %}Brew Calculator{% endblock %}
 {% block content %}
 
-{% if messages %}
-<ul>
-  {% for message in messages %}
-  <li>{{ message }}</li>
-  {% endfor %}
-</ul>
-<a href="{% url 'BrewCalculator' %}">More tokens?</a>
+{% if form.is_valid %}
+    <p> 10: {{ token1 }} </p>
+    <p> 25: {{ token2 }} </p>
+    <p> 50: {{ token3 }} </p>
+    <p> 100: {{ token4 }} </p>
+    <p> 250: {{ token5 }} </p>
+    <p> Total: {{ total }} </p>
+    <a href="{% url 'BrewCalculator' %}">More tokens?</a>
 {% else %}
 
 <form action="" method="post">
@@ -17,5 +19,4 @@
   <input type="submit" value="Submit">
 </form>
 {% endif %}
-
 {%endblock%}

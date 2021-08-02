@@ -1,7 +1,14 @@
 {% extends "base.html" %}
+{% load socialaccount %}
 {% load static %}
+{% block head_title %}Home{% endblock %}
 {% block content %}
 <div class="container">
     <p>Heckfire Index</p>
 </div>
+
+{% if user.is_authenticated %}
+<h3>Welcome {{ user.username }} !</h3>
+{%endif%}
+
 {%endblock%}

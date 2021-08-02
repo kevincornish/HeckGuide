@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
+{% block head_title %}Token Calculator{% endblock %}
 {% block content %}
 
-{% if messages %}
-<ul>
-  {% for message in messages %}
-  <li>{{ message }}</li>
-  {% endfor %}
-</ul>
-<a href="{% url 'TokenCalculator' %}">More tokens?</a>
+{% if form.is_valid %}
+    <p> 500: {{ token1 }} </p>
+    <p> 1k: {{ token2 }} </p>
+    <p> 2.5k: {{ token3 }} </p>
+    <p> 5k: {{ token4 }} </p>
+    <p> 10k: {{ token5 }} </p>
+    <p> 25k: {{ token5 }} </p>
+    <p> 50k: {{ token5 }} </p>
+    <p> 100k: {{ token5 }} </p>
+    <p> 250k: {{ token5 }} </p>
+    <p> 500k: {{ token5 }} </p>
+    <p> 1m: {{ token5 }} </p>
+    <p> Total: {{ total }} </p>
+    <a href="{% url 'TokenCalculator' %}">More tokens?</a>
 {% else %}
 
 <form action="" method="post">
@@ -17,5 +25,4 @@
   <input type="submit" value="Submit">
 </form>
 {% endif %}
-
 {%endblock%}

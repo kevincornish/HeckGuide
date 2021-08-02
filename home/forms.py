@@ -1,6 +1,6 @@
 from django import forms
 
-class TokenCalculator(forms.Form):
+class TokenCalculatorForm(forms.Form):
     token1 = forms.IntegerField(label='500', initial=0)
     token2 = forms.IntegerField(label='1k', initial=0)
     token3 = forms.IntegerField(label='2.5k', initial=0)
@@ -13,7 +13,7 @@ class TokenCalculator(forms.Form):
     token10 = forms.IntegerField(label='500k', initial=0)
     token11 = forms.IntegerField(label='1m', initial=0)
 
-class BrewCalculator(forms.Form):
+class BrewCalculatorForm(forms.Form):
     token1 = forms.IntegerField(label='10', initial=0)
     token2 = forms.IntegerField(label='25', initial=0)
     token3 = forms.IntegerField(label='50', initial=0)

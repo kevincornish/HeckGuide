@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% block head_title %}{{ object.title }}{% endblock %}
 {% block content %}
         <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
         <p>{{ post.author }} | {{ post.created_on }}</p>

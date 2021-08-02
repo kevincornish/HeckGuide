@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="Kevin Cornish">
-  <title>HeckGuide</title>
+  <title>HeckGuide | {% block head_title %}{% endblock %}</title>
   <link rel="canonical" href="https://heckguide.com">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
@@ -29,17 +29,36 @@
         <li>
           <a href="{% url 'DevBlog' %}">Dev Blog</a>
         </li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+        {% else %}
+        <li><a href="{% url 'account_login' %}">Sign In</a></li>
+        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+        {% endif %}
       </ul>
       </nav>
     </div>
   </header>
   <div class="clear"></div>
 
+  <!-- This needs CSS it will display any messages / notices eg "thanks for logging in" etc -->
+  {% if messages %}
+  <div>
+    <strong>Messages:</strong>
+    <ul>
+      {% for message in messages %}
+      <li>{{message}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
   <div id="wrap-centered">
     <div class="content">
       <section>
         {% block content %}
-        <!-- Content Goes here -->
+        <!-- All other pages content stored in between here -->
         {% endblock content %}
       </section>
     </div>

@@ -36,6 +36,9 @@
         <li><a href="{% url 'account_login' %}">Sign In</a></li>
         <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
         {% endif %}
+		{% if user.is_staff %}
+		<li><a href="{% url 'admin:index' %}">Admin</a></li>
+		{% endif %}
       </ul>
       </nav>
     </div>

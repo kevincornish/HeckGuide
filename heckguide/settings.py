@@ -141,6 +141,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
 
+if DEBUG:
+	EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 if not DEBUG:
 	STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 	SECURE_HSTS_SECONDS = 31536000
@@ -149,6 +152,12 @@ if not DEBUG:
 	CSRF_COOKIE_SECURE = True
 	SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 	SECURE_HSTS_PRELOAD = True
+	EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+	EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+	EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+	EMAIL_USE_SSL = True
+	EMAIL_PORT = 465
+	
 	
 # Base url to serve media files
 MEDIA_URL = '/media/'
@@ -157,7 +166,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
-
-	
-	
-	

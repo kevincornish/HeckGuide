@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic.edit import FormView
 
-from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm
+from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, RallyCalculatorForm
 
 def Index(request):
     return render(request, "index.html")
@@ -68,3 +68,17 @@ def TroopMightView(request):
   else:
     form = TroopMightForm()       
     return render(request, 'TroopMight.html', {'form': form})
+
+def RallyCalculatorView(request):
+  if request.method == 'POST':
+    form = RallyCalculatorForm(request.POST)
+    if form.is_valid():
+        bossstrength = form.cleaned_data['bossstrength']
+        attackpower = form.cleaned_data['attackpower']
+        marchcap = form.cleaned_data['marchcap']
+        joiners = int(bossstrength / (attackpower / marchcap)- marchcap)
+        totalrally = int(bossstrength /(attackpower / marchcap))
+    return render(request, 'RallyCalculator.html', {'form': form, 'joiners': joiners, 'totalrally': totalrally})
+  else:
+    form = RallyCalculatorForm()
+    return render(request, 'RallyCalculator.html', {'form': form})

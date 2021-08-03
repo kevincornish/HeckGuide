@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}Raid Boss Calculator{% endblock %}
+{% block content %}
+
+{% if form.is_valid %}
+<p> Troops Needed: {{ joiners }} </p>
+<p> Total Troops in Rally: {{ totalrally }} </p>
+<a href="{% url 'RallyCalculator' %}">Try Again?</a>
+{% else %}
+
+<form action="" method="post">
+  {% csrf_token %}
+
+  {{ form.bossstrength.label_tag }}
+  <select name="{{ form.bossstrength.name }}" id="{{ form.bossstrength.id_for_label }}">
+    <option value="2000000000">Level 1 Hydra Boss</option>
+    <option value="15000000000">Level 2 Hydra Boss</option>
+    <option value="45000000000">Level 3 Hydra Boss</option>
+    <option value="13500000000">Level 4 Hydro Lava Boss</option>
+    <option value="71000000000">Level 4 Hydro Biome Boss</option>
+  </select>
+  {{ form.attackpower.label_tag }}
+  <input type="number" required name="{{ form.attackpower.name }}" id="{{ form.attackpower.id_for_label }}"
+    autocomplete="off" value="0">
+  {{ form.marchcap.label_tag }}
+  <input type="number" required name="{{ form.marchcap.name }}" id="{{ form.marchcap.id_for_label }}" autocomplete="off"
+    value="0">
+  <input type="submit" value="Submit">
+</form>
+{% endif %}
+{%endblock%}

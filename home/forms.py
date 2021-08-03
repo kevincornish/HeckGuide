@@ -28,9 +28,12 @@ TROOPMIGHT_CHOICES =(
     ("2", "Kill"),
 )
 
-
 class TroopMightForm(forms.Form):
     might = forms.IntegerField(label='Might', initial=0)
     trainkill = forms.ChoiceField(label='Train/Kill', choices=TROOPMIGHT_CHOICES)
     troops = forms.IntegerField(label='Troops', initial=0)
 
+class RallyCalculatorForm(forms.Form):
+    attackpower = forms.IntegerField(label='Attack Power', initial=0)
+    bossstrength = forms.IntegerField(label='Boss Strength', initial=0)
+    marchcap = forms.IntegerField(label='March Cap', initial=0)

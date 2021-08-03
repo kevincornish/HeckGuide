@@ -76,8 +76,12 @@ def RallyCalculatorView(request):
         bossstrength = form.cleaned_data['bossstrength']
         attackpower = form.cleaned_data['attackpower']
         marchcap = form.cleaned_data['marchcap']
-        joiners = int(bossstrength / (attackpower / marchcap)- marchcap)
-        totalrally = int(bossstrength /(attackpower / marchcap))
+        try:
+          joiners = int(bossstrength / (attackpower / marchcap)- marchcap)
+          totalrally = int(bossstrength /(attackpower / marchcap))
+        except ZeroDivisionError:
+          joiners = 0
+          totalrally = 0
     return render(request, 'RallyCalculator.html', {'form': form, 'joiners': joiners, 'totalrally': totalrally})
   else:
     form = RallyCalculatorForm()

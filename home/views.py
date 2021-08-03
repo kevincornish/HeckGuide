@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic.edit import FormView
 
-from .forms import TokenCalculatorForm, BrewCalculatorForm
+from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm
 
 def Index(request):
     return render(request, "index.html")
@@ -44,3 +44,27 @@ def BrewCalculatorView(request):
   else:
     form = BrewCalculatorForm()       
     return render(request, 'BrewCalculator.html', {'form': form})
+
+def TroopMightView(request):
+  if request.method == 'POST':
+    form = TroopMightForm(request.POST)
+    if form.is_valid():
+        troopmight = 150
+        might = form.cleaned_data['might']
+        trainkill = form.cleaned_data['trainkill']
+        troops = form.cleaned_data['troops']
+        if trainkill == "2":
+          newmight = might - troops * troopmight
+          troopstag = "Killed"
+          mighttag = "Lost"
+        elif trainkill == "1":
+          newmight = troops * troopmight + might
+          troopstag = "Trained"
+          mighttag = "Gained"
+        if newmight < 0:
+            newmight = 0
+        mightdiff = newmight - might
+    return render(request, 'TroopMight.html', {'form': form, 'mighttag': mighttag, 'mightdiff': mightdiff, 'troopstag': troopstag, 'might': might, 'trainkill': trainkill, 'troops': troops, 'newmight': newmight})
+  else:
+    form = TroopMightForm()       
+    return render(request, 'TroopMight.html', {'form': form})

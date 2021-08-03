@@ -15,7 +15,16 @@
 
 <form action="" method="post">
   {% csrf_token %}
-  {{ form }}
+  {{ form.token1.label_tag }}
+  <input type="number" required name="{{ form.token1.name }}" id="{{ form.token1.id_for_label }}" autocomplete="off" value="0">
+  {{ form.token2.label_tag }}
+  <input type="number" required name="{{ form.token2.name }}" id="{{ form.token2.id_for_label }}" autocomplete="off" value="0">
+  {{ form.token3.label_tag }}
+  <input type="number" required name="{{ form.token3.name }}" id="{{ form.token3.id_for_label }}" autocomplete="off" value="0">
+  {{ form.token4.label_tag }}
+  <input type="number" required name="{{ form.token4.name }}" id="{{ form.token4.id_for_label }}" autocomplete="off" value="0">
+  {{ form.token5.label_tag }}
+  <input type="number" required name="{{ form.token5.name }}" id="{{ form.token5.id_for_label }}" autocomplete="off" value="0">
   <input type="submit" value="Submit">
 </form>
 {% endif %}

@@ -3,11 +3,16 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from django.views.generic.edit import FormView
+from django.contrib.auth.decorators import login_required
 
 from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, RallyCalculatorForm
 
 def Index(request):
     return render(request, "index.html")
+
+@login_required
+def Account(request):
+    return render(request, "Account.html")
 
 def TokenCalculatorView(request):
   if request.method == 'POST':

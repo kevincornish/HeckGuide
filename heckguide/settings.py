@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
- #   'allauth.socialaccount.providers.discord',
+    'allauth.socialaccount.providers.discord',
  #   'allauth.socialaccount.providers.google',
  #   'allauth.socialaccount.providers.instagram',
  #   'allauth.socialaccount.providers.reddit',

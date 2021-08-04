@@ -36,7 +36,7 @@
           <a href="{% url 'DevBlog' %}">Dev Blog</a>
         </li>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+        <li><a href="{% url 'account' %}">Account</a></li>
         <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
         {% else %}
         <li><a href="{% url 'account_login' %}">Sign In</a></li>
@@ -53,7 +53,8 @@
 
   <!-- This needs CSS it will display any messages / notices eg "thanks for logging in" etc -->
   {% if messages %}
-  <div>
+  <div id="messagebox" class="messagebox">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     <strong>Messages:</strong>
     <ul>
       {% for message in messages %}

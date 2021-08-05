@@ -38,12 +38,15 @@ INSTALLED_APPS = [
 	'home',
     'blog',
 	'django_summernote',
+    'allies',
+    'mathfilters',
 ]
 
 SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = "none"
 LOGIN_REDIRECT_URL = "homepage"
 ACCOUNT_LOGOUT_ON_GET = True
+HECKFIRE_API_TOKEN = env("TOKEN")
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

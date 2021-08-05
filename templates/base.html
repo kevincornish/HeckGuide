@@ -37,6 +37,7 @@
         </li>
         {% if user.is_authenticated %}
         <li><a href="{% url 'account' %}">Account</a></li>
+        <li><a href="{% url 'allies' %}">Allies</a></li>
         <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
         {% else %}
         <li><a href="{% url 'account_login' %}">Sign In</a></li>

@@ -3,19 +3,16 @@
 {% load static %}
 {% load mathfilters %}
 {% block content %}
-<section class="tab-content">
-<div class="flib">
     <form action="{% url 'allies' %}">
         <span>
-          <input class="submissions" type="text" placeholder="Owner" aria-label="current_owner"
+          <input type="text" placeholder="Owner" aria-label="current_owner"
             name='current_owner' value='{{ request.GET.current_owner }}'>
-          <input class="submissions" inputmode="numeric" type="number" placeholder="Cost" aria-label="cost" name='cost'
+          <input inputmode="numeric" type="number" placeholder="Cost" aria-label="cost" name='cost'
             value='{{ request.GET.cost }}'>
-          <input class="submissions" type="text" placeholder="Clan" aria-label="clan" name='clan'
+          <input type="text" placeholder="Clan" aria-label="clan" name='clan'
             value='{{ request.GET.clan }}'>
         <input type="submit" value="Search"></span>
     </form>
-  </div>
   <br />
   <table class="table">
     <thead>
@@ -53,33 +50,21 @@
       {% endfor %}
     </tbody>
   </table>
-  <nav aria-label="pagination">
-    <div class="pagination-wrapper">
-      <div class="pagination">
-        {% if page_obj.has_previous %}
-        <a class="prev page-numbers"
-          href="?page=1{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">&laquo;
-          First</a>
-        <a class="prev page-numbers"
-          href="?page={{ page_obj.previous_page_number }}{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">Prev</a>
-        {% else %}
-        <a class="prev page-numbers disabled" href="" tabindex="-1">&laquo; First</a>
-        <a class="prev page-numbers disabled" href="" tabindex="-1">Prev</a>
-        {% endif %}
-        <a class="page-numbers disabled" href="" tabindex="-1">Page {{ page_obj.number }} of
-          {{ page_obj.paginator.num_pages }}</a>
-        {% if page_obj.has_next %}
-        <a class="next page-numbers"
-          href="?page={{ page_obj.next_page_number }}{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">Next</a>
-        <a class="next page-numbers"
-          href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">Last
-          &raquo;</a>
-        {% else %}
-        <a class="next page-numbers disabled" href="" tabindex="-1">Next</a>
-        <a class="next page-numbers disabled" href="" tabindex="-1">Last &raquo;</a>
-        {% endif %}
-      </div>
-    </div>
+
+  {% if is_paginated %}
+  <nav aria-label="Page navigation conatiner"></nav>
+  <ul>
+    {% if page_obj.has_previous %}
+    <li><a href="?page=1{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">&laquo; First</a></li>
+    <li><a href="?page={{ page_obj.previous_page_number }}{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">Prev</a></li>
+    {% endif %}
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">Next</a></li>
+    <li><a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">Last &raquo;</a></li>
+    {% endif %}
+  </ul>
   </nav>
-</section>
+</div>
+{% endif %}
   {% endblock %}

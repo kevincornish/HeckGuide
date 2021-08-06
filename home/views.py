@@ -12,7 +12,7 @@ def Index(request):
 
 @login_required
 def Account(request):
-    return render(request, "Account.html")
+    return render(request, "account.html")
 
 def TokenCalculatorView(request):
   if request.method == 'POST':

@@ -30,10 +30,10 @@ def TokenCalculatorView(request):
         token10 = form.cleaned_data['token10'] * 500000
         token11 = form.cleaned_data['token11'] * 1000000
         total = token1+token2+token3+token4+token5+token6+token7+token8+token9+token10+token11
-    return render(request, 'TokenCalculator.html', {'form': form, 'token1': token1, 'token2': token2, 'token3': token3, 'token4': token4, 'token5': token5, 'token6': token6, 'token7': token7, 'token8': token8, 'token9': token9, 'token10': token10, 'token11': token11, 'total': total})
+    return render(request, 'calculators/TokenCalculator.html', {'form': form, 'token1': token1, 'token2': token2, 'token3': token3, 'token4': token4, 'token5': token5, 'token6': token6, 'token7': token7, 'token8': token8, 'token9': token9, 'token10': token10, 'token11': token11, 'total': total})
   else:
     form = TokenCalculatorForm()       
-    return render(request, 'TokenCalculator.html', {'form': form})
+    return render(request, 'calculators/TokenCalculator.html', {'form': form})
 
 def BrewCalculatorView(request):
   if request.method == 'POST':
@@ -45,10 +45,10 @@ def BrewCalculatorView(request):
         token4 = form.cleaned_data['token4'] * 100
         token5 = form.cleaned_data['token5'] * 250
         total = token1+token2+token3+token4+token5
-    return render(request, 'BrewCalculator.html', {'form': form, 'token1': token1, 'token2': token2, 'token3': token3, 'token4': token4, 'token5': token5, 'total': total})
+    return render(request, 'calculators/BrewCalculator.html', {'form': form, 'token1': token1, 'token2': token2, 'token3': token3, 'token4': token4, 'token5': token5, 'total': total})
   else:
     form = BrewCalculatorForm()       
-    return render(request, 'BrewCalculator.html', {'form': form})
+    return render(request, 'calculators/BrewCalculator.html', {'form': form})
 
 def TroopMightView(request):
   if request.method == 'POST':
@@ -69,10 +69,10 @@ def TroopMightView(request):
         if newmight < 0:
             newmight = 0
         mightdiff = newmight - might
-    return render(request, 'TroopMight.html', {'form': form, 'mighttag': mighttag, 'mightdiff': mightdiff, 'troopstag': troopstag, 'might': might, 'trainkill': trainkill, 'troops': troops, 'newmight': newmight})
+    return render(request, 'calculators/TroopMight.html', {'form': form, 'mighttag': mighttag, 'mightdiff': mightdiff, 'troopstag': troopstag, 'might': might, 'trainkill': trainkill, 'troops': troops, 'newmight': newmight})
   else:
     form = TroopMightForm()       
-    return render(request, 'TroopMight.html', {'form': form})
+    return render(request, 'calculators/TroopMight.html', {'form': form})
 
 def RallyCalculatorView(request):
   if request.method == 'POST':
@@ -87,7 +87,7 @@ def RallyCalculatorView(request):
         except ZeroDivisionError:
           joiners = 0
           totalrally = 0
-    return render(request, 'RallyCalculator.html', {'form': form, 'joiners': joiners, 'totalrally': totalrally})
+    return render(request, 'calculators/RallyCalculator.html', {'form': form, 'joiners': joiners, 'totalrally': totalrally})
   else:
     form = RallyCalculatorForm()
-    return render(request, 'RallyCalculator.html', {'form': form})
+    return render(request, 'calculators/RallyCalculator.html', {'form': form})

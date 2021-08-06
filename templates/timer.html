@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+{% load static %}
+{% block head_title %}Timer{% endblock %}
+{% block content %}
+<p id="current"><script src="{% static 'js/current.js' %}"></script></p>
+<p id="biome"><script src="{% static 'js/biome.js' %}"></script></p>
+<p id="events"><script src="{% static 'js/events.js' %}"></script></p>
+{%endblock%}

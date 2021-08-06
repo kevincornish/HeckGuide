@@ -103,6 +103,21 @@ input {
   border: 2px solid var(--gray60);
 }
 
+.biome-pic {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.biome-pic p {
+  font-size: 2rem;
+  line-height: 1.5rem;
+}
+
+.biome-pic img {
+  max-width: 80px;
+}
+
 /* 
 =====================================================
 	Footer

@@ -10,6 +10,9 @@ from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, Rall
 def Index(request):
     return render(request, "index.html")
 
+def Timer(request):
+    return render(request, "timer.html")
+
 @login_required
 def Account(request):
     return render(request, "account.html")

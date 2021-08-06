@@ -11,5 +11,5 @@ class Command(BaseCommand):
         parser.add_argument('page_count',  type=int)
 
     def handle(self, *args, **options):
-        importer = AllyByPriceImporter(token=settings.HECKFIRE_API_TOKEN)
+        importer = AllyByPriceImporter(token=settings.HECKFIRE_API_TOKEN, staytoken=settings.STAY_ALIVE_TOKEN)
         importer.execute(options['price'], options['page_count'])

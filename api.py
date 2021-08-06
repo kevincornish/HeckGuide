@@ -15,13 +15,15 @@ class HeckfireApi(object):
         password: str = None,
         client: str = "1.93",
         version: str = "2922",
-        token: str = None
+        token: str = None,
+        staytoken: str = None
     ):
         self.base_url = 'https://api.kingdomsofheckfire.com'
         self.user = user
         self.password = password
         self.client = client
         self.version = version
+        self.staytoken = staytoken
         if token:
             self.token = token
         else:
@@ -52,6 +54,15 @@ class HeckfireApi(object):
             print(error)
             message = error["exception"]
             raise TokenException(f"Failed to fetch token from heck api. Error: {message}")
+
+    def stay_alive(self):
+        data = {"authorization": f"Session {self.staytoken}:{self.token}", "Accept": "application/json"}
+        url = f"{self.base_url}/support/tickets/"
+        req = requests.get(url, headers=data)
+        json_data = json.loads(req.text)
+        if json_data.get('exception'):
+            raise TokenException(json_data['exception'])
+        return json_data
 
     def get_ally_by_name(self, username: str) -> Dict:
         url = f"{self.base_url}/game/ally/search_allies_by_username/"

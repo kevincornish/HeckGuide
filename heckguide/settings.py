@@ -47,6 +47,7 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 LOGIN_REDIRECT_URL = "homepage"
 ACCOUNT_LOGOUT_ON_GET = True
 HECKFIRE_API_TOKEN = env("TOKEN")
+STAY_ALIVE_TOKEN = env("STAY_TOKEN")
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

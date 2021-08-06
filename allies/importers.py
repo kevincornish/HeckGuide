@@ -9,8 +9,8 @@ from .models import Ally, HistoricalAlly
 logger = logging.getLogger(__name__)
 
 class BaseAllyImporter:
-    def __init__(self, token: str):
-        self.api = HeckfireApi(token=token)
+    def __init__(self, token: str, staytoken: str):
+        self.api = HeckfireApi(token=token, staytoken=staytoken)
         self.model_fields = [f.name for f in Ally._meta.get_fields()]
         self.ally_requests_per_minute = 20
         self.created_count = 0
@@ -77,6 +77,8 @@ class AllyByPriceImporter(BaseAllyImporter):
             logger.info(f"Created {self.created_count} records")
             logger.info(f"Updated {self.updated_count} records")
             price += 100000
+            stay_alive = self.api.stay_alive()
+            logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
 
 
 class AllyByNameImporter(BaseAllyImporter):
@@ -84,6 +86,8 @@ class AllyByNameImporter(BaseAllyImporter):
     def execute(self, seed_list: List, depth: int):
         for name in seed_list:
             logger.info(f"Crawling name: {name} with a depth of {depth}")
+            stay_alive = self.api.stay_alive()
+            logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
             self.crawl_name(name, depth)
         logger.info(f"Created {self.created_count} records")
         logger.info(f"Updated {self.updated_count} records")

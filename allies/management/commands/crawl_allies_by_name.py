@@ -25,5 +25,5 @@ class Command(BaseCommand):
         partial_allies = Ally.objects.filter(biome3_attack_multiplier__isnull=True).values('username')
         seed_list = [a['username'] for a in partial_allies]
         seed_list = seed_list[:options['seed']]
-        importer = AllyByNameImporter(token=settings.HECKFIRE_API_TOKEN)
+        importer = AllyByNameImporter(token=settings.HECKFIRE_API_TOKEN, staytoken=settings.STAY_ALIVE_TOKEN)
         importer.execute(seed_list, depth=options['depth'])

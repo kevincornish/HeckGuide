@@ -9,4 +9,5 @@ urlpatterns = [
     path('Brew-Calculator/', views.BrewCalculatorView, name='BrewCalculator'),
     path('Troop-Might/', views.TroopMightView, name='TroopMight'),
     path('Rally-Calculator/', views.RallyCalculatorView, name='RallyCalculator'),
+    path('Mastery-Calculator/', views.MasteryCalculatorView, name='MasteryCalculator'),
 ]

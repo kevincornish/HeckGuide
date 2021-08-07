@@ -37,3 +37,17 @@ class RallyCalculatorForm(forms.Form):
     attackpower = forms.IntegerField(label='Attack Power', initial=0)
     bossstrength = forms.IntegerField(label='Boss Strength', initial=0)
     marchcap = forms.IntegerField(label='March Cap', initial=0)
+
+class MasteryCalculatorForm(forms.Form):
+    xpboost = forms.IntegerField(label='Dragon XP Boost', initial=0)
+    gatherbonus = forms.IntegerField(label='Gather Rate Bonus', initial=0)
+    attackbonus = forms.IntegerField(label='Hunt Attack Bonus', initial=0)
+    marchcap = forms.IntegerField(label='March Capacity', initial=0)
+    defcap = forms.IntegerField(label='City Defenders Cap', initial=0)
+    attackboost = forms.IntegerField(label='Dragon Attack Boost', initial=0)
+    defbonus = forms.IntegerField(label='Attacker/Defender Bonus', initial=0)
+    statsforallies = forms.IntegerField(label='Bonus Stats for Allies', initial=0)
+    bonusforallies = forms.IntegerField(label='Bonus from Allies', initial=0)
+    marchboost = forms.IntegerField(label='Dragon March Speed Boost', initial=0)
+    abilityboost = forms.IntegerField(label='Dragon Ability Boost', initial=0)
+    marchcap2 = forms.IntegerField(label='March Capacity', initial=0)

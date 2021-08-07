@@ -18,7 +18,9 @@
       <nav>
         <ul>
           <li>
-            <a href="{% url 'homepage' %}">Home</a>
+            <a href="{% url 'homepage' %}">
+              <img src="{% static 'img/svg/heckguide-logo.svg' %}">
+            </a>
           </li>
           <li>
             <a href="{% url 'timer' %}">Timer</a>
@@ -35,27 +37,28 @@
           <li>
             <a href="{% url 'RallyCalculator' %}">Raid Rally Calculator</a>
           </li>
-        <li>
-          <a href="{% url 'DevBlog' %}">Dev Blog</a>
-        </li>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account' %}">Account</a></li>
-        <li><a href="{% url 'allies' %}">Allies</a></li>
-        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-        {% endif %}
-		{% if user.is_staff %}
-		<li><a href="{% url 'admin:index' %}">Admin</a></li>
-		{% endif %}
-      </ul>
+          <li>
+            <a href="{% url 'DevBlog' %}">Dev Blog</a>
+          </li>
+          <li><a href="{% url 'allies' %}">Allies</a></li>
+        </ul>
+        <ul>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'account' %}">{{ user.username }}</a></li>
+          <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+          {% else %}
+          <li><a href="{% url 'account_login' %}">Sign In</a></li>
+          <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+          {% endif %}
+          {% if user.is_staff %}
+          <li><a href="{% url 'admin:index' %}">Admin</a></li>
+          {% endif %}
+        </ul>
       </nav>
     </div>
   </header>
   <div class="clear"></div>
 
-  <!-- This needs CSS it will display any messages / notices eg "thanks for logging in" etc -->
   {% if messages %}
   <div id="messagebox" class="messagebox">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -72,14 +75,49 @@
     <div class="content">
       <section>
         {% block content %}
-        <!-- All other pages content stored in between here -->
         {% endblock content %}
       </section>
     </div>
   </div>
 
   <footer>
-    <p>HeckGuide.com</p>
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="{% url 'homepage' %}">
+              <img src="{% static 'img/svg/heckguide-logo.svg' %}">
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="{% url 'timer' %}">Timer</a>
+          </li>
+          <li>
+            <a href="{% url 'TokenCalculator' %}">Token Calculator</a>
+          </li>
+          <li>
+            <a href="{% url 'BrewCalculator' %}">Brew Calculator</a>
+          </li>
+          <li>
+            <a href="{% url 'TroopMight' %}">Troop/Might Calculator</a>
+          </li>
+          <li>
+            <a href="{% url 'RallyCalculator' %}">Raid Rally Calculator</a>
+          </li>
+          <li>
+            <a href="{% url 'DevBlog' %}">Dev Blog</a>
+          </li>
+          <li>
+            <a href="{% url 'allies' %}">Allies</a>
+          </li>
+        </ul>
+      </nav>
+      <p>This content is not affiliated with, endorsed, sponsored, or specifically approved by A Thinking Ape
+        Entertainment Ltd. and A Thinking Ape Entertainment Ltd. is not responsible for it. For more information see A
+        Thinking Ape Entertainment Ltd's Fan Content Policy.</p>
+    </div>
   </footer>
 </body>
 

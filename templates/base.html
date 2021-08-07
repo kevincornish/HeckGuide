@@ -19,7 +19,7 @@
         <ul>
           <li>
             <a href="{% url 'homepage' %}">
-              <img src="../static/img/svg/heckguide-logo.svg">
+              <img src="{% static 'img/svg/heckguide-logo.svg' %}">
             </a>
           </li>
           <li>
@@ -59,7 +59,6 @@
   </header>
   <div class="clear"></div>
 
-  <!-- This needs CSS it will display any messages / notices eg "thanks for logging in" etc -->
   {% if messages %}
   <div id="messagebox" class="messagebox">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -76,7 +75,6 @@
     <div class="content">
       <section>
         {% block content %}
-        <!-- All other pages content stored in between here -->
         {% endblock content %}
       </section>
     </div>
@@ -88,7 +86,7 @@
         <ul>
           <li>
             <a href="{% url 'homepage' %}">
-              <img src="../static/img/svg/heckguide-logo.svg">
+              <img src="{% static 'img/svg/heckguide-logo.svg' %}">
             </a>
           </li>
         </ul>

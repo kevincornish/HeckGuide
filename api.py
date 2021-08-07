@@ -1,9 +1,7 @@
 import requests
 import json
 import time
-from typing import List, Dict
-import random
-
+from typing import Dict
 class TokenException(Exception):
     pass
 

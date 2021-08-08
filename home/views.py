@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-
+from django.conf import settings
 from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, RallyCalculatorForm, MasteryCalculatorForm
 
 def Index(request):
@@ -8,6 +8,9 @@ def Index(request):
 
 def Timer(request):
     return render(request, "timer.html")
+
+def Prices(request):
+    return render(request, "prices.html", {'prices_1': settings.PRICES_1, 'prices_2': settings.PRICES_2, 'prices_3': settings.PRICES_3, 'prices_4': settings.PRICES_4, 'prices_5': settings.PRICES_5})
 
 @login_required
 def Account(request):

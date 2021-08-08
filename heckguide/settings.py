@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'blog',
 	'django_summernote',
     'allies',
+    'world',
     'mathfilters',
 ]
 

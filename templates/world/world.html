@@ -4,10 +4,8 @@
 {% block content %}
 <form action="{% url 'world' %}">
   <span>
-    <input type="text" placeholder="Player" aria-label="player"
-      name='player' value='{{ request.GET.player }}'>
-    <input type="text" placeholder="Clan" aria-label="clan" name='clan'
-      value='{{ request.GET.clan }}'>
+    <input type="text" placeholder="Player" aria-label="player" name='player'>
+    <input type="text" placeholder="Clan" aria-label="clan" name='clan'>
   <input type="submit" value="Search"></span>
 </form>
 <br />

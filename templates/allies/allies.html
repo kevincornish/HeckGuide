@@ -5,12 +5,9 @@
 {% block content %}
     <form action="{% url 'allies' %}">
         <span>
-          <input type="text" placeholder="Owner" aria-label="current_owner"
-            name='current_owner' value='{{ request.GET.current_owner }}'>
-          <input inputmode="numeric" type="number" placeholder="Cost" aria-label="cost" name='cost'
-            value='{{ request.GET.cost }}'>
-          <input type="text" placeholder="Clan" aria-label="clan" name='clan'
-            value='{{ request.GET.clan }}'>
+          <input type="text" placeholder="Owner" aria-label="current_owner" name='current_owner'>
+          <input inputmode="numeric" type="number" placeholder="Cost" aria-label="cost" name='cost'>
+          <input type="text" placeholder="Clan" aria-label="clan" name='clan'>
         <input type="submit" value="Search"></span>
     </form>
   <br />

@@ -12,7 +12,7 @@ class WorldListView(LoginRequiredMixin, ListView):
         player = self.request.GET.get('player')
         clan = self.request.GET.get('clan')
         object_list = (
-            WorldSegments.objects.all()
+            WorldSegments.objects.all().order_by('-x')
         )
         if player:
             object_list = object_list.filter(owner_username__iexact=player)

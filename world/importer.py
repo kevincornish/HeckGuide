@@ -20,10 +20,10 @@ class WorldImporter:
         for segment in segments:
             try:
                 data = {key: value for key, value in segment.items() if key in self.model_fields}
-                data['name'] = self.process_component(data['name'])
                 logger.info(f"Found Component: {data['name']}")
+                data['name'] = self.process_component(data['name'])
             except (TypeError, AttributeError) as e:
-                logger.info(f"NoneType Error Exception: {e}")
+                pass
             results.append(data)
         return results
 
@@ -52,16 +52,14 @@ class WorldImporter:
         logger.info(f"Crawling world")
         stay_alive = self.api.stay_alive()
         logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
-        logger.info(f"Crawling bound: Lower Bound {lowerbound} Upper Bound {upperbound}")
         self.crawl_world(lowerbound, upperbound)
-        logger.info(f"Created {self.created_count} records")
-        logger.info(f"Updated {self.updated_count} records")
 
     def crawl_world(self, lowerbound: int, upperbound: int):
         if lowerbound == upperbound:
             return
         try:
             data = self.api.fetch_world(lowerbound)
+            logger.info(f"Crawling bound: Lower Bound {lowerbound} Upper Bound {upperbound}")
             time.sleep(3)
         except TokenException as e:
             logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
@@ -72,6 +70,8 @@ class WorldImporter:
             self.update_or_create_segments(segments)
             if lowerbound != upperbound:
                 lowerbound = lowerbound+20
+                logger.info(f"Created {self.created_count} records")
+                logger.info(f"Updated {self.updated_count} records")
                 self.crawl_world(lowerbound, upperbound)
         except IndexError as e:
             logger.info(f"Index Error Exception: {e}")

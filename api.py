@@ -1,6 +1,5 @@
 import requests
 import json
-import time
 from typing import Dict
 class TokenException(Exception):
     pass
@@ -79,20 +78,13 @@ class HeckfireApi(object):
             raise TokenException(json_data['exception'])
         return json_data
 
-    def fetch_world(self):
-        lower_bound = 1868  # lower end of map
-        upper_bound = 6317  # top end of map
-        step = 20
+    def fetch_world(self, lowerbound: int):
         tiles = []
         url = f"{self.base_url}/game/nonessential/poll_segments_realm_state"
-        data = {"segment_ids": [i for i in range(lower_bound, lower_bound + step)]}  # grab each section of the map in chunks
-        for i in range(0, upper_bound - lower_bound + 1, step):
-            req = requests.post(url, headers=self.headers, data=data)
-            json_data = req.json()
-            sites = json_data["world_state"]["sites"]
-            for tile in sites:
-                tiles.append(sites[tile])
-            data["segment_ids"] = [d + step for d in data["segment_ids"]]
-            if i % (10 * step) == 0:
-                time.sleep(2)
-            return tiles
+        data = {"segment_ids": lowerbound}  # grab each section of the map in chunks
+        req = requests.post(url, headers=self.headers, data=data)
+        json_data = req.json()
+        sites = json_data["world_state"]["sites"]
+        for tile in sites:
+            tiles.append(sites[tile])
+        return tiles

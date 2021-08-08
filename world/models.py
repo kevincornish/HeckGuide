@@ -2,7 +2,7 @@ from django.db import models
 
 class WorldSegments(models.Model):
     #activities = models.CharField(max_length=255,null=True)
-    #components = models.CharField(max_length=255) Ignore this it's another nest
+    #components = models.CharField(max_length=255)
     description = models.CharField(max_length=255, null=True)
     game_id = models.IntegerField(null=True)
     inbound_marches = models.IntegerField(null=True)

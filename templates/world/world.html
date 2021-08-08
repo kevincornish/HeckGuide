@@ -2,7 +2,15 @@
 {% block head_title %}World Map{% endblock %}
 {% load static %}
 {% block content %}
-  <br />
+<form action="{% url 'world' %}">
+  <span>
+    <input type="text" placeholder="Player" aria-label="player"
+      name='player' value='{{ request.GET.player }}'>
+    <input type="text" placeholder="Clan" aria-label="clan" name='clan'
+      value='{{ request.GET.clan }}'>
+  <input type="submit" value="Search"></span>
+</form>
+<br />
   <table class="table">
     <thead>
       <tr>

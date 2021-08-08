@@ -48,21 +48,30 @@ class WorldImporter:
         else:
             self.updated_count += 1
 
-    def execute(self):
-      logger.info(f"Crawling world")
-      stay_alive = self.api.stay_alive()
-      logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
-      self.crawl_world()
+    def execute(self, lowerbound: int, upperbound: int):
+        logger.info(f"Crawling world")
+        stay_alive = self.api.stay_alive()
+        logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
+        logger.info(f"Crawling bound: Lower Bound {lowerbound} Upper Bound {upperbound}")
+        self.crawl_world(lowerbound, upperbound)
+        logger.info(f"Created {self.created_count} records")
+        logger.info(f"Updated {self.updated_count} records")
 
-    def crawl_world(self):
+    def crawl_world(self, lowerbound: int, upperbound: int):
+        if lowerbound == upperbound:
+            return
         try:
-            data = self.api.fetch_world()
-            logger.info(f"Fetching world {data}")
+            data = self.api.fetch_world(lowerbound)
+            time.sleep(3)
         except TokenException as e:
             logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
             time.sleep(60)
-        segments = self.format_segments(data)
-        self.update_or_create_segments(segments)
-
-        logger.info(f"Created {self.created_count} records")
-        logger.info(f"Updated {self.updated_count} records")
+            data = self.api.fetch_world(lowerbound)
+        try:
+            segments = self.format_segments(data)
+            self.update_or_create_segments(segments)
+            if lowerbound != upperbound:
+                lowerbound = lowerbound+20
+                self.crawl_world(lowerbound, upperbound)
+        except IndexError as e:
+            logger.info(f"Index Error Exception: {e}")

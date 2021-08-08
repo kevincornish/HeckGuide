@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
 from world.importer import WorldImporter
-#from allies.models import Ally
 
 from django.conf import settings
 
@@ -13,4 +12,4 @@ class Command(BaseCommand):
         Usage: python manage.py crawl_world
         """
         importer = WorldImporter(token=settings.HECKFIRE_API_TOKEN, staytoken=settings.STAY_ALIVE_TOKEN)
-        importer.execute()
+        importer.execute(lowerbound=1868, upperbound=6317)

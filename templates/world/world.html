@@ -6,6 +6,12 @@
   <span>
     <input type="text" placeholder="Player" aria-label="player" name='player'>
     <input type="text" placeholder="Clan" aria-label="clan" name='clan'>
+    <select name="player" id="player">
+      <option value="volvo">Volvo</option>
+      {% for player in playerlist %}
+      <option value="volvo">{{playerlist.owner_group_name}}</option>
+      {% endfor %}
+    </select>
   <input type="submit" value="Search"></span>
 </form>
 <br />
@@ -45,13 +51,13 @@
   <nav aria-label="Page navigation conatiner"></nav>
   <ul>
     {% if page_obj.has_previous %}
-    <li><a href="?page=1">&laquo; First</a></li>
-    <li><a href="?page={{ page_obj.previous_page_number }}">Prev</a></li>
+    <li><a href="?page=1{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">&laquo; First</a></li>
+    <li><a href="?page={{ page_obj.previous_page_number }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Prev</a></li>
     {% endif %}
     Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
     {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
-    <li><a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
+    <li><a href="?page={{ page_obj.next_page_number }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Next</a></li>
+    <li><a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Last &raquo;</a></li>
     {% endif %}
   </ul>
   </nav>

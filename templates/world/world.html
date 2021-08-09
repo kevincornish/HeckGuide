@@ -6,12 +6,6 @@
   <span>
     <input type="text" placeholder="Player" aria-label="player" name='player'>
     <input type="text" placeholder="Clan" aria-label="clan" name='clan'>
-    <select name="player" id="player">
-      <option value="volvo">Volvo</option>
-      {% for player in playerlist %}
-      <option value="volvo">{{playerlist.owner_group_name}}</option>
-      {% endfor %}
-    </select>
   <input type="submit" value="Search"></span>
 </form>
 <br />

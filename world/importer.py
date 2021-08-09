@@ -69,7 +69,7 @@ class WorldImporter:
             segments = self.format_segments(data)
             self.update_or_create_segments(segments)
             if lowerbound != upperbound:
-                lowerbound = lowerbound+20
+                lowerbound = lowerbound+1
                 logger.info(f"Created {self.created_count} records")
                 logger.info(f"Updated {self.updated_count} records")
                 self.crawl_world(lowerbound, upperbound)

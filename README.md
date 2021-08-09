@@ -47,3 +47,17 @@ Open website
 ```
 http://127.0.0.1:8000/
 ```
+
+## Commands 
+Scrapes a set number of allies '5000' already in the database without fully populated info and fills them, then scrapes the owner and that owner etc. Depth set to '3'
+```
+python manage.py crawl_allies_by_name 5000 3
+```
+scrapes allys by initial price '500000' and set number of pages '1' then increments price
+```
+python manage.py find_allies_by_price 500000 1
+```
+Scrape the realm starting at the lower boundry stepping through to the upper end
+```
+python manage.py crawl_world
+```

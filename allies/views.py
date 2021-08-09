@@ -12,7 +12,7 @@ class AllyListView(LoginRequiredMixin, ListView):
     context_object_name = 'allies'
 
     def get_queryset(self):
-        owned_by = self.request.GET.get('player')
+        owned_by = self.request.GET.get('current_owner')
         cost = self.request.GET.get('cost')
         clan = self.request.GET.get('clan')
         object_list = (

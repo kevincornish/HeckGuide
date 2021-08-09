@@ -12,7 +12,7 @@ class AllyListView(LoginRequiredMixin, ListView):
     context_object_name = 'allies'
 
     def get_queryset(self):
-        owned_by = self.request.GET.get('current_owner')
+        owned_by = self.request.GET.get('player')
         cost = self.request.GET.get('cost')
         clan = self.request.GET.get('clan')
         object_list = (
@@ -26,3 +26,9 @@ class AllyListView(LoginRequiredMixin, ListView):
         if clan:
             object_list = object_list.filter(group_tag=clan)
         return object_list
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        object_list = (Ally.objects.all())
+        data['clans'] = object_list.distinct('group_tag').exclude(group_tag__isnull=True)
+        return data

@@ -19,3 +19,9 @@ class WorldListView(LoginRequiredMixin, ListView):
         if clan:
             object_list = object_list.filter(owner_group_name__iexact=clan)
         return object_list
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        object_list = (WorldSegments.objects.all())
+        data['clans'] = object_list.distinct('owner_group_name').exclude(owner_group_name__isnull=True)
+        return data

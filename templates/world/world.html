@@ -5,55 +5,68 @@
 <form action="{% url 'world' %}">
   <span>
     <input type="text" placeholder="Player" aria-label="player" name='player'>
-    <input type="text" placeholder="Clan" aria-label="clan" name='clan'>
-  <input type="submit" value="Search"></span>
+    <select name="clan" id="clan">
+      <option value="">--Clan--</option>
+      {% for clan in clans %}
+      <option value="{{clan.owner_group_name}}">{{clan.owner_group_name}}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Search"></span>
 </form>
 <br />
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Owner</th>
-        <th scope="col">Clan</th>
-        <th scope="col">X</th>
-        <th scope="col">Y</th>
-        <th scope="col">Z</th>
-        <th scope="col">Realm</th>
-        <th scope="col">Last Updated</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for segment in worldsegments %}
-      <tr>
-        <td data-th="Name">{{segment.name}}</td>
-        <td data-th="Owner">{{segment.owner_username}}</td>
-        <td data-th="Clan">{{segment.owner_group_name}}</td>
-        <td data-th="X">{{segment.x}}</td>
-        <td data-th="Y">{{segment.y}}</td>
-        <td data-th="Z">{{segment.z}}</td>
-        <td data-th="Realm">{{segment.world_id}}</td>
-        <td data-th="Last Updated">{{segment.last_modified}}</td>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Clan</th>
+      <th scope="col">X</th>
+      <th scope="col">Y</th>
+      <th scope="col">Z</th>
+      <th scope="col">Realm</th>
+      <th scope="col">Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for segment in worldsegments %}
+    <tr>
+      <td data-th="Name">{{segment.name}}</td>
+      <td data-th="Owner">{{segment.owner_username}}</td>
+      <td data-th="Clan">{{segment.owner_group_name}}</td>
+      <td data-th="X">{{segment.x}}</td>
+      <td data-th="Y">{{segment.y}}</td>
+      <td data-th="Z">{{segment.z}}</td>
+      <td data-th="Realm">{{segment.world_id}}</td>
+      <td data-th="Last Updated">{{segment.last_modified}}</td>
       {% empty %}
-      <tr>
-        <td>No match</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    <tr>
+      <td>No match</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-  {% if is_paginated %}
-  <nav aria-label="Page navigation conatiner"></nav>
-  <ul>
-    {% if page_obj.has_previous %}
-    <li><a href="?page=1{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">&laquo; First</a></li>
-    <li><a href="?page={{ page_obj.previous_page_number }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Prev</a></li>
-    {% endif %}
-    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-    {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Next</a></li>
-    <li><a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Last &raquo;</a></li>
-    {% endif %}
-  </ul>
-  </nav>
+{% if is_paginated %}
+<nav aria-label="Page navigation conatiner"></nav>
+<ul>
+  {% if page_obj.has_previous %}
+  <li><a
+      href="?page=1{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">&laquo;
+      First</a></li>
+  <li><a
+      href="?page={{ page_obj.previous_page_number }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Prev</a>
+  </li>
+  {% endif %}
+  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+  {% if page_obj.has_next %}
+  <li><a
+      href="?page={{ page_obj.next_page_number }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Next</a>
+  </li>
+  <li><a
+      href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Last
+      &raquo;</a></li>
+  {% endif %}
+</ul>
+</nav>
 {% endif %}
-  {% endblock %}
+{% endblock %}

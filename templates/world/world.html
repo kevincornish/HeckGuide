@@ -57,19 +57,19 @@
 <ul>
   {% if page_obj.has_previous %}
   <li><a
-      href="?page=1{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">&laquo;
+      href="?page=1{% if request.GET.realm %}&player={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">&laquo;
       First</a></li>
   <li><a
-      href="?page={{ page_obj.previous_page_number }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Prev</a>
+      href="?page={{ page_obj.previous_page_number }}{% if request.GET.realm %}&player={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Prev</a>
   </li>
   {% endif %}
   Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
   {% if page_obj.has_next %}
   <li><a
-      href="?page={{ page_obj.next_page_number }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Next</a>
+      href="?page={{ page_obj.next_page_number }}{% if request.GET.realm %}&player={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Next</a>
   </li>
   <li><a
-      href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Last
+      href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.realm %}&player={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Last
       &raquo;</a></li>
   {% endif %}
 </ul>

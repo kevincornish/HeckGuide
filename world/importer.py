@@ -20,7 +20,8 @@ class WorldImporter:
         for segment in segments:
             try:
                 data = {key: value for key, value in segment.items() if key in self.model_fields}
-                logger.info(f"Found Component: {data['name']}")
+                if data['owner_username']:
+                    logger.info(f"Found player: {data['owner_username']} Clan: {data['owner_group_name']}")
                 data['name'] = self.process_component(data['name'])
             except (TypeError, AttributeError) as e:
                 pass
@@ -59,8 +60,7 @@ class WorldImporter:
             return
         try:
             data = self.api.fetch_world(lowerbound)
-            logger.info(f"Crawling bound: Lower Bound {lowerbound} Upper Bound {upperbound}")
-            time.sleep(3)
+            logger.info(f"Crawling bound: Lower Bound {[i for i in range(lowerbound, lowerbound + 20)]} Upper Bound {upperbound}")
         except TokenException as e:
             logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
             time.sleep(60)
@@ -69,7 +69,7 @@ class WorldImporter:
             segments = self.format_segments(data)
             self.update_or_create_segments(segments)
             if lowerbound != upperbound:
-                lowerbound = lowerbound+1
+                lowerbound = lowerbound+20
                 logger.info(f"Created {self.created_count} records")
                 logger.info(f"Updated {self.updated_count} records")
                 self.crawl_world(lowerbound, upperbound)

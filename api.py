@@ -81,10 +81,11 @@ class HeckfireApi(object):
     def fetch_world(self, lowerbound: int):
         tiles = []
         url = f"{self.base_url}/game/nonessential/poll_segments_realm_state"
-        data = {"segment_ids": lowerbound}  # grab each section of the map in chunks
+        data = {"segment_ids": [i for i in range(lowerbound, lowerbound + 20)]}
         req = requests.post(url, headers=self.headers, data=data)
         json_data = req.json()
         sites = json_data["world_state"]["sites"]
         for tile in sites:
             tiles.append(sites[tile])
+        data["segment_ids"] = [d + 20 for d in data["segment_ids"]]
         return tiles

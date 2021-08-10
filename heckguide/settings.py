@@ -29,12 +29,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.discord',
- #   'allauth.socialaccount.providers.google',
- #   'allauth.socialaccount.providers.instagram',
- #   'allauth.socialaccount.providers.reddit',
- #   'allauth.socialaccount.providers.twitch',
- #   'allauth.socialaccount.providers.twitter',
- #   'allauth.socialaccount.providers.facebook',
 	'home',
     'blog',
 	'django_summernote',
@@ -47,8 +41,14 @@ SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = "none"
 LOGIN_REDIRECT_URL = "homepage"
 ACCOUNT_LOGOUT_ON_GET = True
+
+
+#Tokens
 HECKFIRE_API_TOKEN = env("TOKEN")
 STAY_ALIVE_TOKEN = env("STAY_TOKEN")
+TOKEN_128 = env("TOKEN_128")
+STAY_128 = env("STAY_128")
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

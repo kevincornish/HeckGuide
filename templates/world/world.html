@@ -11,6 +11,12 @@
       <option value="{{clan.owner_group_name}}">{{clan.owner_group_name}}</option>
       {% endfor %}
     </select>
+    <select name="realm" id="realm">
+      <option value="">--Realm--</option>
+      {% for realm in realms %}
+      <option value="{{realm.world_id}}">{{realm.world_id}}</option>
+      {% endfor %}
+    </select>
     <input type="submit" value="Search"></span>
 </form>
 <br />

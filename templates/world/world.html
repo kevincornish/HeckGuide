@@ -6,10 +6,10 @@
   <span>
     <input type="text" placeholder="Player" aria-label="player" name='player'>
     <input type="text" placeholder="Clan" aria-label="clan" name='clan'>
-    <select name="clan" id="clan">
-      <option value="">--Clan--</option>
-      {% for clan in clans %}
-      <option value="{{clan.owner_group_name}}">{{clan.owner_group_name}}</option>
+    <select name="name" id="name">
+      <option value="">--Item--</option>
+      {% for name in names %}
+      <option value="{{name.name}}">{{name.name}}</option>
       {% endfor %}
     </select>
     <select name="realm" id="realm">
@@ -36,12 +36,12 @@
   <tbody>
     {% for segment in worldsegments %}
     <tr>
-      <td class="world">{{segment.name}}</td>
-      <td class="world">{{segment.owner_username}}</td>
-      <td class="world">{{segment.owner_group_name}}</td>
+      <td class="world"><a href="{% url 'world' %}?name={{segment.name}}">{{segment.name}}</a></td>
+      <td class="world"><a href="{% url 'world' %}?player={{segment.owner_username}}">{{segment.owner_username}}</a></td>
+      <td class="world"><a href="{% url 'world' %}?clan={{segment.owner_group_name}}">{{segment.owner_group_name}}</a></td>
       <td class="world">{{segment.x}}</td>
       <td class="world">{{segment.y}}</td>
-      <td class="world">{{segment.world_id}}</td>
+      <td class="world"><a href="{% url 'world' %}?realm={{segment.world_id}}">{{segment.world_id}}</a></td>
       <td class="world">{{segment.last_modified}}</td>
       {% empty %}
     <tr>
@@ -56,19 +56,19 @@
 <ul>
   {% if page_obj.has_previous %}
   <li><a
-      href="?page=1{% if request.GET.realm %}&player={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">&laquo;
+      href="?page=1{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}{% if request.GET.realm %}&realm={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">&laquo;
       First</a></li>
   <li><a
-      href="?page={{ page_obj.previous_page_number }}{% if request.GET.realm %}&player={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Prev</a>
+      href="?page={{ page_obj.previous_page_number }}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}{% if request.GET.realm %}&realm={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Prev</a>
   </li>
   {% endif %}
   Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
   {% if page_obj.has_next %}
   <li><a
-      href="?page={{ page_obj.next_page_number }}{% if request.GET.realm %}&player={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Next</a>
+      href="?page={{ page_obj.next_page_number }}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}{% if request.GET.realm %}&realm={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Next</a>
   </li>
   <li><a
-      href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.realm %}&player={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Last
+      href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}{% if request.GET.realm %}&realm={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Last
       &raquo;</a></li>
   {% endif %}
 </ul>

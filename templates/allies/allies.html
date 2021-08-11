@@ -7,12 +7,7 @@
   <span>
     <input type="text" placeholder="Owner" aria-label="current_owner" name='current_owner'>
     <input inputmode="numeric" type="number" placeholder="Cost" aria-label="cost" name='cost'>
-    <select name="clan" id="clan">
-      <option value="">--Clan--</option>
-      {% for clan in clans %}
-      <option value="{{clan.group_tag}}">{{clan.group_tag}}</option>
-      {% endfor %}
-    </select>
+    <input type="text" placeholder="Clan" aria-label="clan" name='clan'>
     <input type="submit" value="Search"></span>
 </form>
 <br />

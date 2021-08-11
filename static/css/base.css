@@ -2,8 +2,28 @@
 	Author		HeckGuide.com // Kevin Cornish & Sergio Estrada
 */
 
+/* Fonts */
+@font-face {
+  font-family: "Troika";
+  src: url("static/fonts/Troika.woff") format("woff"),
+    url("static/fonts/Troika.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
+  /* Colors */
+  --white: #ffffff;
+  --black: #000000;
+  --black-1: #424242;
+  --yellow-1: #FFC327;
+  /* Fonts */
+  --karla-font: 'Karla', sans-serif;
+  /* Border */
   --border-radius: 6px;
+  --border: 2px solid transparent;
+  /* Transitions */
+  --transition1: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* RESET */
@@ -12,11 +32,6 @@
   margin: 0;
   border: 0;
   box-sizing: border-box;
-  /* Colors */
-  --white: #ffffff;
-  --black: #000000;
-  --black-1: #424242;
-  --border: 2px solid transparent;
 }
 
 html,
@@ -27,8 +42,9 @@ body {
 
 body {
   background: var(--black-1);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--karla-font);
   font-size: 1rem;
+  font-weight: normal;
   color: var(--white);
 }
 
@@ -39,6 +55,33 @@ body {
 .container {
   max-width: 1680px;
   margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Buttons */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 230px;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: var(--border-radius);
+  /* Font - Text */
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.025px;
+  text-transform: uppercase;
+}
+
+.s-solid {
+  background-color: var(--yellow-1);
+}
+
+.s-outline {
+  border: var(--border);
+  border-color: var(--yellow-1);
 }
 
 /* END RESET */
@@ -57,7 +100,8 @@ header {
 	Navigation
 ===================================================== */
 
-nav {
+header nav,
+footer nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,22 +109,26 @@ nav {
   padding: 0 56px;
 }
 
-nav ul {
+header nav ul,
+footer nav ul {
   list-style: none;
   display: flex;
   align-items: center;
 }
 
-nav ul a {
+header nav ul a,
+footer nav ul a {
   font-size: 1rem;
   text-transform: capitalize;
 }
 
-nav ul:nth-child(1) li {
+header nav ul:nth-child(1) li,
+footer nav ul:nth-child(1) li {
   margin-right: 38px;
 }
 
-nav ul:nth-child(2) li {
+header nav ul:nth-child(2) li,
+footer nav ul:nth-child(2) li {
   margin-left: 38px;
 }
 
@@ -128,7 +176,7 @@ section {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #F2CA4B;
+  color: var(--yellow-1);
 }
 
 a:hover {
@@ -167,24 +215,28 @@ input {
 /* 
 Generic Styling, for Desktops/Laptops 
 */
-table { 
-  width: 100%; 
-  border-collapse: collapse; 
-  min-width: 600px; 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
 }
+
 /* Zebra striping */
-tr:nth-of-type(odd) { 
-  background: #333; 
+tr:nth-of-type(odd) {
+  background: #333;
 }
-th { 
-  background: #333; 
-  color: white; 
-  font-weight: bold; 
+
+th {
+  background: #333;
+  color: white;
+  font-weight: bold;
 }
-td, th { 
-  padding: 6px; 
-  border: 1px solid #ccc; 
-  text-align: left; 
+
+td,
+th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
 }
 
 /* 
@@ -192,63 +244,263 @@ Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
 and also iPads specifically.
 */
-@media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
 
-	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr { 
-		display: block; 
-		min-width: 320px; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #ccc; }
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
-	
-	td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
-	
-	/*
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    min-width: 320px;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
 	Label the data
 	*/
-	td.world:nth-of-type(1):before { content: "Name";font-weight: bold; }
-	td.world:nth-of-type(2):before { content: "Owner";font-weight: bold; }
-	td.world:nth-of-type(3):before { content: "Clan";font-weight: bold; }
-	td.world:nth-of-type(4):before { content: "X";font-weight: bold; }
-	td.world:nth-of-type(5):before { content: "Y";font-weight: bold; }
-	td.world:nth-of-type(6):before { content: "Realm";font-weight: bold; }
-	td.world:nth-of-type(7):before { content: "Last Updated";font-weight: bold; }
+  td.world:nth-of-type(1):before {
+    content: "Name";
+    font-weight: bold;
+  }
 
-	td.ally:nth-of-type(1):before { content: "Ally Name";font-weight: bold; }
-	td.ally:nth-of-type(2):before { content: "Clan";font-weight: bold; }
-	td.ally:nth-of-type(3):before { content: "Cost";font-weight: bold; }
-	td.ally:nth-of-type(4):before { content: "G/L";font-weight: bold; }
-	td.ally:nth-of-type(5):before { content: "B/L";font-weight: bold; }
-	td.ally:nth-of-type(6):before { content: "S/W";font-weight: bold; }
-	td.ally:nth-of-type(7):before { content: "Total";font-weight: bold; }
-	td.ally:nth-of-type(8):before { content: "Owned By";font-weight: bold; }
+  td.world:nth-of-type(2):before {
+    content: "Owner";
+    font-weight: bold;
+  }
+
+  td.world:nth-of-type(3):before {
+    content: "Clan";
+    font-weight: bold;
+  }
+
+  td.world:nth-of-type(4):before {
+    content: "X";
+    font-weight: bold;
+  }
+
+  td.world:nth-of-type(5):before {
+    content: "Y";
+    font-weight: bold;
+  }
+
+  td.world:nth-of-type(6):before {
+    content: "Realm";
+    font-weight: bold;
+  }
+
+  td.world:nth-of-type(7):before {
+    content: "Last Updated";
+    font-weight: bold;
+  }
+
+  td.ally:nth-of-type(1):before {
+    content: "Ally Name";
+    font-weight: bold;
+  }
+
+  td.ally:nth-of-type(2):before {
+    content: "Clan";
+    font-weight: bold;
+  }
+
+  td.ally:nth-of-type(3):before {
+    content: "Cost";
+    font-weight: bold;
+  }
+
+  td.ally:nth-of-type(4):before {
+    content: "G/L";
+    font-weight: bold;
+  }
+
+  td.ally:nth-of-type(5):before {
+    content: "B/L";
+    font-weight: bold;
+  }
+
+  td.ally:nth-of-type(6):before {
+    content: "S/W";
+    font-weight: bold;
+  }
+
+  td.ally:nth-of-type(7):before {
+    content: "Total";
+    font-weight: bold;
+  }
+
+  td.ally:nth-of-type(8):before {
+    content: "Owned By";
+    font-weight: bold;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .mobile-nav,
+  .mob-panel {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+
+  /* Mobile navigation ===================================================== */
+  header nav ul:nth-child(2),
+  header nav ul:nth-child(3),
+  footer nav ul:nth-child(2) {
+    display: none;
+  }
+
+  header {
+    max-width: 95%;
+  }
+
+  .mob-menu-ico {
+    cursor: pointer;
+  }
+
+  /* Mobile nagivation panel */
+  .mob-panel {
+    width: 333px;
+    height: 100%;
+    position: fixed;
+    z-index: 3;
+    background-color: var(--black);
+    transform: translateX(-333px);
+    transition: var(--transition1);
+    top: 0;
+  }
+
+  .panel-content {
+    padding: 32px;
+    height: 100%;
+  }
+
+  .panel-content,
+  .top-c,
+  .mob-nav{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .close-ico {
+    align-self: flex-end;
+    cursor: pointer;
+  }
+
+  .mob-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mob-nav li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    /* Font */
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -0.05px;
+  }
+
+  .mob-nav li img {
+    margin-right: 24px;
+  }
+
+  .top-c {
+    margin-bottom: 64px;
+  }
+
+  .top-c,
+  .mob-sub {
+    margin-left: calc(20px + 24px);
+  }
+
+  .mob-sub {
+    height: 0;
+    overflow: hidden;
+  }
+
+  .mob-sub a {
+    color: var(--white);
+  }
+
+  .mob-sub-show {
+    height: 100%;
+  }
+
+  .mob-show {
+    transform: translateX(0px);
+  }
+
+  .mob-user {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.1px;
+    text-transform: capitalize;
+    margin-top: 40px;
+    margin-bottom: 18px;
+  }
+
+  .mob-view-link {
+    color: var(--white);
+    opacity: 0.5;
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+
+  .mob-footer {
+    margin-top: auto;
+  }
+
+  .mob-footer-logo {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 28px;
+  }
+
+  .btn {
+    max-width: 100%;
+  }
+
+  .mob-buttons .s-solid:nth-child(1) {
+    margin-top: 8px;
+  }
 }
 
 /* 

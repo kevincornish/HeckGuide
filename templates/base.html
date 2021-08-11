@@ -37,14 +37,23 @@
       <div class="top-c">
         <img id="mob-exit" class="close-ico" src="{% static 'img/svg/close-icon.svg' %}">
         {% if user.is_authenticated %}
-        <p class="mob-user">{{ user.username }}</p>
-        <a href="{% url 'account' %}">
-          <p class="mob-view-link">View Account</p>
-        </a>
+			<p class="mob-user">{{ user.username }}</p>
+			<a href="{% url 'account' %}">
+			  <p class="mob-view-link">View Account</p>
+			</a>
+			{% if user.is_staff %}
+				<a href="{% url 'admin:index' %}"><p class="mob-view-link">Admin</p></a>
+			{% endif %}
         {% endif %}
       </div>
       <nav class="mob-nav">
         <ul>
+          <a href="{% url 'allies' %}">
+            <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Ally Scraper</li>
+          </a>
+          <a href="{% url 'world' %}">
+            <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Realm Scraper</li>
+          </a>
           <a href="{% url 'prices' %}">
             <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Ally Prices</li>
           </a>

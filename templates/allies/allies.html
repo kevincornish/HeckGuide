@@ -32,17 +32,17 @@
   <tbody>
     {% for ally in allies %}
     <tr>
-      <td data-th="Ally"><a href="{% url 'allies' %}?current_owner={{ally.username}}">{{ally.username}}</a>
+      <td class="ally"><a href="{% url 'allies' %}?current_owner={{ally.username}}">{{ally.username}}</a>
         {% if ally.owned_allies__count %} ({{ ally.owned_allies__count }}){% endif %}</td>
-      <td data-th="Clan"><a href="{% url 'allies' %}?clan={{ally.group_tag}}">{{ally.group_tag}}</a></td>
-      <td data-th="Cost"><a href="{% url 'allies' %}?cost={{ally.cost}}">{{ally.cost}}</a></td>
-      <td data-th="G/L">{{ally.biome3_attack_multiplier|div:100}}%</td>
-      <td data-th="B/L">{{ally.biome4_attack_multiplier|div:100}}%</td>
-      <td data-th="S/L">{{ally.biome5_attack_multiplier|div:100}}%</td>
-      <td data-th="Total">
+      <td class="ally"><a href="{% url 'allies' %}?clan={{ally.group_tag}}">{{ally.group_tag}}</a></td>
+      <td class="ally"><a href="{% url 'allies' %}?cost={{ally.cost}}">{{ally.cost}}</a></td>
+      <td class="ally">{{ally.biome3_attack_multiplier|div:100}}%</td>
+      <td class="ally">{{ally.biome4_attack_multiplier|div:100}}%</td>
+      <td class="ally">{{ally.biome5_attack_multiplier|div:100}}%</td>
+      <td class="ally">
         {{ally.biome3_attack_multiplier|add:ally.biome4_attack_multiplier|add:ally.biome5_attack_multiplier|div:100}}%
       </td>
-      <td data-th="Owned By"><a
+      <td class="ally"><a
           href="{% url 'allies' %}?current_owner={{ally.owner.username}}">{{ally.owner.username}}</a></td>
     </tr>
     {% empty %}

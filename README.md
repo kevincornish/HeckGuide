@@ -47,7 +47,10 @@ Open website
 ```
 http://127.0.0.1:8000/
 ```
-
+Development website
+```
+https://dev.heckguide.com/
+```
 ## Commands 
 Scrapes a set number of allies '5000' already in the database without fully populated info and fills them, then scrapes the owner and that owner etc. Depth set to '3'
 ```
@@ -57,7 +60,7 @@ scrapes allys by initial price '500000' and set number of pages '1' then increme
 ```
 python manage.py find_allies_by_price 500000 1
 ```
-Scrape the realm starting at the lower boundry stepping through to the upper end
+Scrape the realm starting at the lower boundry of the map, loading 20 chunks and stepping through to the upper end, pick which realm to crawl passing the token argument
 ```
-python manage.py crawl_world
+python manage.py crawl_world 1
 ```

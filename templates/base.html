@@ -24,18 +24,94 @@
   <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favi/favicon-96x96.png' %}">
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favi/favicon-16x16.png' %}">
   <link rel="manifest" href="{% static 'img/favi/manifest.json' %}">
+  <!-- CND's -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <!-- Mobile navigation panel -->
+  <div class="mob-panel">
+    <div class="panel-content">
+      <div class="top-c">
+        <img id="mob-exit" class="close-ico" src="{% static 'img/svg/close-icon.svg' %}">
+        {% if user.is_authenticated %}
+        <p class="mob-user">{{ user.username }}</p>
+        <a href="{% url 'account' %}">
+          <p class="mob-view-link">View Account</p>
+        </a>
+        {% endif %}
+      </div>
+      <nav class="mob-nav">
+        <ul>
+          <a href="{% url 'prices' %}">
+            <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Ally Prices</li>
+          </a>
+          <a href="{% url 'timer' %}">
+            <li><img src="{% static 'img/svg/mob-clock-icon.svg' %}"> Hourly Quest Timer</li>
+          </a>
+          <a id="calc-expand-link" href="#">
+            <li><img src="{% static 'img/svg/mob-bolt-icon.svg' %}"> Heck Calculators</li>
+          </a>
+          <!-- Sub menu -->
+          <ul class="mob-sub">
+            <a href="{% url 'MasteryCalculator' %}">
+              <li>Mastery</li>
+            </a>
+            <a href="{% url 'TokenCalculator' %}">
+              <li>Token</li>
+            </a>
+            <a href="{% url 'BrewCalculator' %}">
+              <li>Brew</li>
+            </a>
+            <a href="{% url 'TroopMight' %}">
+              <li>Troop/Might</li>
+            </a>
+            <a href="{% url 'RallyCalculator' %}">
+              <li>Raid Rally</li>
+            </a>
+          </ul>
+          <a href="{% url 'DevBlog' %}">
+            <li><img src="{% static 'img/svg/mob-blog-icon.svg' %}"> Blog</li>
+          </a>
+        </ul>
+      </nav>
+      <div class="mob-footer">
+        <a href="{% url 'homepage' %}">
+          <img class="mob-footer-logo" src="{% static 'img/svg/heckguide-logo.svg' %}">
+        </a>
+        <div class="mob-buttons">
+          {% if user.is_authenticated %}
+          <a href="{% url 'account_logout' %}">
+            <div class="btn s-solid">
+              <img src="{% static 'img/svg/sign-out-icon.svg' %}"> Sign Out
+            </div>
+          </a>
+          {% else %}
+          <a href="{% url 'account_login' %}">
+            <div class="btn s-outline">
+              <img src="{% static 'img/svg/lock-icon.svg' %}"> Log In
+            </div>
+          </a>
+          <a href="{% url 'account_signup' %}">
+            <div class="btn s-solid">
+              <img src="{% static 'img/svg/sign-up-icon.svg' %}"> Sign Up
+            </div>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
   <header>
     <div>
       <nav>
+        <a href="{% url 'homepage' %}">
+          <img src="{% static 'img/svg/heckguide-logo.svg' %}">
+        </a>
         <ul>
-          <li>
-            <a href="{% url 'homepage' %}">
-              <img src="{% static 'img/svg/heckguide-logo.svg' %}">
-            </a>
-          </li>
           <li>
             <a href="{% url 'timer' %}">Timer</a>
           </li>
@@ -74,6 +150,10 @@
           {% if user.is_staff %}
           <li><a href="{% url 'admin:index' %}">Admin</a></li>
           {% endif %}
+        </ul>
+        <!-- Mobile navigation -->
+        <ul class="mobile-nav">
+          <li id="mob-ico" class="mob-menu-ico"><img src="{% static 'img/svg/burger-menu-icon.svg' %}"></li>
         </ul>
       </nav>
     </div>
@@ -149,6 +229,10 @@
         Thinking Ape Entertainment Ltd's Fan Content Policy.</p>
     </div>
   </footer>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 
 </html>

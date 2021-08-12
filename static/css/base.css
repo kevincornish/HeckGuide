@@ -427,10 +427,13 @@ and also iPads specifically.
     justify-content: space-between;
   }
 
+  .mob-nav ul:nth-child(1) li {
+    margin-bottom: 20px;
+  }
+
   .mob-nav li {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
     /* Font */
     font-size: 1.125rem;
     font-weight: 700;
@@ -458,6 +461,9 @@ and also iPads specifically.
   .mob-sub a {
     color: var(--white);
   }
+  .mob-sub li {
+    margin-bottom: 8px !important;
+  }
 
   .mob-sub-show {
     height: 100%;
@@ -476,12 +482,18 @@ and also iPads specifically.
     margin-bottom: 18px;
   }
 
+  .mob-account-links {
+    display: flex;
+    align-items: center;
+  }
+
   .mob-view-link {
     color: var(--white);
     opacity: 0.5;
     font-size: 0.875rem;
     font-weight: 400;
     text-decoration: underline;
+    margin-right: 12px;
   }
 
   .mob-footer {

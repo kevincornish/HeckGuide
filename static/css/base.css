@@ -406,6 +406,7 @@ and also iPads specifically.
   .panel-content {
     padding: 32px;
     height: 100%;
+	overflow: auto;
   }
 
   .panel-content,

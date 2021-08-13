@@ -16,9 +16,20 @@
   --white: #ffffff;
   --black: #000000;
   --black-1: #424242;
+  --black-hover: #5F5F5F;
+  --black-active: #ABABAB;
   --yellow-1: #FFC327;
+  --yellow-hover: #E5AA12;
+  --yellow-active: #FFD872;
+  --gray-1: #E0E0E0;
+  --hotpink-1: #EF5DE0;
+  --hotpink-hover: #CD60C2;
+  --hotpink-active: #CD60C2;
+  --red-1: #ED3636;
+  --green-1: #7DA619;
   /* Fonts */
   --karla-font: 'Karla', sans-serif;
+  --troika-font: 'Troika', sans-serif;
   /* Border */
   --border-radius: 6px;
   --border: 2px solid transparent;
@@ -58,21 +69,84 @@ body {
   padding: 0 32px;
 }
 
-/* Buttons */
+/* Inputs, buttons and selects */
+input {
+  font-family: var(--karla-font);
+  outline: none;
+}
+
+input,
+select,
 .btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 230px;
   height: 48px;
   padding: 0 18px;
   border-radius: var(--border-radius);
+}
+
+input[type=text],
+input[type=password] {
+  width: 100%;
+  max-width: 250px;
+  background-color: var(--white);
+  border: var(--border);
+  border-color: var(--gray-1);
+  transition: var(--transition1);
+  /* Font - Text */
+  font-family: var(--karla-font);
+  color: var(--black-1);
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.16px;
+}
+
+input[type=text]:hover,
+input[type=password]:hover {
+  border-color: var(--black-active)
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+  border-color: var(--black-active)
+}
+
+input[type=submit] {
+  display: block;
+  width: 100%;
+  max-width: 222px;
+  cursor: pointer;
+  background-color: var(--black);
+}
+
+input[type=text]::placeholder,
+input[type=password]::placeholder {
+  color: var(--black-active);
+}
+
+input[type=submit],
+.btn {
+  max-width: 230px;
   /* Font - Text */
   color: var(--white);
   font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0.025px;
   text-transform: uppercase;
+}
+
+select,
+input[type=number] {
+  width: 100%;
+  max-width: 222px;
+  background-color: var(--yellow-1);
+  /* Font - Text */
+  font-family: var(--karla-font);
+  color: var(--white);
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.16px;
 }
 
 .s-solid {
@@ -82,6 +156,14 @@ body {
 .s-outline {
   border: var(--border);
   border-color: var(--yellow-1);
+}
+
+.round {
+  border-radius: 100px;
+}
+
+.sub-icon {
+  margin-left: 8px;
 }
 
 /* END RESET */
@@ -94,12 +176,7 @@ header {
   border-radius: var(--border-radius);
   margin-top: 48px;
 }
-
-/* 
-=====================================================
-	Navigation
-===================================================== */
-
+ /* Navigation */
 header nav,
 footer nav {
   display: flex;
@@ -127,9 +204,93 @@ footer nav ul:nth-child(1) li {
   margin-right: 38px;
 }
 
-header nav ul:nth-child(2) li,
+header nav span ul li,
 footer nav ul:nth-child(2) li {
   margin-left: 38px;
+}
+
+header nav {
+  position: relative;
+}
+
+header nav span {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav-sub,
+.main-account-sub {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--black);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 42px;
+  border-radius: var(--border-radius);
+  position: absolute;
+}
+
+.ms-show {
+  display: block;
+}
+
+.main-account-sub {
+  padding-left: 32px;
+  right: 0;
+}
+
+.main-account-sub .btn:nth-child(1) {
+  width: 333px;
+  margin-top: 12px;
+}
+
+.replace-0 {
+  display: block;
+  margin-top: 32px;
+}
+
+.replace-1 {
+  margin: 12px 0;
+  margin-bottom: 24px;
+}
+
+.replace-3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+}
+
+.replace-3 a:nth-child(1) {
+  margin-right: 8px;
+}
+
+.main-nav-sub li {
+  margin-bottom: 12px;
+}
+
+.main-nav-sub a {
+  color: var(--white) !important;
+}
+
+.user-menu li:nth-child(1) {
+  margin-right: 12px;
+  /* Font - Text */
+  letter-spacing: -0.32px;
+}
+
+.user-menu a:nth-child(2) li {
+  color: var(--white) !important;
+}
+
+.user-menu a:nth-child(1) img{
+  margin-right: 32px;
+}
+
+.user-menu .btn {
+  padding: 0 32px;
 }
 
 /* 
@@ -161,11 +322,6 @@ footer nav ul:nth-child(2) li {
   color: black;
 }
 
-.content {
-  width: 70%;
-  margin: 0 auto;
-}
-
 section {
   width: 55%;
   display: inline-block;
@@ -179,10 +335,6 @@ a:visited {
   color: var(--yellow-1);
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 p {
   font-size: 0.9em;
 }
@@ -190,11 +342,6 @@ p {
 label {
   display: block;
   margin: 5px 0;
-}
-
-input {
-  border-radius: 4px !important;
-  border: 2px solid var(--gray60);
 }
 
 .biome-pic {
@@ -368,6 +515,7 @@ and also iPads specifically.
 }
 
 @media only screen and (min-width: 1280px) {
+
   .mobile-nav,
   .mob-panel {
     display: none;
@@ -378,13 +526,18 @@ and also iPads specifically.
 
   /* Mobile navigation ===================================================== */
   header nav ul:nth-child(2),
-  header nav ul:nth-child(3),
   footer nav ul:nth-child(2) {
     display: none;
   }
 
+  header nav,
+  footer nav {
+    padding: 0 24px;
+  }
+
   header {
     max-width: 95%;
+    margin-top: 2%;
   }
 
   .mob-menu-ico {
@@ -406,12 +559,12 @@ and also iPads specifically.
   .panel-content {
     padding: 32px;
     height: 100%;
-	overflow: auto;
+    overflow: auto;
   }
 
   .panel-content,
   .top-c,
-  .mob-nav{
+  .mob-nav {
     display: flex;
     flex-direction: column;
   }
@@ -462,6 +615,7 @@ and also iPads specifically.
   .mob-sub a {
     color: var(--white);
   }
+
   .mob-sub li {
     margin-bottom: 8px !important;
   }

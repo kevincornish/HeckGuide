@@ -21,3 +21,11 @@ $('#mob-ico, #mob-exit').click( function() {
 $('#calc-expand-link').click( function() {
   $(".mob-sub").toggleClass("mob-sub-show");
 } );
+
+$('#main-sub-link, .main-nav-sub').hover( function() {
+  $(".main-nav-sub").toggleClass("ms-show");
+} );
+
+$('#account-btn, .main-account-sub').hover( function() {
+  $(".main-account-sub").toggleClass("ms-show");
+} );

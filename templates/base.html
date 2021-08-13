@@ -65,7 +65,8 @@
             <li><img src="{% static 'img/svg/mob-clock-icon.svg' %}"> Hourly Quest Timer</li>
           </a>
           <a id="calc-expand-link" href="#">
-            <li><img src="{% static 'img/svg/mob-bolt-icon.svg' %}"> Heck Calculators</li>
+            <li><img src="{% static 'img/svg/mob-bolt-icon.svg' %}"> Heck Calculators <img class="sub-icon"
+                src="{% static 'img/svg/arrow-down-icon.svg' %}"></li>
           </a>
           <!-- Sub menu -->
           <ul class="mob-sub">
@@ -117,10 +118,10 @@
       </div>
     </div>
   </div>
-
+  <!-- End mobile nagivation -->
   <header>
-    <div>
-      <nav>
+    <nav>
+      <span>
         <a href="{% url 'homepage' %}">
           <img src="{% static 'img/svg/heckguide-logo.svg' %}">
         </a>
@@ -131,45 +132,90 @@
           <li>
             <a href="{% url 'prices' %}">Ally Prices</a>
           </li>
+          <div>
+            <li>
+              <a id="main-sub-link" class="sub-link" href="#">Heck Calculators <img class="sub-icon"
+                  src="{% static 'img/svg/arrow-down-icon.svg' %}"></a>
+            </li>
+            <!-- Sub menu -->
+            <ul class="main-nav-sub">
+              <li>
+                <a href="{% url 'MasteryCalculator' %}">Mastery Calculator</a>
+              </li>
+              <li>
+                <a href="{% url 'TokenCalculator' %}">Token Calculator</a>
+              </li>
+              <li>
+                <a href="{% url 'BrewCalculator' %}">Brew Calculator</a>
+              </li>
+              <li>
+                <a href="{% url 'TroopMight' %}">Troop/Might Calculator</a>
+              </li>
+              <li>
+                <a href="{% url 'RallyCalculator' %}">Raid Rally Calculator</a>
+              </li>
+            </ul>
+            <!-- End sub menu -->
+          </div>
           <li>
-            <a href="{% url 'MasteryCalculator' %}">Mastery Calculator</a>
+            <a href="{% url 'allies' %}">Allies</a>
           </li>
           <li>
-            <a href="{% url 'TokenCalculator' %}">Token Calculator</a>
+            <a href="{% url 'world' %}">World Map</a>
           </li>
           <li>
-            <a href="{% url 'BrewCalculator' %}">Brew Calculator</a>
+            <a href="{% url 'DevBlog' %}">Blog</a>
           </li>
-          <li>
-            <a href="{% url 'TroopMight' %}">Troop/Might Calculator</a>
-          </li>
-          <li>
-            <a href="{% url 'RallyCalculator' %}">Raid Rally Calculator</a>
-          </li>
-          <li>
-            <a href="{% url 'DevBlog' %}">Dev Blog</a>
-          </li>
-          <li><a href="{% url 'allies' %}">Allies</a></li>
-          <li><a href="{% url 'world' %}">World Map</a></li>
         </ul>
-        <ul>
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'account' %}">{{ user.username }}</a></li>
-          <li><a href="{% url 'account_logout' %}">Logout</a></li>
-          {% else %}
-          <li><a href="{% url 'account_login' %}">Login</a></li>
-          <li><a href="{% url 'account_signup' %}">Register</a></li>
-          {% endif %}
-          {% if user.is_staff %}
-          <li><a href="{% url 'admin:index' %}">Admin</a></li>
-          {% endif %}
-        </ul>
-        <!-- Mobile navigation -->
-        <ul class="mobile-nav">
-          <li id="mob-ico" class="mob-menu-ico"><img src="{% static 'img/svg/burger-menu-icon.svg' %}"></li>
-        </ul>
-      </nav>
-    </div>
+      </span>
+      <ul class="user-menu">
+        {% if user.is_authenticated %}
+        <a href="#">
+          <li class="btn round s-solid">Community</li>
+        </a>
+        {% endif %}
+        <div>
+          <div class="user-account-sub">
+            {% if user.is_authenticated %}
+            <a id="account-btn" href="#">
+              <li class="btn round s-outline">
+                <img src="{% static 'img/svg/burger-menu-icon.svg' %}"> {{ user.username }}
+              </li>
+            </a>
+            <!-- Sub menu -->
+            <ul class="main-account-sub">
+              <a class="replace-0" href="{% url 'account' %}">View Account</a>
+              {% if user.is_staff %}
+              <li class="replace-1"><a href="{% url 'admin:index' %}">Admin</a></li>
+              {% endif %}
+              <a href="{% url 'account_logout' %}">
+                <div class="btn s-solid">
+                  <img src="{% static 'img/svg/sign-out-icon.svg' %}"> Sign Out
+                </div>
+              </a>
+              {% else %}
+              <div class="replace-3">
+                <a href="{% url 'account_login' %}">
+                  <div class="btn s-outline">
+                    <img src="{% static 'img/svg/lock-icon.svg' %}"> Log In
+                  </div>
+                </a>
+                <a href="{% url 'account_signup' %}">
+                  <div class="btn s-solid">
+                    <img src="{% static 'img/svg/sign-up-icon.svg' %}"> Sign Up
+                  </div>
+                </a>
+              </div>
+              {% endif %}
+            </ul>
+          </div>
+      </ul>
+      </div>
+      <!-- Mobile navigation -->
+      <ul class="mobile-nav">
+        <li id="mob-ico" class="mob-menu-ico"><img src="{% static 'img/svg/burger-menu-icon.svg' %}"></li>
+      </ul>
+    </nav>
   </header>
   <div class="clear"></div>
 
@@ -186,7 +232,7 @@
   {% endif %}
 
   <div id="wrap-centered">
-    <div class="content">
+    <div class="container">
       <section>
         {% block content %}
         {% endblock content %}
@@ -204,7 +250,8 @@
             </a>
           </li>
         </ul>
-        <ul>
+        <!-- 
+          <ul>
           <li>
             <a href="{% url 'timer' %}">Timer</a>
           </li>
@@ -236,6 +283,7 @@
             <a href="{% url 'world' %}">World Map</a>
           </li>
         </ul>
+      -->
       </nav>
       <p>This content is not affiliated with, endorsed, sponsored, or specifically approved by A Thinking Ape
         Entertainment Ltd. and A Thinking Ape Entertainment Ltd. is not responsible for it. For more information see A

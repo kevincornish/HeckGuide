@@ -5,10 +5,10 @@ from rest_framework import serializers
 class AllySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Ally
-        fields = ['username', 'group_tag' , 'cost']
+        fields = ['username', 'group_tag' , 'cost', 'last_modified']
 
 		
 class MapSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = WorldSegments
-        fields = ['name', 'owner_group_id' , 'owner_group_name', 'owner_username', 'x', 'y', 'world_id', 'last_modified']
+        fields = ['name', 'owner_group_name', 'owner_username', 'x', 'y', 'world_id', 'last_modified']

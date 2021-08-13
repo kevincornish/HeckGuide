@@ -23,4 +23,4 @@ class MapViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = MapSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = (filters.SearchFilter,)
-    search_fields = ['name', 'owner_username', 'owner_group_id', 'world_id']
+    search_fields = ['name', 'owner_username', 'world_id']

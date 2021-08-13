@@ -38,6 +38,11 @@ Create a superuser
 python manage.py createsuperuser
 ```
 
+Generate an API token for the newly created superuser
+```
+python manage.py drf_create_token superusername
+```
+
 Run server
 ```
 python manage.py runserver

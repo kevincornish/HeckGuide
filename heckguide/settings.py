@@ -15,7 +15,6 @@ ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["heckguide.com"])
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -35,12 +34,25 @@ INSTALLED_APPS = [
     'allies',
     'world',
     'mathfilters',
+	'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = "none"
 LOGIN_REDIRECT_URL = "homepage"
 ACCOUNT_LOGOUT_ON_GET = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 
 #Tokens
@@ -185,6 +197,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+# Ally Prices
 PRICES_1 = ["102428","107549","112926","118572","130725","137261","144124","151330","166840","175182","183941","193138","212933","223579","234757","246494","271758","285345","299612","314592","346837","364178","382386","401505","442659","464791","488030","512431","564954","593201","622861","654004","721039","757090","794944","834691","920246","966258"]
 
 PRICES_2 = ["1014570","1065298","1174490","1233214","1294874","1359617","1498976","1573924","1652620","1735251","1913113","2008768","2109206","2214666","2441668","2563751","2691938","2826534","3116253","3272065","3435668","3607451","3977214","4176074","4384877","4604120","5076042","5329844","5596336","5876152","6478456","6802378","7142496","7499620","8268331","8681747","9115834","10552716","11080351","11634368","12216086","13468234","14141645","14848727","15591163","17189257","18048719","18951154","19898711"]

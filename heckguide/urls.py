@@ -13,6 +13,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('allies/', AllyListView.as_view(template_name="allies/allies.html"), name='allies'),
     path('world/', WorldListView.as_view(template_name="world/world.html"), name='world'),
+	path('api-auth/', include('rest.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

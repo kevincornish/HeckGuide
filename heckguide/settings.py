@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'mathfilters',
 	'rest_framework',
     'rest_framework.authtoken',
+    'django_filters',
 ]
 
 SITE_ID = 1
@@ -44,6 +45,7 @@ LOGIN_REDIRECT_URL = "homepage"
 ACCOUNT_LOGOUT_ON_GET = True
 
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated'
     ],
@@ -59,7 +61,6 @@ REST_FRAMEWORK = {
 HECKFIRE_API_TOKEN = env("TOKEN")
 STAY_ALIVE_TOKEN = env("STAY_TOKEN")
 TOKEN_128 = env("TOKEN_128")
-STAY_128 = env("STAY_128")
 
 
 MIDDLEWARE = [

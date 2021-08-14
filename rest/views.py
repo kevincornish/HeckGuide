@@ -4,6 +4,9 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from rest.serializers import AllySerializer, MapSerializer
 from rest_framework import filters
+from rest_framework.filters import SearchFilter, OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
+import json
 	
 class AllyViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -22,5 +25,6 @@ class MapViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = WorldSegments.objects.all().order_by('-x')
     serializer_class = MapSerializer
     permission_classes = [permissions.IsAuthenticated]
-    filter_backends = (filters.SearchFilter,)
-    search_fields = ['=name', '=owner_username', '=owner_group_name']
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['name', 'owner_username', 'owner_group_name','world_id']
+    search_fields = ['=name', '=owner_username', '=owner_group_name','=world_id']

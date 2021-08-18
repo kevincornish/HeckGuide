@@ -168,6 +168,27 @@ input[type=number] {
 
 /* End reset */
 
+/* Components */
+.hero-bg1 {
+  background: rgb(125,166,25);
+  background: -moz-radial-gradient(circle, rgba(125,166,25,1) 0%, rgba(118,164,22,1) 35%, rgba(75,150,0,1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(125,166,25,1) 0%, rgba(118,164,22,1) 35%, rgba(75,150,0,1) 100%);
+  background: radial-gradient(circle, rgba(125,166,25,1) 0%, rgba(118,164,22,1) 35%, rgba(75,150,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7da619",endColorstr="#4b9600",GradientType=1);  
+}
+
+.hero-ptt1 {
+  background: url("/static/img/svg/hero-pattern.svg");
+  background-repeat: repeat;
+  height: 100%;
+}
+
+/* Temp */
+.hero {
+  height: 800px;
+  padding-top: 1px;
+}
+
 /* Header */
 header {
   max-width: 1800px;
@@ -232,8 +253,18 @@ header nav span {
   position: absolute;
 }
 
+.main-nav-sub a:hover,
+.main-account-sub a:hover {
+  text-decoration: underline;
+}
+
 .ms-show {
   display: block;
+}
+
+.main-account-sub li:nth-child(1) {
+  margin-top: 24px;
+  margin-bottom: 8px;
 }
 
 .main-account-sub {
@@ -243,7 +274,7 @@ header nav span {
 
 .main-account-sub .btn:nth-child(1) {
   width: 333px;
-  margin-top: 12px;
+  margin-top: 24px;
 }
 
 .nav-user-btns {

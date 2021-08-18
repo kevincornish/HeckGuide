@@ -184,7 +184,7 @@
             </a>
             <!-- Sub menu -->
             <ul class="main-account-sub">
-              <a class="replace-0" href="{% url 'account' %}">View Account</a>
+              <li><a class="replace-0" href="{% url 'account' %}">View Account</a></li>
               {% if user.is_staff %}
               <li><a href="{% url 'admin:index' %}">Admin</a></li>
               {% endif %}

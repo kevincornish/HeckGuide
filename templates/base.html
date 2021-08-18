@@ -186,7 +186,7 @@
             <ul class="main-account-sub">
               <a class="replace-0" href="{% url 'account' %}">View Account</a>
               {% if user.is_staff %}
-              <li class="replace-1"><a href="{% url 'admin:index' %}">Admin</a></li>
+              <li><a href="{% url 'admin:index' %}">Admin</a></li>
               {% endif %}
               <a href="{% url 'account_logout' %}">
                 <div class="btn s-solid">
@@ -194,7 +194,7 @@
                 </div>
               </a>
               {% else %}
-              <div class="replace-3">
+              <div class="nav-user-btns">
                 <a href="{% url 'account_login' %}">
                   <div class="btn s-outline">
                     <img src="{% static 'img/svg/lock-icon.svg' %}"> Log In

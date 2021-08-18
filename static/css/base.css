@@ -37,7 +37,7 @@
   --transition1: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* RESET */
+/* Reset */
 * {
   padding: 0;
   margin: 0;
@@ -166,7 +166,7 @@ input[type=number] {
   margin-left: 8px;
 }
 
-/* END RESET */
+/* End reset */
 
 /* Header */
 header {
@@ -176,7 +176,8 @@ header {
   border-radius: var(--border-radius);
   margin-top: 48px;
 }
- /* Navigation */
+
+/* Navigation */
 header nav,
 footer nav {
   display: flex;
@@ -245,25 +246,11 @@ header nav span {
   margin-top: 12px;
 }
 
-.replace-0 {
-  display: block;
-  margin-top: 32px;
-}
-
-.replace-1 {
-  margin: 12px 0;
-  margin-bottom: 24px;
-}
-
-.replace-3 {
+.nav-user-btns {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 600px;
 }
 
-.replace-3 a:nth-child(1) {
+.nav-user-btns a:nth-child(1) {
   margin-right: 8px;
 }
 
@@ -285,7 +272,7 @@ header nav span {
   color: var(--white) !important;
 }
 
-.user-menu a:nth-child(1) img{
+.user-menu a img {
   margin-right: 32px;
 }
 
@@ -293,11 +280,7 @@ header nav span {
   padding: 0 32px;
 }
 
-/* 
-=====================================================
-	Layout & Framework
-===================================================== */
-
+/* Layout & Framework */
 .messagebox {
   padding: 20px;
   background-color: #2196F3;
@@ -514,6 +497,26 @@ and also iPads specifically.
   }
 }
 
+/* Footer */
+footer {
+  background-color: var(--black);
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+
+footer nav {
+  margin-bottom: 42px;
+  padding-bottom: 76px;
+  border-bottom: var(--border);
+  border-color: var(--white);
+}
+
+footer p {
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+/* Media queries */
 @media only screen and (min-width: 1280px) {
 
   .mobile-nav,
@@ -524,7 +527,7 @@ and also iPads specifically.
 
 @media only screen and (max-width: 1280px) {
 
-  /* Mobile navigation ===================================================== */
+  /* Mobile navigation */
   header nav ul:nth-child(2),
   footer nav ul:nth-child(2) {
     display: none;
@@ -532,7 +535,8 @@ and also iPads specifically.
 
   header nav,
   footer nav {
-    padding: 0 24px;
+    height: 84px;
+    padding: 0 28px;
   }
 
   header {
@@ -663,30 +667,10 @@ and also iPads specifically.
 
   .btn {
     max-width: 100%;
+    min-height: 36px;
   }
 
   .mob-buttons .s-solid:nth-child(1) {
     margin-top: 8px;
   }
-}
-
-/* 
-=====================================================
-	Footer
-===================================================== */
-footer {
-  background-color: var(--black);
-  padding-top: 100px;
-  padding-bottom: 40px;
-}
-
-footer nav {
-  margin-bottom: 42px;
-  padding-bottom: 76px;
-  border-bottom: var(--border);
-  border-color: var(--white);
-}
-
-footer p {
-  text-align: center;
 }

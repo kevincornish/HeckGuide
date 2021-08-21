@@ -61,7 +61,7 @@ class BaseAllyImporter:
 
 class AllyByPriceImporter(BaseAllyImporter):
     def execute(self,  price: int, page_count: int):
-        while price < 2000000000:
+        while price < 7800000000:
             logger.info(f"Starting ally crawler for price: {price} with page count: {page_count}")
             for i in range(page_count):
                 try:
@@ -79,6 +79,8 @@ class AllyByPriceImporter(BaseAllyImporter):
             price += 100000
             stay_alive = self.api.stay_alive()
             logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
+            if price > 7700000000:
+                price = 100000
 
 
 class AllyByNameImporter(BaseAllyImporter):

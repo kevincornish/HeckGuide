@@ -77,6 +77,8 @@ class AllyByPriceImporter(BaseAllyImporter):
             logger.info(f"Created {self.created_count} records")
             logger.info(f"Updated {self.updated_count} records")
             price += 100000
+            if price > 1000000000:
+                price += 10000000
             stay_alive = self.api.stay_alive()
             logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
             if price > 7700000000:

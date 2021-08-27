@@ -1,0 +1,66 @@
+{% load static %}
+<footer>
+  <div class="container">
+    <span class="center footer-menu-wrapper">
+      <img class="townhall" src="{% static 'img/png/townhall.png' %}">
+      <nav>
+        <img class="menu-heckguide-logo" src="{% static 'img/svg/heckguide-logo.svg' %}">
+        <div class="footer-menu">
+          <ul class="flex-left">
+            <li class="footer-ul-label">Heckguide</li>
+            <li>
+              <a href="{% url 'prices' %}">Ally Prices</a>
+            </li>
+            <li>
+              <a href="{% url 'timer' %}">Timer</a>
+            </li>
+            <li>
+              <a href="{% url 'BrewCalculator' %}">Brew Calculator</a>
+            </li>
+            <li>
+              <a href="{% url 'allies' %}">Allies</a>
+            </li>
+            <li>
+              <a href="{% url 'world' %}">World Map</a>
+          </ul>
+          <ul class="flex-left">
+            <li class="footer-ul-label">Heck Calculators</li>
+            <li>
+              <a href="{% url 'MasteryCalculator' %}">Mastery</a>
+            </li>
+            <li>
+              <a href="{% url 'TokenCalculator' %}">Token</a>
+            </li>
+            <li>
+              <a href="{% url 'BrewCalculator' %}">Brew</a>
+            </li>
+            <li>
+              <a href="{% url 'TroopMight' %}">Troop/Might</a>
+            </li>
+            <li>
+              <a href="{% url 'RallyCalculator' %}">Raid Rally</a>
+            </li>
+          </ul>
+          <ul class="flex-left">
+            <li class="footer-ul-label">News</li>
+            <li>
+              <a href="{% url 'MasteryCalculator' %}">Blog</a>
+            </li>
+          </ul>
+          <ul class="flex-left">
+            <li class="footer-ul-label">Stay Updated</li>
+            <div class="center-flx footer-socials">
+              <a href="https://discord.gg/typ4FSN3" target="_blank">
+                <li><img src="{% static 'img/svg/discord-ico.svg' %}"></li>
+              </a>
+              <a href="https://twitter.com/heckguide?lang=en" target="_blank">
+                <li><img src="{% static 'img/svg/twitter-ico.svg' %}"></li>
+              </a>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </span>
+    <p>This content is not affiliated with, endorsed, sponsored, or specifically approved by A Thinking Ape Entertainment Ltd. and A Thinking Ape Entertainment Ltd. is not responsible for it. For more information see A Thinking Ape Entertainment Ltd's <a class="outer-links" href="https://kingdomsofheckfire.com/fankit.html">Fan Content Policy</a>.</p>
+  </div>
+</footer>

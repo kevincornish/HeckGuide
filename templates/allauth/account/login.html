@@ -1,56 +1,57 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+{% load static %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 
-<h1>{% trans "Sign In" %}</h1>
+<div class="form-wrapper">
+  <h2>{% trans "Sign In" %}</h2>
 
-{% get_providers as socialaccount_providers %}
-
-{% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-  of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-  for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-<div class="socialaccount_ballot">
+  {% get_providers as socialaccount_providers %}
 
   <ul class="socialaccount_providers">
     {% include "socialaccount/snippets/provider_list.html" with process="login" %}
   </ul>
 
-  <div class="login-or">{% trans 'or' %}</div>
+  {% if socialaccount_providers %}
 
-</div>
-{% include "socialaccount/snippets/login_extra.html" %}
+  <div class="login-or">{% trans 'or use your email account' %}</div>
 
-{% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-  <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-{% endif %}
+  {% include "socialaccount/snippets/login_extra.html" %}
 
-{% if form.errors %}
-<p>
-  Your username and password didn't match.
-  Please try again.
-</p>
-{% endif %}
-
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.login.label_tag }}
-  <input type="text" placeholder="Username" aria-label="{{ form.login.name }}" name='{{ form.login.name }}'>
-  {{ form.password.label_tag }}
-  <input type="password" placeholder="Password" aria-label="{{ form.password.name }}" name='{{ form.password.name }}'>
-  {{ form.remember.label_tag }}
-  <input type="checkbox" id="{{ form.remember.name }}" name="{{ form.remember.name }}">
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% else %}
+  <p class="login-or">{% blocktrans %}If you have not created an account yet, then please
+    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
   {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-</form>
+
+  {% if form.errors %}
+  <p class="login-or">
+    Your username and password didn't match.
+    Please try again.
+  </p>
+  {% endif %}
+
+  <form class="login" method="POST" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    {{ form.login.label_tag }}
+    <input type="text" placeholder="Username" aria-label="{{ form.login.name }}" name='{{ form.login.name }}'>
+    {{ form.password.label_tag }}
+    <input type="password" placeholder="Password" aria-label="{{ form.password.name }}" name='{{ form.password.name }}'>
+    <button class="btn primaryAction" type="submit">{% trans "Sign In" %}</button>
+    <div class="s-b-flx">
+      <span class="s-b-flx">
+        <input type="checkbox" id="{{ form.remember.name }}" name="{{ form.remember.name }}">
+        {{ form.remember.label_tag }}
+      </span>
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+      {% endif %}
+      <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+    </div>
+  </form>
+</div>
 {% endblock %}

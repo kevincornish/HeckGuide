@@ -29,3 +29,7 @@ $('#main-sub-link, .main-nav-sub').hover( function() {
 $('#account-btn, .main-account-sub').hover( function() {
   $(".main-account-sub").toggleClass("ms-show");
 } );
+
+$('#closebtn').click( function() {
+  $(".message-wrapper").toggleClass("closemessage");
+} );

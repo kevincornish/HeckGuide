@@ -48,12 +48,6 @@
   margin: 0;
   border: 0;
   box-sizing: border-box;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 html,
@@ -614,11 +608,11 @@ table {
 
 /* Zebra striping */
 tr:nth-of-type(odd) {
-  background: #333;
+  background: rgb(255, 255, 255);
 }
 
 th {
-  background: #333;
+  background: #FFC327;
   color: white;
   font-weight: bold;
 }
@@ -886,7 +880,7 @@ footer li {
     width: 333px;
     height: 100%;
     position: fixed;
-    z-index: 3;
+    z-index: 99999;
     background-color: var(--black);
     transform: translateX(-333px);
     transition: var(--transition1);

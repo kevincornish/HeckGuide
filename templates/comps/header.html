@@ -37,11 +37,24 @@
           </ul>
           <!-- End sub menu -->
         </div>
+        <div>
+          <li>
+            <a id="realm-sub-link" class="sub-link" href="#">Realm Maps <img class="sub-icon"
+                src="{% static 'img/svg/arrow-down-icon.svg' %}"></a>
+          </li>
+          <!-- Sub menu -->
+          <ul class="realm-nav-sub">
+            <li>
+              <a href="{% url 'world' %}?realm=23">Realm 23</a>
+            </li>
+            <li>
+              <a href="{% url 'world' %}?realm=128">Realm 128</a>
+            </li>
+          </ul>
+          <!-- End sub menu -->
+        </div>
         <li>
           <a href="{% url 'allies' %}">Allies</a>
-        </li>
-        <li>
-          <a href="{% url 'world' %}">World Map</a>
         </li>
         <li>
           <a href="{% url 'DevBlog' %}">Blog</a>

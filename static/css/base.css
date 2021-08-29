@@ -452,7 +452,8 @@ header nav span {
 }
 
 .main-nav-sub,
-.main-account-sub {
+.main-account-sub,
+.realm-nav-sub {
   display: none;
   flex-direction: column;
   align-items: flex-start;
@@ -463,7 +464,8 @@ header nav span {
   position: absolute;
 }
 
-.main-nav-sub {
+.main-nav-sub,
+.realm-nav-sub {
   padding-bottom: 16px;
 }
 
@@ -497,11 +499,13 @@ header nav span {
   margin-right: 8px;
 }
 
-.main-nav-sub li {
+.main-nav-sub,
+.realm-nav-sub li {
   margin-bottom: 20px;
 }
 
-.main-nav-sub a {
+.main-nav-sub,
+.realm-nav-sub a {
   color: var(--white) !important;
 }
 
@@ -939,20 +943,24 @@ footer li {
   }
 
   .top-c,
-  .mob-sub {
+  .mob-sub,
+  .mob-sub-realm {
     margin-left: calc(20px + 24px);
   }
 
-  .mob-sub {
+  .mob-sub,
+  .mob-sub-realm {
     height: 0;
     overflow: hidden;
   }
 
-  .mob-sub a {
+  .mob-sub,
+  .mob-sub-realm a {
     color: var(--white);
   }
 
-  .mob-sub li {
+  .mob-sub,
+  .mob-sub-realm li {
     margin-bottom: 8px !important;
   }
 

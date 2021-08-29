@@ -53,11 +53,21 @@
       <nav class="mob-nav">
         <ul>
           <a href="{% url 'allies' %}">
-            <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Ally Scraper</li>
+            <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Allies</li>
           </a>
-          <a href="{% url 'world' %}">
-            <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Realm Scraper</li>
+          <a id="realm-expand-link" href="#">
+            <li><img src="{% static 'img/svg/mob-bolt-icon.svg' %}"> Realm Maps <img class="sub-icon"
+                src="{% static 'img/svg/arrow-down-icon.svg' %}"></li>
           </a>
+          <!-- Sub menu -->
+          <ul class="mob-sub-realm">
+            <a href="{% url 'world' %}?realm=23">
+              <li>Realm 23</li>
+            </a>
+            <a href="{% url 'world' %}?realm=128">
+              <li>Realm 128</li>
+            </a>
+          </ul>
           <a href="{% url 'prices' %}">
             <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Ally Prices</li>
           </a>

@@ -866,6 +866,11 @@ footer li {
     padding: 0 28px;
   }
 
+  header nav span {
+    justify-content: space-between;
+    width: 100%;
+  }
+
   header {
     max-width: 95%;
     margin-top: 2%;
@@ -984,6 +989,12 @@ footer li {
 
   .mob-footer {
     margin-top: auto;
+  }
+
+  .mob-footer-logo {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 24px;
   }
 
   .btn {

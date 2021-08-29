@@ -48,12 +48,6 @@
   margin: 0;
   border: 0;
   box-sizing: border-box;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 html,
@@ -455,6 +449,7 @@ header nav {
 header nav span {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .main-nav-sub,
@@ -499,8 +494,8 @@ header nav span {
   display: flex;
 }
 
-.nav-user-btns a:nth-child(1) {
-  margin-right: 8px;
+.nav-user-btns li {
+  width: 180px;
 }
 
 .main-nav-sub li {
@@ -527,6 +522,7 @@ header nav span {
 
 .user-menu .btn {
   padding: 0 32px;
+  text-align: center;
 }
 
 /* Layout & Framework */
@@ -872,6 +868,10 @@ footer li {
     padding: 0 28px;
   }
 
+  header nav span {
+    justify-content: space-between;
+  }
+
   header {
     max-width: 95%;
     margin-top: 2%;
@@ -886,7 +886,7 @@ footer li {
     width: 333px;
     height: 100%;
     position: fixed;
-    z-index: 3;
+    z-index: 99999;
     background-color: var(--black);
     transform: translateX(-333px);
     transition: var(--transition1);

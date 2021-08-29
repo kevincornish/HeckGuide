@@ -47,6 +47,10 @@
           <a href="{% url 'DevBlog' %}">Blog</a>
         </li>
       </ul>
+      <!-- Mobile navigation -->
+      <ul class="mobile-nav">
+        <li id="mob-ico" class="mob-menu-ico"><img src="{% static 'img/svg/burger-menu-icon.svg' %}"></li>
+      </ul>
     </span>
     <ul class="user-menu">
       {% if user.is_authenticated %}
@@ -54,9 +58,10 @@
         <li class="btn round s-solid">Community</li>
       </a>
       {% endif %}
+
       <div>
+        {% if user.is_authenticated %}
         <div class="user-account-sub">
-          {% if user.is_authenticated %}
           <a id="account-btn" href="#">
             <li class="btn round s-outline">
               <img src="{% static 'img/svg/burger-menu-icon.svg' %}"> {{ user.username }}
@@ -65,9 +70,7 @@
           <!-- Sub menu -->
           <ul class="main-account-sub">
             <li><a class="replace-0" href="{% url 'account' %}">View Account</a></li>
-            {% if user.is_staff %}
             <li><a href="{% url 'admin:index' %}">Admin</a></li>
-            {% endif %}
             <a href="{% url 'account_logout' %}">
               <div class="btn s-solid">
                 <img src="{% static 'img/svg/sign-out-icon.svg' %}"> Sign Out
@@ -76,23 +79,19 @@
             {% else %}
             <div class="nav-user-btns">
               <a href="{% url 'account_login' %}">
-                <div class="btn s-outline">
+                <li class="btn s-outline">
                   <img src="{% static 'img/svg/lock-icon.svg' %}"> Log In
-                </div>
+                </li>
               </a>
               <a href="{% url 'account_signup' %}">
-                <div class="btn s-solid">
+                <li class="btn s-solid">
                   <img src="{% static 'img/svg/sign-up-icon.svg' %}"> Sign Up
-                </div>
+                </li>
               </a>
             </div>
             {% endif %}
           </ul>
         </div>
-    </ul>
-    <!-- Mobile navigation -->
-    <ul class="mobile-nav">
-      <li id="mob-ico" class="mob-menu-ico"><img src="{% static 'img/svg/burger-menu-icon.svg' %}"></li>
     </ul>
   </nav>
 </header>

@@ -13,7 +13,7 @@
   {% endfor %}
   {% endif %}
   <li class="btn">
-    <a class="s-b-flx" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}"><img src="{% static 'img/svg/'%}{{provider.name}}-ico.svg">{{provider.name}}</a>
+    <a class="s-b-flx" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}"><img src="{% static 'img/svg/'%}{{provider.name|lower}}-ico.svg">{{provider.name}}</a>
   </li>
 </span>
 {% endfor %}

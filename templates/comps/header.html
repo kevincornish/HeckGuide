@@ -47,6 +47,10 @@
           <a href="{% url 'DevBlog' %}">Blog</a>
         </li>
       </ul>
+      <!-- Mobile navigation -->
+      <ul class="mobile-nav">
+        <li id="mob-ico" class="mob-menu-ico"><img src="{% static 'img/svg/burger-menu-icon.svg' %}"></li>
+      </ul>
     </span>
     <ul class="user-menu">
       {% if user.is_authenticated %}
@@ -89,10 +93,6 @@
             {% endif %}
           </ul>
         </div>
-    </ul>
-    <!-- Mobile navigation -->
-    <ul class="mobile-nav">
-      <li id="mob-ico" class="mob-menu-ico"><img src="{% static 'img/svg/burger-menu-icon.svg' %}"></li>
     </ul>
   </nav>
 </header>

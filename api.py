@@ -61,6 +61,15 @@ class HeckfireApi(object):
             raise TokenException(json_data['exception'])
         return json_data
 
+    def collect_loot(self):
+        data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}
+        url = f"{self.base_url}/game/resource/collect_unlootable_resources/"
+        req = requests.get(url, headers=data)
+        json_data = json.loads(req.text)
+        if json_data.get('exception'):
+            raise TokenException(json_data['exception'])
+        return json_data
+
     def get_ally_by_name(self, username: str) -> Dict:
         url = f"{self.base_url}/game/ally/search_allies_by_username/"
         data = {"ally_username": username}

@@ -79,8 +79,12 @@ class AllyByPriceImporter(BaseAllyImporter):
             price += 100000
             if price > 1000000000:
                 price += 10000000
+            if price > 1100000000:
+                price += 40000000
             stay_alive = self.api.stay_alive()
             logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
+            self.api.collect_loot()
+            logger.info(f"Collecting Loot")
             if price > 7700000000:
                 price = 100000
 
@@ -92,6 +96,8 @@ class AllyByNameImporter(BaseAllyImporter):
             logger.info(f"Crawling name: {name} with a depth of {depth}")
             stay_alive = self.api.stay_alive()
             logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
+            self.api.collect_loot()
+            logger.info(f"Collecting Loot")
             self.crawl_name(name, depth)
         logger.info(f"Created {self.created_count} records")
         logger.info(f"Updated {self.updated_count} records")
@@ -102,6 +108,8 @@ class AllyByNameImporter(BaseAllyImporter):
         try:
             data = self.api.get_ally_by_name(name)
             time.sleep(3)
+            stay_alive = self.api.stay_alive()
+            logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
         except TokenException as e:
             logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
             time.sleep(60)

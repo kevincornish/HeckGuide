@@ -8,3 +8,4 @@ django-allauth==0.45.0
 django-mathfilters==1.0.0
 djangorestframework==3.12.4
 django-filter==2.4.0
+discord-webhook==0.14.0

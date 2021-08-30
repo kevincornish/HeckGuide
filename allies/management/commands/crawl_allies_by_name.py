@@ -28,6 +28,8 @@ class Command(BaseCommand):
             token = settings.HECKFIRE_API_TOKEN
         elif options['token'] == 2:
             token = settings.TOKEN_23
+        elif options['token'] == 3:
+            token = settings.TOKEN_10
         partial_allies = Ally.objects.filter(biome3_attack_multiplier__isnull=True).values('username')
         seed_list = [a['username'] for a in partial_allies]
         seed_list = seed_list[:options['seed']]

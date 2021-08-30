@@ -19,5 +19,7 @@ class Command(BaseCommand):
             token = settings.HECKFIRE_API_TOKEN
         elif options['token'] == 2:
             token = settings.TOKEN_23
+        elif options['token'] == 3:
+            token = settings.TOKEN_10
         importer = AllyByPriceImporter(token=token, staytoken=staytoken)
         importer.execute(options['price'], options['page_count'])

@@ -24,7 +24,12 @@ class WorldImporter:
                 if data['owner_username']:
                     logger.info(f"Found player: {data['owner_username']} Clan: {data['owner_group_name']}")
                 if data['name'].startswith('Grasslands Titan [Lvl') or data['name'].startswith('Badlands Titan [Lvl') or data['name'].startswith('Swamp Titan [Lvl'):
-                    webhook = DiscordWebhook(url=(f'{settings.TITANHOOK}'), content=(f"Found Titan: {data['name']} X: {data['x']} Y: {data['y']} Realm: {data['world_id']}"))
+                    if data['world_id'] == 10:
+                        webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_10}'), content=(f"Found Titan: {data['name']} X: {data['x']} Y: {data['y']}"))
+                    elif data['world_id'] == 23:
+                        webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_23}'), content=(f"Found Titan: {data['name']} X: {data['x']} Y: {data['y']}"))
+                    elif data['world_id'] == 128:
+                        webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_128}'), content=(f"Found Titan: {data['name']} X: {data['x']} Y: {data['y']}"))
                     webhook.execute()
                 data['name'] = self.process_component(data['name'])
             except (TypeError, AttributeError) as e:

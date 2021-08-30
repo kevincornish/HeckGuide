@@ -15,8 +15,9 @@ class AllyViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Ally.objects.all().exclude(cost__isnull=True).order_by('-cost')
     serializer_class = AllySerializer
     permission_classes = [permissions.IsAuthenticated]
-    filter_backends = (filters.SearchFilter,)
-    search_fields = ['=owner__username']
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['cost']
+    search_fields = ['=owner__username', '=cost']
 	
 class MapViewSet(viewsets.ReadOnlyModelViewSet):
     """

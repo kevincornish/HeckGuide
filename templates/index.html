@@ -3,12 +3,41 @@
 {% load static %}
 {% block head_title %}Home{% endblock %}
 {% block content %}
-<div class="container">
-    <p>Heckfire Index</p>
-</div>
-
 {% if user.is_authenticated %}
+<div class="container">
 <h3>Welcome {{ user.username }} !</h3>
+</div>
+{%else%}
+<div class="container">
+    <div class="subscription">
+        <ul class="prices">
+          <li class="header">Basic</li>
+          <li class="grey">$ 1 / month</li>
+          <li>Ally Scraper Access (Web) ✔</li>
+          <li>Realm Scraper Access (Web) ✔</li>
+          <li class="grey"><a href="#" class="donate">Donate</a></li>
+        </ul>
+      </div> 
+      <div class="subscription">
+        <ul class="prices">
+          <li class="header">Basic</li>
+          <li class="grey">$ 2 / month</li>
+          <li>Ally Scraper Access (Web) ✔</li>
+          <li>Realm Scraper Access (Web) ✔</li>
+          <li>Ally and Realm Access (Discord) ✔</li>
+          <li class="grey"><a href="#" class="donate">Donate</a></li>
+        </ul>
+      </div> 
+      <div class="subscription">
+        <ul class="prices">
+          <li class="header">Full Access</li>
+          <li class="grey">$ 3 / month</li>
+          <li>Ally Scraper Access (Web) ✔</li>
+          <li>Realm Scraper Access (Web) ✔</li>
+          <li>Titan Alert Notifications ✔</li>
+          <li class="grey"><a href="#" class="donate">Donate</a></li>
+        </ul>
+      </div> 
+      </div> 
 {%endif%}
-
 {%endblock%}

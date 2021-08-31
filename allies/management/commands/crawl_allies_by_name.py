@@ -26,9 +26,9 @@ class Command(BaseCommand):
         staytoken = settings.STAY_ALIVE_TOKEN
         if options['token'] == 1:
             token = settings.HECKFIRE_API_TOKEN
-        elif options['token'] == 2:
+        elif options['token'] == 23:
             token = settings.TOKEN_23
-        elif options['token'] == 3:
+        elif options['token'] == 10:
             token = settings.TOKEN_10
         partial_allies = Ally.objects.filter(biome3_attack_multiplier__isnull=True).values('username')
         seed_list = [a['username'] for a in partial_allies]

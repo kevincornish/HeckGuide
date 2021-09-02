@@ -52,26 +52,7 @@
 </table>
 
 {% if is_paginated %}
-<nav aria-label="Page navigation conatiner"></nav>
-<ul>
-  {% if page_obj.has_previous %}
-  <li><a
-      href="?page=1{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}{% if request.GET.realm %}&realm={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">&laquo;
-      First</a></li>
-  <li><a
-      href="?page={{ page_obj.previous_page_number }}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}{% if request.GET.realm %}&realm={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Prev</a>
-  </li>
-  {% endif %}
-  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-  {% if page_obj.has_next %}
-  <li><a
-      href="?page={{ page_obj.next_page_number }}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}{% if request.GET.realm %}&realm={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Next</a>
-  </li>
-  <li><a
-      href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.name %}&name={{ request.GET.name }}{% endif %}{% if request.GET.realm %}&realm={{ request.GET.realm }}{% endif %}{% if request.GET.player %}&player={{ request.GET.player }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}">Last
-      &raquo;</a></li>
-  {% endif %}
-</ul>
-</nav>
+{% include 'comps/pagination.html' %}
 {% endif %}
+
 {% endblock %}

@@ -49,27 +49,6 @@
 </table>
 
 {% if is_paginated %}
-<nav aria-label="Page navigation conatiner"></nav>
-<ul>
-  {% if page_obj.has_previous %}
-  <li><a
-      href="?page=1{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">&laquo;
-      First</a></li>
-  <li><a
-      href="?page={{ page_obj.previous_page_number }}{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">Prev</a>
-  </li>
-  {% endif %}
-  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-  {% if page_obj.has_next %}
-  <li><a
-      href="?page={{ page_obj.next_page_number }}{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">Next</a>
-  </li>
-  <li><a
-      href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.cost %}&cost={{ request.GET.cost }}{% endif %}{% if request.GET.clan %}&clan={{ request.GET.clan }}{% endif %}{% if request.GET.current_owner %}&current_owner={{ request.GET.current_owner }}{% endif %}">Last
-      &raquo;</a></li>
-  {% endif %}
-</ul>
-</nav>
-</div>
+{% include 'comps/pagination.html' %}
 {% endif %}
 {% endblock %}

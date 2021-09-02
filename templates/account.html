@@ -10,4 +10,7 @@
 <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
 <li><a href="{% url 'account_change_password' %}">Change Password</a></li>
 <li><a href="{% url 'socialaccount_connections' %}">Social Account Connections</a></li>
+{% if user.is_staff %}
+<li><a href="{% url 'invitations:send-invite' %}">Send Invitation</a></li>
+{% endif %}
 {% endblock %}

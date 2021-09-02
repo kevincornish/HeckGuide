@@ -26,10 +26,16 @@ class WorldImporter:
                 if data['name'].startswith('Grasslands Titan [Lvl') or data['name'].startswith('Badlands Titan [Lvl') or data['name'].startswith('Swamp Titan [Lvl'):
                     if data['world_id'] == 10:
                         webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_10}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
+                        logger.info(f"{data['name']} X: {data['x']} Y: {data['y']} Realm: {data['world_id']}")
                     elif data['world_id'] == 23:
                         webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_23}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
+                        logger.info(f"{data['name']} X: {data['x']} Y: {data['y']} Realm: {data['world_id']}")
                     elif data['world_id'] == 128:
                         webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_128}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
+                        logger.info(f"{data['name']} X: {data['x']} Y: {data['y']} Realm: {data['world_id']}")
+                    elif data['world_id'] == 129:
+                        webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_129}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
+                        logger.info(f"{data['name']} X: {data['x']} Y: {data['y']} Realm: {data['world_id']}")
                     webhook.execute()
                 data['name'] = self.process_component(data['name'])
             except (TypeError, AttributeError) as e:

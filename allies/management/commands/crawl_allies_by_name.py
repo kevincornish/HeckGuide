@@ -30,6 +30,10 @@ class Command(BaseCommand):
             token = settings.TOKEN_23
         elif options['token'] == 10:
             token = settings.TOKEN_10
+        elif options['token'] == 128:
+            token = settings.TOKEN_128
+        elif options['token'] == 129:
+            token = settings.TOKEN_129
         partial_allies = Ally.objects.filter(biome3_attack_multiplier__isnull=True).values('username')
         seed_list = [a['username'] for a in partial_allies]
         seed_list = seed_list[:options['seed']]

@@ -2,23 +2,24 @@
 {% block head_title %}World Map{% endblock %}
 {% load static %}
 {% block content %}
-<form action="{% url 'world' %}">
-  <span>
+<form action="{% url 'world' %}" class="">
+  <span class="formInputs-wrapper center-flx">
     <input type="text" placeholder="Player" aria-label="player" name='player'>
     <input type="text" placeholder="Clan" aria-label="clan" name='clan'>
     <select name="name" id="name">
-      <option value="">--Item--</option>
+      <option value="">Item</option>
       {% for name in names %}
       <option value="{{name.name}}">{{name.name}}</option>
       {% endfor %}
     </select>
     <select name="realm" id="realm">
-      <option value="">--Realm--</option>
+      <option value="">Realm</option>
       {% for realm in realms %}
       <option value="{{realm.world_id}}">{{realm.world_id}}</option>
       {% endfor %}
     </select>
-    <input type="submit" value="Search"></span>
+    <input type="submit" value="Search">
+  </span>
 </form>
 <br />
 <table class="table">
@@ -37,8 +38,10 @@
     {% for segment in worldsegments %}
     <tr>
       <td class="world"><a href="{% url 'world' %}?name={{segment.name}}">{{segment.name}}</a></td>
-      <td class="world"><a href="{% url 'world' %}?player={{segment.owner_username}}">{{segment.owner_username}}</a></td>
-      <td class="world"><a href="{% url 'world' %}?clan={{segment.owner_group_name}}">{{segment.owner_group_name}}</a></td>
+      <td class="world"><a href="{% url 'world' %}?player={{segment.owner_username}}">{{segment.owner_username}}</a>
+      </td>
+      <td class="world"><a href="{% url 'world' %}?clan={{segment.owner_group_name}}">{{segment.owner_group_name}}</a>
+      </td>
       <td class="world">{{segment.x}}</td>
       <td class="world">{{segment.y}}</td>
       <td class="world"><a href="{% url 'world' %}?realm={{segment.world_id}}">{{segment.world_id}}</a></td>

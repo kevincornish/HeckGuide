@@ -5,12 +5,22 @@
 {% block head_title %}{% trans "Account" %}{% endblock %}
 
 {% block content %}
-    <h1>Your Account</h1>
+<h2>Your Account</h2>
 
-<li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-<li><a href="{% url 'account_change_password' %}">Change Password</a></li>
-<li><a href="{% url 'socialaccount_connections' %}">Social Account Connections</a></li>
-{% if user.is_staff %}
-<li><a href="{% url 'invitations:send-invite' %}">Send Invitation</a></li>
+<ul>
+	<a href="{% url 'account_email' %}">
+		<li>Change E-mail</li>
+	</a>
+	<a href="{% url 'account_change_password' %}">
+		<li>Change Password</li>
+	</a>
+	<a href="{% url 'socialaccount_connections' %}">
+		<li>Social Account Connections</li>
+	</a>
+	{% if user.is_staff %}
+	<a href="{% url 'invitations:send-invite' %}">
+		<li>Send Invitation</li>
+	</a>
+</ul>
 {% endif %}
 {% endblock %}

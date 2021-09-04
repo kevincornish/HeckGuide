@@ -4,7 +4,7 @@
 {% load mathfilters %}
 {% block content %}
 <form action="{% url 'allies' %}">
-  <span>
+  <span class="formInputs-wrapper center-flx">
     <input type="text" placeholder="Owner" aria-label="current_owner" name='current_owner'>
     <input inputmode="numeric" type="number" placeholder="Cost" aria-label="cost" name='cost'>
     <input type="text" placeholder="Clan" aria-label="clan" name='clan'>
@@ -37,8 +37,8 @@
       <td class="ally">
         {{ally.biome3_attack_multiplier|add:ally.biome4_attack_multiplier|add:ally.biome5_attack_multiplier|div:100}}%
       </td>
-      <td class="ally"><a
-          href="{% url 'allies' %}?current_owner={{ally.owner.username}}">{{ally.owner.username}}</a></td>
+      <td class="ally"><a href="{% url 'allies' %}?current_owner={{ally.owner.username}}">{{ally.owner.username}}</a>
+      </td>
     </tr>
     {% empty %}
     <tr>

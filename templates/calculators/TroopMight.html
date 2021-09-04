@@ -4,25 +4,36 @@
 {% block content %}
 
 {% if form.is_valid %}
-    <p> Current Might: {{ might }} </p>
-    <p> Troops {{ troopstag }}: {{ troops }} </p>
-    <p> New Might: {{ newmight }} </p>
-    <p> Might {{ mighttag }}: {{ mightdiff }} </p>
-    <a href="{% url 'TroopMight' %}">Try Again?</a>
+<p> Current Might: {{ might }} </p>
+<p> Troops {{ troopstag }}: {{ troops }} </p>
+<p> New Might: {{ newmight }} </p>
+<p> Might {{ mighttag }}: {{ mightdiff }} </p>
+<a href="{% url 'TroopMight' %}">Try Again?</a>
 {% else %}
 
-<form action="" method="post">
+<form action="" method="post" class="formInputs-wrapper center-flx">
   {% csrf_token %}
-  {{ form.might.label_tag }}
-  <input type="number" required name="{{ form.might.name }}" id="{{ form.might.id_for_label }}" autocomplete="off" value="0">
-  {{ form.trainkill.label_tag }}
- 			<select name="{{ form.trainkill.name }}" id="{{ form.trainkill.id_for_label }}">
-				<option value="1">Train</option>
-				<option value="2">Kill</option>
-			</select>
-  {{ form.troops.label_tag }}
-  <input type="number" required name="{{ form.troops.name }}" id="{{ form.troops.id_for_label }}" autocomplete="off" value="0">
-  <input type="submit" value="Submit">
+  <span>
+    {{ form.trainkill.label_tag }}
+    <select name="{{ form.trainkill.name }}" id="{{ form.trainkill.id_for_label }}">
+      <option value="1">Train</option>
+      <option value="2">Kill</option>
+    </select>
+  </span>
+  <span>
+    {{ form.might.label_tag }}
+    <input type="number" required name="{{ form.might.name }}" id="{{ form.might.id_for_label }}" autocomplete="off"
+      value="0">
+  </span>
+  <span>
+    {{ form.troops.label_tag }}
+    <input type="number" required name="{{ form.troops.name }}" id="{{ form.troops.id_for_label }}" autocomplete="off"
+      value="0">
+  </span>
+  <span>
+    <label class="hide">0</label>
+    <input type="submit" value="Submit">
+  </span>
 </form>
 {% endif %}
 {%endblock%}

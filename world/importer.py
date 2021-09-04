@@ -6,6 +6,7 @@ from api import HeckfireApi, TokenException
 from .models import WorldSegments
 from discord_webhook import DiscordWebhook
 from django.conf import settings
+from home.models import Webhooks
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
@@ -23,33 +24,15 @@ class WorldImporter:
                 data = {key: value for key, value in segment.items() if key in self.model_fields}
                 if data['owner_username']:
                     logger.info(f"Found player: {data['owner_username']} Clan: {data['owner_group_name']}")
-                if data['name'] == ('Level 12 Gold') or data['name'] == ('Level 13 Gold') or data['name'] == ('Level 14 Gold') or data['name'] == ('Level 15 Gold'):
-                    if data['owner_username'] == None:
-                        if data['world_id'] == 10:
-                            webhook = DiscordWebhook(url=(f'{settings.GOLDHOOK_10}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
+                webhooks = Webhooks.objects.all()
+                for webhook in webhooks.iterator():
+                    item = webhook.item
+                    hookurl = webhook.hookurl
+                    realm = webhook.realm
+                    if data['name'] in item:
+                        if data['world_id'] == realm:
+                            webhook = DiscordWebhook(url=(f'{hookurl}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
                             webhook.execute()
-                        elif data['world_id'] == 23:
-                            webhook = DiscordWebhook(url=(f'{settings.GOLDHOOK_23}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
-                            webhook.execute()
-                        elif data['world_id'] == 128:
-                            webhook = DiscordWebhook(url=(f'{settings.GOLDHOOK_128}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
-                            webhook.execute()
-                        elif data['world_id'] == 129:
-                            webhook = DiscordWebhook(url=(f'{settings.GOLDHOOK_129}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
-                            webhook.execute()
-                if data['name'].startswith('Grasslands Titan [Lvl') or data['name'].startswith('Badlands Titan [Lvl') or data['name'].startswith('Swamp Titan [Lvl'):
-                    if data['world_id'] == 10:
-                        webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_10}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
-                        webhook.execute()
-                    elif data['world_id'] == 23:
-                        webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_23}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
-                        webhook.execute()
-                    elif data['world_id'] == 128:
-                        webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_128}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
-                        webhook.execute()
-                    elif data['world_id'] == 129:
-                        webhook = DiscordWebhook(url=(f'{settings.TITANHOOK_129}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
-                        webhook.execute()
                 data['name'] = self.process_component(data['name'])
             except (TypeError, AttributeError) as e:
                 pass

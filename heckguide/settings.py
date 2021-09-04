@@ -70,18 +70,6 @@ TOKEN_23 = env("TOKEN_23")
 TOKEN_10 = env("TOKEN_10")
 TOKEN_129 = env("TOKEN_129")
 
-#Discord Webhooks
-#Titans
-TITANHOOK_10 = env("TITANHOOK_10")
-TITANHOOK_128 = env("TITANHOOK_128")
-TITANHOOK_129 = env("TITANHOOK_129")
-TITANHOOK_23 = env("TITANHOOK_23")
-#Gold
-GOLDHOOK_10 = env("GOLDHOOK_10")
-GOLDHOOK_128 = env("GOLDHOOK_128")
-GOLDHOOK_129 = env("GOLDHOOK_129")
-GOLDHOOK_23 = env("GOLDHOOK_23")
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -16,6 +16,7 @@ class WorldImporter:
         self.model_fields = [f.name for f in WorldSegments._meta.get_fields()]
         self.created_count = 0
         self.updated_count = 0
+        self.webhooks = Webhooks.objects.all()
 
     def format_segments(self, segments) -> List[Dict]:
         results = []
@@ -24,8 +25,7 @@ class WorldImporter:
                 data = {key: value for key, value in segment.items() if key in self.model_fields}
                 if data['owner_username']:
                     logger.info(f"Found player: {data['owner_username']} Clan: {data['owner_group_name']}")
-                webhooks = Webhooks.objects.all()
-                for webhook in webhooks.iterator():
+                for webhook in self.webhooks.iterator():
                     item = webhook.item
                     hookurl = webhook.hookurl
                     realm = webhook.realm

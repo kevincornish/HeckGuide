@@ -55,4 +55,4 @@ class MasteryCalculatorForm(forms.Form):
 class WebhookForm(forms.ModelForm):
     class Meta:
         model = Webhooks
-        fields = ('item', 'hookurl')
+        fields = ('item', 'hookurl', 'realm')

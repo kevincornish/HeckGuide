@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
@@ -13,7 +14,8 @@ def Timer(request):
     return render(request, "timer.html")
 
 def Prices(request):
-    return render(request, "prices.html", {'prices_1': settings.PRICES_1, 'prices_2': settings.PRICES_2, 'prices_3': settings.PRICES_3, 'prices_4': settings.PRICES_4, 'prices_5': settings.PRICES_5})
+    return render(request, "prices.html", {'prices_1': settings.PRICES_1, 'prices_2': settings.PRICES_2, 'prices_3': settings.PRICES_3, 
+                                            'prices_4': settings.PRICES_4, 'prices_5': settings.PRICES_5})
 
 @login_required
 def Account(request):
@@ -22,20 +24,32 @@ def Account(request):
 @login_required
 def AccountDiscord(request):
 
-    webhooks = Webhooks.objects.all()
+    webhooks = Webhooks.objects.all().filter(user=request.user)
     items = WorldSegments.objects.distinct('name').exclude(owner_user_id__isnull=False)
+    realms = WorldSegments.objects.distinct('world_id')
     if request.method == 'POST':
-        form = WebhookForm(request.POST, instance=request.user)
+        form = WebhookForm(request.POST)
         if form.is_valid():
-            form.save()
+            Webhooks.objects.create(user=request.user, item=form.cleaned_data.get('item'), realm=form.cleaned_data.get('realm'),
+                                   hookurl=form.cleaned_data.get('hookurl'))
             messages.add_message(request, 25 , 'Notification added.')
         else:
             messages.add_message(request, 40, "Notification couldn't be added.")
     else:
         form = WebhookForm()
     return render(request, 'allauth/account/discord.html', {
-        'form': form, 'webhooks': webhooks, 'items': items
+        'form': form, 'webhooks': webhooks, 'items': items, 'realms': realms
     })
+
+@login_required
+def delete_webhook(request, id):
+  try:
+      query = Webhooks.objects.get(id=id,user=request.user)
+      query.delete()
+      messages.add_message(request, 25 , 'Notification deleted.')
+  except ObjectDoesNotExist:
+      messages.add_message(request, 40 , 'Notification failed to be deleted.')
+  return redirect('account_discord')
 
 def TokenCalculatorView(request):
   if request.method == 'POST':
@@ -53,7 +67,8 @@ def TokenCalculatorView(request):
         token10 = form.cleaned_data['token10'] * 500000
         token11 = form.cleaned_data['token11'] * 1000000
         total = token1+token2+token3+token4+token5+token6+token7+token8+token9+token10+token11
-    return render(request, 'calculators/TokenCalculator.html', {'form': form, 'token1': token1, 'token2': token2, 'token3': token3, 'token4': token4, 'token5': token5, 'token6': token6, 'token7': token7, 'token8': token8, 'token9': token9, 'token10': token10, 'token11': token11, 'total': total})
+    return render(request, 'calculators/TokenCalculator.html', {'form': form, 'token1': token1, 'token2': token2, 'token3': token3, 
+    'token4': token4, 'token5': token5, 'token6': token6, 'token7': token7, 'token8': token8, 'token9': token9, 'token10': token10, 'token11': token11, 'total': total})
   else:
     form = TokenCalculatorForm()       
     return render(request, 'calculators/TokenCalculator.html', {'form': form})
@@ -68,7 +83,8 @@ def BrewCalculatorView(request):
         token4 = form.cleaned_data['token4'] * 100
         token5 = form.cleaned_data['token5'] * 250
         total = token1+token2+token3+token4+token5
-    return render(request, 'calculators/BrewCalculator.html', {'form': form, 'token1': token1, 'token2': token2, 'token3': token3, 'token4': token4, 'token5': token5, 'total': total})
+    return render(request, 'calculators/BrewCalculator.html', {'form': form, 'token1': token1, 'token2': token2, 'token3': token3, 
+    'token4': token4, 'token5': token5, 'total': total})
   else:
     form = BrewCalculatorForm()       
     return render(request, 'calculators/BrewCalculator.html', {'form': form})
@@ -92,7 +108,8 @@ def TroopMightView(request):
         if newmight < 0:
             newmight = 0
         mightdiff = newmight - might
-    return render(request, 'calculators/TroopMight.html', {'form': form, 'mighttag': mighttag, 'mightdiff': mightdiff, 'troopstag': troopstag, 'might': might, 'trainkill': trainkill, 'troops': troops, 'newmight': newmight})
+    return render(request, 'calculators/TroopMight.html', {'form': form, 'mighttag': mighttag, 'mightdiff': mightdiff, 'troopstag': troopstag, 
+    'might': might, 'trainkill': trainkill, 'troops': troops, 'newmight': newmight})
   else:
     form = TroopMightForm()       
     return render(request, 'calculators/TroopMight.html', {'form': form})
@@ -403,7 +420,10 @@ def MasteryCalculatorView(request):
     totalfood = round(attackfood,2)
     totalore = round(defore,2)
 
-    return render(request, 'calculators/MasteryCalculator.html', {'form': form, 'xpgold': xpgold, 'gathergold': gathergold, 'attackgold': attackgold, 'marchgold': marchgold, 'defore': defore, 'attackfood': attackfood, 'defgold': defgold, 'statsforalliesgold': statsforalliesgold, 'bonusforalliesgold': bonusforalliesgold, 'marchboostgold': marchboostgold, 'abilityboostgold': abilityboostgold, 'marchgold2': marchgold2, 'totalgold': totalgold, 'totalfood': totalfood, 'totalore': totalore})
+    return render(request, 'calculators/MasteryCalculator.html', {'form': form, 'xpgold': xpgold, 'gathergold': gathergold, 
+    'attackgold': attackgold, 'marchgold': marchgold, 'defore': defore, 'attackfood': attackfood, 'defgold': defgold, 
+    'statsforalliesgold': statsforalliesgold, 'bonusforalliesgold': bonusforalliesgold, 'marchboostgold': marchboostgold, 
+    'abilityboostgold': abilityboostgold, 'marchgold2': marchgold2, 'totalgold': totalgold, 'totalfood': totalfood, 'totalore': totalore})
   else:
     form = MasteryCalculatorForm()       
     return render(request, 'calculators/MasteryCalculator.html', {'form': form})

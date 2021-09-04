@@ -7,6 +7,7 @@ urlpatterns = [
     path('Prices/', views.Prices, name='prices'),
     path('Account/', views.Account, name='account'),
     path('Account/Discord', views.AccountDiscord, name='account_discord'),
+    path('Account/Discord/Delete/<int:id>', views.delete_webhook, name='account_discord_delete'),
     path('Token-Calculator/', views.TokenCalculatorView, name='TokenCalculator'),
     path('Brew-Calculator/', views.BrewCalculatorView, name='BrewCalculator'),
     path('Troop-Might/', views.TroopMightView, name='TroopMight'),

@@ -8,22 +8,22 @@
 <h2>Your Account</h2>
 
 <ul>
-	<a href="{% url 'account_email' %}">
-		<li>Change E-mail</li>
-	</a>
-	<a href="{% url 'account_change_password' %}">
-		<li>Change Password</li>
-	</a>
-	<a href="{% url 'socialaccount_connections' %}">
-		<li>Social Account Connections</li>
-	</a>	
+    <a href="{% url 'account_email' %}">
+        <li>Change E-mail</li>
+    </a>
+    <a href="{% url 'account_change_password' %}">
+        <li>Change Password</li>
+    </a>
+    <a href="{% url 'socialaccount_connections' %}">
+        <li>Social Account Connections</li>
+    </a>
     <a href="{% url 'account_discord' %}">
-		<li>Discord Notifictions</li>
-	</a>
-	{% if user.is_staff %}
-	<a href="{% url 'invitations:send-invite' %}">
-		<li>Send Invitation</li>
-	</a>
+        <li>Discord Notifictions</li>
+    </a>
+    {% if user.is_staff %}
+    <a href="{% url 'invitations:send-invite' %}">
+        <li>Send Invitation</li>
+    </a>
     {% endif %}
 </ul>
 {% endblock %}

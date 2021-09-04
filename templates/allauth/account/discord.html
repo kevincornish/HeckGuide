@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Discord Notifictions" %}{% endblock %}
+
+{% block content %}
+<h1>Discord Notifictions</h1>
+<form id="webhook-form" method="POST" action="">
+  {% csrf_token %}
+  <div>
+    <select name="item">
+      {% for item in items %}
+      <option value="{{ item.name}}">{{ item.name}}</option>
+      {% endfor %}
+    </select>
+    <select name="realm">
+      {% for realm in realms %}
+      <option value="{{ realm.world_id}}">{{ realm.world_id}}</option>
+      {% endfor %}
+    </select>
+    <input type="text" name="hookurl" id="id_hookurl" value="" placeholder="hookurl">
+  </div>
+  <input type="submit" value="Submit">
+</form>
+{% if webhooks %}
+<ul>
+  {% for webhook in webhooks %}
+  <li>{{ webhook.item }} | {{ webhook.hookurl}} | {{ webhook.realm}} <a href="{% url 'account_discord_delete' id=webhook.id %}">Delete</a>
+  </li>
+</ul>
+{% endfor %}
+{% endif %}
+{% endblock %}

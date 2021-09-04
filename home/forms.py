@@ -1,5 +1,5 @@
 from django import forms
-
+from .models import Webhooks
 
 class TokenCalculatorForm(forms.Form):
     token1 = forms.IntegerField(label='500', initial=0)
@@ -51,3 +51,8 @@ class MasteryCalculatorForm(forms.Form):
     marchboost = forms.IntegerField(label='Dragon March Speed Boost', initial=0)
     abilityboost = forms.IntegerField(label='Dragon Ability Boost', initial=0)
     marchcap2 = forms.IntegerField(label='March Capacity', initial=0)
+
+class WebhookForm(forms.ModelForm):
+    class Meta:
+        model = Webhooks
+        fields = ('item', 'hookurl')

@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.conf import settings
-from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, RallyCalculatorForm, MasteryCalculatorForm
+from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, RallyCalculatorForm, MasteryCalculatorForm, WebhookForm
+from .models import Webhooks
+from world.models import WorldSegments
 
 def Index(request):
     return render(request, "index.html")
@@ -14,7 +17,25 @@ def Prices(request):
 
 @login_required
 def Account(request):
-    return render(request, "account.html")
+  return render(request, 'account.html')
+
+@login_required
+def AccountDiscord(request):
+
+    webhooks = Webhooks.objects.all()
+    items = WorldSegments.objects.distinct('name').exclude(owner_user_id__isnull=False)
+    if request.method == 'POST':
+        form = WebhookForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, 25 , 'Notification added.')
+        else:
+            messages.add_message(request, 40, "Notification couldn't be added.")
+    else:
+        form = WebhookForm()
+    return render(request, 'allauth/account/discord.html', {
+        'form': form, 'webhooks': webhooks, 'items': items
+    })
 
 def TokenCalculatorView(request):
   if request.method == 'POST':

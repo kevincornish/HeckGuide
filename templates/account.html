@@ -16,11 +16,14 @@
 	</a>
 	<a href="{% url 'socialaccount_connections' %}">
 		<li>Social Account Connections</li>
+	</a>	
+    <a href="{% url 'account_discord' %}">
+		<li>Discord Notifictions</li>
 	</a>
 	{% if user.is_staff %}
 	<a href="{% url 'invitations:send-invite' %}">
 		<li>Send Invitation</li>
 	</a>
+    {% endif %}
 </ul>
-{% endif %}
 {% endblock %}

@@ -1,3 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+class Webhooks(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='webhooks')
+    item = models.CharField(max_length=500)
+    hookurl = models.URLField(max_length = 200)

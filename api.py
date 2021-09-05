@@ -80,6 +80,11 @@ class HeckfireApi(object):
         data = {'max_cost': price, 'offset': offset}
         return self._post(url, data)
 
+    def buy_ally(self, username: str, cost: int) -> Dict:
+        url = f"{self.base_url}/game/ally/buy_ally"
+        data = {'ally_user_id': username, 'expected_cost': cost}
+        return self._post(url, data)
+
     def _post(self, url: str, data: Dict) -> Dict:
         response = requests.post(url, headers=self.headers, data=data)
         json_data = json.loads(response.text)

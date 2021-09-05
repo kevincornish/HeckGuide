@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+{% load static %}
+{% block head_title %}Prices{% endblock %}
+{% block content %}
+<form id="strip-form" method="POST" action="">
+  {% csrf_token %}
+  <div>
+    Player: 
+    <input type="text" name="name" id="id_name" value="" placeholder="name">
+    Strip Account:
+    <select name="realm" id="id_realm">
+      <option value="23">23</option>
+      <option value="10">10</option>
+      <option value="128">128</option>
+      <option value="129">129</option>
+    </select>
+  </div>
+  <input type="submit" value="Submit">
+</form>
+{%endblock%}

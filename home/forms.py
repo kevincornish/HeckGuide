@@ -56,3 +56,7 @@ class WebhookForm(forms.ModelForm):
     class Meta:
         model = Webhooks
         fields = ('item', 'hookurl', 'realm')
+
+class StripForm(forms.Form):
+    name = forms.CharField(label='Username')
+    realm = forms.IntegerField(label='Realm')

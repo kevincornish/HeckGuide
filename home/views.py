@@ -1,12 +1,15 @@
+import io
 from django.core.exceptions import ObjectDoesNotExist
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core import management
 from django.conf import settings
-from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, RallyCalculatorForm, MasteryCalculatorForm, WebhookForm
+from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, RallyCalculatorForm, MasteryCalculatorForm, WebhookForm, StripForm
 from .models import Webhooks
 from world.models import WorldSegments
-
+from rest_framework.response import Response
 def Index(request):
     return render(request, "index.html")
 
@@ -16,6 +19,22 @@ def Timer(request):
 def Prices(request):
     return render(request, "prices.html", {'prices_1': settings.PRICES_1, 'prices_2': settings.PRICES_2, 'prices_3': settings.PRICES_3, 
                                             'prices_4': settings.PRICES_4, 'prices_5': settings.PRICES_5})
+
+def call_strip(name, realm):
+  management.call_command('strip_allies',name,realm)
+  print("working")
+
+def Strip(request):
+  if request.method == 'POST':
+    form = StripForm(request.POST)
+    if form.is_valid():
+      name=form.cleaned_data.get('name')
+      realm=form.cleaned_data.get('realm')
+      call_strip(name, realm)
+      return render(request, 'strip.html', {'form': form})
+  else:
+    form = StripForm()
+  return render(request, 'strip.html', {'form': form})
 
 @login_required
 def Account(request):

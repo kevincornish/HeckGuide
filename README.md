@@ -66,6 +66,10 @@ Scrapes allys by initial price '500000' and set number of pages '1' then increme
 ```
 python manage.py find_allies_by_price 500000 1 1
 ```
+Scrapes allys by random price and random number of pages, option to pick a token
+```
+python manage.py find_random_price_allies 1
+```
 Purchase an ally via supplied username with token
 ```
 python manage.py buy_ally_by_name kevz 23

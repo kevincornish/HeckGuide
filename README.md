@@ -69,6 +69,10 @@ Purchase an ally via supplied username with token
 ```
 python manage.py buy_ally_by_name kevz 23
 ```
+Volley an ally between tokens
+```
+python manage.py volly kevz
+```
 Scrape the realm starting at the lower boundry of the map, loading 20 chunks and stepping through to the upper end, pick which realm to crawl passing the token argument
 ```
 python manage.py crawl_world 1

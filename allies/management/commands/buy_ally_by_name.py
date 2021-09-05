@@ -36,7 +36,9 @@ class Command(BaseCommand):
             user_id = ally['allies'][0]["user_id"]
             cost = ally['allies'][0]["cost"]
             try:
+                api.collect_loot()
                 api.buy_ally(user_id, cost)
+                api.stay_alive()
                 logger.info(f"Buying '{username}', ID: {user_id}, Cost: {cost}")
             except TokenException as e:
                 logger.info(f"Exception: {e}")

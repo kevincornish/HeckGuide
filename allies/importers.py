@@ -93,13 +93,15 @@ class RandomAllyByPriceImporter(BaseAllyImporter):
     def execute(self):
         price = random.randint(0,8000000000)
         offset = random.randint(0,10)
-        logger.info(f"Starting ally crawler for price: {price} page {offset}")
         while True:
             try:
+                logger.info(f"Starting ally crawler for price: {price} page {offset}")
                 data = self.api.get_allies_by_price(price, offset)
             except TokenException as e:
                 logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
                 time.sleep(60)
+            price = random.randint(0,8000000000)
+            offset = random.randint(0,10)
             data = self.api.get_allies_by_price(price, offset)
             allies = self.format_allies(data['allies'])
             self.update_or_create_allies(allies)

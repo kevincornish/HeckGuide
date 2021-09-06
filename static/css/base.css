@@ -62,7 +62,6 @@ body {
   font-family: var(--karla-font);
   font-size: 1rem;
   font-weight: normal;
-  color: var(--white);
   position: relative;
 }
 
@@ -498,6 +497,7 @@ footer nav ul a {
   display: block;
   font-size: 1rem;
   text-transform: capitalize;
+  color: var(--white);
 }
 
 header nav ul li a::after,
@@ -679,7 +679,6 @@ header nav span {
 
 a {
   text-decoration: none;
-  color: var(--white);
 }
 
 p {
@@ -1026,6 +1025,10 @@ footer li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  .mob-nav a {
+    color: var(--white);
   }
 
   .mob-nav ul:nth-child(1) li {

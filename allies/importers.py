@@ -62,6 +62,7 @@ class BaseAllyImporter:
 
 class AllyByPriceImporter(BaseAllyImporter):
     def execute(self,  price: int, page_count: int):
+        #NOTE: mot passing offset because it broke the importer
         while price < 7800000000:
             logger.info(f"Starting ally crawler for price: {price} with page count: {page_count}")
             for i in range(page_count):

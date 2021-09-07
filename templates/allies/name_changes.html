@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block head_title %}Name Changes{% endblock %}
+{% load static %}
+{% block content %}
+<form action="{% url 'namechanges' %}">
+  <span class="formInputs-wrapper center-flx">
+    <input type="text" placeholder="Username" aria-label="username" name='username'>
+    <input type="submit" value="Search">
+  </span>
+</form>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Clan</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ally in historicalallies %}
+    <tr>
+      <td class="ally">{{ally.username}}</td>
+      <td class="ally">{{ally.group_tag}}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td>No match</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if is_paginated %}
+{% include 'comps/pagination.html' %}
+{% endif %}
+{% endblock %}

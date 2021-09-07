@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from allies.views import AllyListView
+from allies.views import AllyListView, NameChangeListView
 from world.views import WorldListView
 
 urlpatterns = [
@@ -12,6 +12,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('accounts/', include('allauth.urls')),
     path('allies/', AllyListView.as_view(template_name="allies/allies.html"), name='allies'),
+    path('name-changes/', NameChangeListView.as_view(template_name="allies/name_changes.html"), name='namechanges'),
     path('world/', WorldListView.as_view(template_name="world/world.html"), name='world'),
 	path('api-auth/', include('rest.urls')),
     path('invitations/', include('invitations.urls', namespace='invitations')),

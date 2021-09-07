@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.db.models import Count
 
-from allies.models import Ally
+from allies.models import Ally, HistoricalAlly
 
 class AllyListView(LoginRequiredMixin, ListView):
     model = Ally
@@ -31,4 +31,22 @@ class AllyListView(LoginRequiredMixin, ListView):
         data = super().get_context_data(**kwargs)
         object_list = (Ally.objects.all())
         data['clans'] = object_list.distinct('group_tag').exclude(group_tag__isnull=True)
+        return data
+
+class NameChangeListView(LoginRequiredMixin, ListView):
+    model = HistoricalAlly
+    paginate_by = 20
+    context_object_name = 'historicalallies'
+
+    def get_queryset(self):
+        username = self.request.GET.get('username')
+        object_list = HistoricalAlly.objects.all().values("username", "user_id", "group_tag").order_by('username').distinct()
+        if username:
+            user_list = object_list.filter(username__iexact=username)
+            user_id = user_list[0]["user_id"]
+            object_list = user_list.filter(user_id=user_id)
+        return object_list
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
         return data

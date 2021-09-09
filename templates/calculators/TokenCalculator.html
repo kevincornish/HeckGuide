@@ -4,46 +4,83 @@
 {% block content %}
 
 {% if form.is_valid %}
-    <p> 500: {{ token1 }} </p>
-    <p> 1k: {{ token2 }} </p>
-    <p> 2.5k: {{ token3 }} </p>
-    <p> 5k: {{ token4 }} </p>
-    <p> 10k: {{ token5 }} </p>
-    <p> 25k: {{ token6 }} </p>
-    <p> 50k: {{ token7 }} </p>
-    <p> 100k: {{ token8 }} </p>
-    <p> 250k: {{ token9 }} </p>
-    <p> 500k: {{ token10 }} </p>
-    <p> 1m: {{ token11 }} </p>
-    <p> Total: {{ total }} </p>
-    <a href="{% url 'TokenCalculator' %}">More tokens?</a>
+<p> 500: {{ token1 }} </p>
+<p> 1k: {{ token2 }} </p>
+<p> 2.5k: {{ token3 }} </p>
+<p> 5k: {{ token4 }} </p>
+<p> 10k: {{ token5 }} </p>
+<p> 25k: {{ token6 }} </p>
+<p> 50k: {{ token7 }} </p>
+<p> 100k: {{ token8 }} </p>
+<p> 250k: {{ token9 }} </p>
+<p> 500k: {{ token10 }} </p>
+<p> 1m: {{ token11 }} </p>
+<p> Total: {{ total }} </p>
+<a href="{% url 'TokenCalculator' %}">More tokens?</a>
 {% else %}
 
-<form action="" method="post">
+<form action="" method="post" class="tokenCalc">
   {% csrf_token %}
-  {{ form.token1.label_tag }}
-  <input type="number" required name="{{ form.token1.name }}" id="{{ form.token1.id_for_label }}" autocomplete="off" value="0">
-  {{ form.token2.label_tag }}
-  <input type="number" required name="{{ form.token2.name }}" id="{{ form.token2.id_for_label }}" autocomplete="off" value="0">
-  {{ form.token3.label_tag }}
-  <input type="number" required name="{{ form.token3.name }}" id="{{ form.token3.id_for_label }}" autocomplete="off" value="0">
-  {{ form.token4.label_tag }}
-  <input type="number" required name="{{ form.token4.name }}" id="{{ form.token4.id_for_label }}" autocomplete="off" value="0">
-  {{ form.token5.label_tag }}
-  <input type="number" required name="{{ form.token5.name }}" id="{{ form.token5.id_for_label }}" autocomplete="off" value="0">
-  {{ form.token6.label_tag }}
-  <input type="number" required name="{{ form.token6.name }}" id="{{ form.token6.id_for_label }}" autocomplete="off" value="0">
-  {{ form.token7.label_tag }}
-  <input type="number" required name="{{ form.token7.name }}" id="{{ form.token7.id_for_label }}" autocomplete="off" value="0">
-  {{ form.token8.label_tag }}
-  <input type="number" required name="{{ form.token8.name }}" id="{{ form.token8.id_for_label }}" autocomplete="off" value="0">
-  {{ form.token9.label_tag }}
-  <input type="number" required name="{{ form.token9.name }}" id="{{ form.token9.id_for_label }}" autocomplete="off" value="0">
-  {{ form.token10.label_tag }}
-  <input type="number" required name="{{ form.token10.name }}" id="{{ form.token10.id_for_label }}" autocomplete="off" value="0">
-  {{ form.token11.label_tag }}
-  <input type="number" required name="{{ form.token11.name }}" id="{{ form.token11.id_for_label }}" autocomplete="off" value="0">
-  <input type="submit" value="Submit">
+  <div class="iasg">
+    <span>
+      {{ form.token1.label_tag }}
+      <input type="number" required name="{{ form.token1.name }}" id="{{ form.token1.id_for_label }}" autocomplete="off"
+        placeholder="0">
+    </span>
+    <span>
+      {{ form.token2.label_tag }}
+      <input type="number" required name="{{ form.token2.name }}" id="{{ form.token2.id_for_label }}" autocomplete="off"
+        placeholder="0">
+    </span>
+    <span>
+      {{ form.token3.label_tag }}
+      <input type="number" required name="{{ form.token3.name }}" id="{{ form.token3.id_for_label }}" autocomplete="off"
+        placeholder="0">
+    </span>
+    <span>
+      {{ form.token4.label_tag }}
+      <input type="number" required name="{{ form.token4.name }}" id="{{ form.token4.id_for_label }}" autocomplete="off"
+        placeholder="0">
+    </span>
+    <span>
+      {{ form.token5.label_tag }}
+      <input type="number" required name="{{ form.token5.name }}" id="{{ form.token5.id_for_label }}" autocomplete="off"
+        placeholder="0">
+    </span>
+    <span>
+      {{ form.token6.label_tag }}
+      <input type="number" required name="{{ form.token6.name }}" id="{{ form.token6.id_for_label }}" autocomplete="off"
+        placeholder="0">
+    </span>
+    <span>
+      {{ form.token7.label_tag }}
+      <input type="number" required name="{{ form.token7.name }}" id="{{ form.token7.id_for_label }}" autocomplete="off"
+        placeholder="0">
+    </span>
+    <span>
+      {{ form.token8.label_tag }}
+      <input type="number" required name="{{ form.token8.name }}" id="{{ form.token8.id_for_label }}" autocomplete="off"
+        placeholder="0">
+    </span>
+    <span>
+      {{ form.token9.label_tag }}
+      <input type="number" required name="{{ form.token9.name }}" id="{{ form.token9.id_for_label }}" autocomplete="off"
+        placeholder="0">
+    </span>
+    <span>
+      {{ form.token10.label_tag }}
+      <input type="number" required name="{{ form.token10.name }}" id="{{ form.token10.id_for_label }}"
+        autocomplete="off" placeholder="0">
+    </span>
+    <span>
+      {{ form.token11.label_tag }}
+      <input type="number" required name="{{ form.token11.name }}" id="{{ form.token11.id_for_label }}"
+        autocomplete="off" placeholder="0">
+    </span>
+  </div>
+  <div class="flx flx-jc-fe">
+    <input type="submit" value="Submit">
+  </div>
 </form>
 {% endif %}
 {%endblock%}

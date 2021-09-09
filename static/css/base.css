@@ -245,6 +245,11 @@ label,
   border-color: var(--yellow-1);
 }
 
+.s-outline2 {
+  border: var(--border);
+  border-color: var(--gray-blue);
+}
+
 .round {
   border-radius: 100px;
 }
@@ -306,6 +311,14 @@ label,
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.flx {
+  display: flex;
+}
+
+.flx-jc-fe {
+  justify-content: flex-end;
 }
 
 /* Landing Page */
@@ -611,7 +624,8 @@ header nav span {
   background-color: var(--yellow-active);
 }
 
-.user-menu .s-outline:hover {
+.user-menu .s-outline:hover,
+.user-menu .s-outline2:hover{
   background-color: var(--black);
 }
 
@@ -624,7 +638,7 @@ header nav span {
 }
 
 .user-menu .btn {
-  padding: 0 32px;
+  padding: 0 20px;
 }
 
 /* Layout & Framework */
@@ -927,6 +941,7 @@ footer .menu-heckguide-logo {
 footer p {
   display: table;
   font-size: 0.875rem;
+  color: var(--white);
   margin-top: 40px;
   padding: 42px 0;
   border-top: var(--border);
@@ -1156,7 +1171,7 @@ footer li {
 .formInputs-wrapper label {
   display: block;
   margin-left: 4px;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .formInputs-wrapper input:nth-child(1) {
@@ -1170,4 +1185,56 @@ footer li {
 label,
 .form-wrapper a.secondaryAction {
   color: var(--black);
+}
+
+
+/* Inputs and selects grid */
+.iasg {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.iasg span {
+  margin-bottom: 28px;
+}
+
+.iasg label {
+  text-transform: uppercase;
+}
+
+/* Mastery Calculator page */
+.masteryCalculatorPg ul {
+  list-style: none;
+  display: block;
+  max-width: 420px;
+  padding: 16px;
+  background-color: var(--gray-blue);
+  border-radius: var(--border-radius);
+}
+
+.masteryCalculatorPg li {
+  display: block;
+}
+
+.masteryCalculatorPg .tag-primary {
+  display: inline-block;
+  margin: 0 auto;
+  background-color: transparent;
+  border: var(--border);
+  border-color: var(--gray-hover);
+  /* Font */
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+/* Tags */
+.tag-primary {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: var(--border-radius);
+  /* Font */
+  font-size: 1rem;
+  font-weight: 500;
 }

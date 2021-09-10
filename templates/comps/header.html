@@ -9,9 +9,25 @@
         <li>
           <a href="{% url 'timer' %}">Timer</a>
         </li>
-        <li>
-          <a href="{% url 'prices' %}">Ally Prices</a>
-        </li>
+        <div>
+          <li>
+            <a id="ally-sub-link" class="sub-link" href="#">Allies <img class="sub-icon"
+                src="{% static 'img/svg/arrow-down-icon.svg' %}"></a>
+          </li>
+          <!-- Sub menu -->
+          <ul class="ally-nav-sub">
+            <li>
+              <a href="{% url 'prices' %}">Ally Prices</a>
+            </li>
+            <li>
+              <a href="{% url 'allies' %}">Allies</a>
+            </li>
+            <li>
+              <a href="{% url 'namechanges' %}">Name Changes</a>
+            </li>
+          </ul>
+          <!-- End sub menu -->
+        </div>
         <div>
           <li>
             <a id="main-sub-link" class="sub-link" href="#">Heck Calculators <img class="sub-icon"
@@ -59,12 +75,6 @@
           </ul>
           <!-- End sub menu -->
         </div>
-        <li>
-          <a href="{% url 'allies' %}">Allies</a>
-        </li>
-        <li>
-          <a href="{% url 'namechanges' %}">Name Changes</a>
-        </li>
         <li>
           <a href="{% url 'DevBlog' %}">Blog</a>
         </li>

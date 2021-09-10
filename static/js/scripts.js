@@ -30,6 +30,10 @@ $('#main-sub-link, .main-nav-sub').hover( function() {
   $(".main-nav-sub").toggleClass("ms-show");
 } );
 
+$('#ally-sub-link, .ally-nav-sub').hover( function() {
+  $(".ally-nav-sub").toggleClass("ms-show");
+} );
+
 $('#realm-sub-link, .realm-nav-sub').hover( function() {
   $(".realm-nav-sub").toggleClass("ms-show");
 } );

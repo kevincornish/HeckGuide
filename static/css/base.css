@@ -106,7 +106,7 @@ select,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 48px;
+  height: 42px;
   padding: 0 18px;
   border-radius: var(--border-radius);
 }
@@ -237,7 +237,6 @@ label,
 /* Buttons */
 .s-solid {
   background-color: var(--yellow-1);
-  box-shadow: 0px 4px 16px rgba(245, 190, 48, 0.35);
 }
 
 .s-outline {
@@ -290,7 +289,7 @@ label,
   background: url("/static/img/svg/hero-pattern.svg");
   background-repeat: repeat;
   height: 100%;
-  z-index: 9999;
+  z-index: 9997;
   position: relative;
 }
 
@@ -466,7 +465,7 @@ section a {
 .hero {
   position: relative;
   /* Temporary */
-  height: 600px;
+  height: 200px;
 }
 
 .hero .ptt1 {
@@ -550,6 +549,7 @@ header nav span {
 
 .main-nav-sub,
 .main-account-sub,
+.ally-nav-sub,
 .realm-nav-sub {
   display: none;
   flex-direction: column;
@@ -562,6 +562,7 @@ header nav span {
 }
 
 .main-nav-sub,
+.ally-nav-sub,
 .realm-nav-sub {
   padding-bottom: 16px;
 }
@@ -598,11 +599,13 @@ header nav span {
 }
 
 .main-nav-sub li,
+.ally-nav-sub li,
 .realm-nav-sub li {
   margin-bottom: 20px;
 }
 
 .main-nav-sub,
+.ally-nav-sub,
 .realm-nav-sub a {
   color: var(--white) !important;
 }
@@ -625,7 +628,7 @@ header nav span {
 }
 
 .user-menu .s-outline:hover,
-.user-menu .s-outline2:hover{
+.user-menu .s-outline2:hover {
   background-color: var(--black);
 }
 
@@ -1205,29 +1208,45 @@ label,
 }
 
 /* Mastery Calculator page */
+
 .masteryCalculatorPg ul {
   list-style: none;
-  display: block;
+  /* Temp */
+  display: none;
+  /* */
   max-width: 420px;
-  padding: 16px;
+  padding: 40px 60px;
   background-color: var(--gray-blue);
   border-radius: var(--border-radius);
+  line-height: 2rem;
+  /* Modal settings */
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .masteryCalculatorPg li {
   display: block;
+  margin: 24px 0;
+  color: var(--white);
+  text-align: center;
 }
 
 .masteryCalculatorPg .tag-primary {
-  display: inline-block;
-  margin: 0 auto;
+  display: table;
   background-color: transparent;
   border: var(--border);
   border-color: var(--gray-hover);
-  /* Font */
   font-size: 1.25rem;
   color: var(--white);
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 24px;
 }
+
+/* Modals */
 
 /* Tags */
 .tag-primary {

@@ -124,7 +124,7 @@ input[type=number] {
   /* Font - Text */
   font-family: var(--karla-font);
   color: var(--black-1);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: -0.16px;
 }
@@ -191,7 +191,7 @@ select {
   /* Font - Text */
   font-family: var(--karla-font);
   color: var(--white);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: -0.16px;
   position: relative;
@@ -726,6 +726,13 @@ table {
   min-width: 600px;
 }
 
+table a {
+  font-weight: 600;
+  color: var(--black);
+  text-decoration: underline;
+  text-align: center;
+}
+
 /* Zebra striping */
 tr:nth-of-type(odd) {
   background: rgb(255, 255, 255);
@@ -894,7 +901,7 @@ footer nav {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  max-width: 776px;
+  max-width: 1000px;
   width: 100%;
 }
 
@@ -916,12 +923,10 @@ footer nav ul li {
 .footer-menu {
   display: flex;
   justify-content: space-between;
-  max-width: 770px;
 }
 
 footer .container span {
   width: 100%;
-  max-width: 1150px;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -1204,37 +1209,50 @@ label,
 }
 
 .iasg label {
-  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 /* Mastery Calculator page */
-
-.masteryCalculatorPg ul {
-  list-style: none;
-  /* Temp */
-  display: none;
-  /* */
-  max-width: 420px;
-  padding: 40px 60px;
-  background-color: var(--gray-blue);
-  border-radius: var(--border-radius);
-  line-height: 2rem;
-  /* Modal settings */
-  position: fixed;
-  z-index: 9999;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.masteryCalculatorPg form {
+  margin-top: 48px;
 }
 
-.masteryCalculatorPg li {
+/* Modals */
+.modalBg {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  position: absolute;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: var(--transition0);
+}
+
+.modalActive {
+  display: block;
+}
+
+.helpModalSettings {
+  list-style: none;
+  max-width: 420px;
+  padding: 40px 30px;
+  background-color: var(--gray-blue);
+  border-radius: var(--border-radius);
+  line-height: 1.5rem;
+}
+
+.helpModalSettings li {
   display: block;
   margin: 24px 0;
   color: var(--white);
   text-align: center;
 }
 
-.masteryCalculatorPg .tag-primary {
+.helpModalSettings .tag-primary {
   display: table;
   background-color: transparent;
   border: var(--border);
@@ -1246,7 +1264,29 @@ label,
   margin-bottom: 24px;
 }
 
-/* Modals */
+.helpModal {
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 300%);
+  transition: var(--transition1);
+}
+
+.helpModal-open {
+  transform: translate(-50%, -50%);
+}
+
+.helpModaCloseBtn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 48px;
+  color: var(--white);
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+}
 
 /* Tags */
 .tag-primary {
@@ -1256,4 +1296,25 @@ label,
   /* Font */
   font-size: 1rem;
   font-weight: 500;
+}
+
+/* Help */
+.helpIco {
+  cursor: pointer;
+  opacity: 1;
+  transition: var(--transition0);
+}
+
+.helpIco:hover {
+  opacity: 0.75;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 100%;               
+  background-color:var(--gray-hover);
+  height: 1px;
+  margin: 16px 0;
 }

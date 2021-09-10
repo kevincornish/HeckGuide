@@ -60,12 +60,18 @@
   <a href="{% url 'MasteryCalculator' %}">Again?</a>
   {% else %}
   
-  <ul>
+  <ul class="helpModal helpModalSettings">
+    <img id="closeModalBg" class="helpModaCloseBtn" src="{% static 'img/svg/close-icon.svg' %}">
     <p class="tag-primary">How-To</p>
     <li>Match your <b>in-game</b> stats for each research.</li>
-    <li>Minimum: Level 6 / Max: Level 19)</li>
+    <li>Minimum: Level 6 / Max: Level 19</li>
     <li>For Attacker/Defender Bonus only one or the other research is <b>required</b>.</li>
   </ul>
+  <div class="help-wrapper s-b-flx">
+    <p class="hide">0</p>
+    <img id="masteryHelp" class="helpIco" src="{% static 'img/svg/help-ico.svg' %}">
+  </div>
+  <hr>
   <form action="" method="post">
     {% csrf_token %}
     <div class="iasg">

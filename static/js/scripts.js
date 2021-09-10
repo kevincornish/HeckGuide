@@ -45,3 +45,17 @@ $('#account-btn, .main-account-sub').hover( function() {
 $('#closebtn').click( function() {
   $(".message-wrapper").toggleClass("closemessage");
 } );
+
+// Modal Windows
+
+$('#masteryHelp, #modalOverlay').click( function() {
+  $(".helpModal").toggleClass("helpModal-open");
+  /* Activate modal background */
+  $(".modalBg").toggleClass("modalActive");
+} );
+
+/*  Deactivate modal background */
+$('#closeModalBg').click( function() {
+  $(".helpModal").toggleClass("helpModal-open");
+  $(".modalBg").toggleClass("modalActive");
+} );

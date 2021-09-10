@@ -19,6 +19,17 @@
 <a href="{% url 'TokenCalculator' %}">More tokens?</a>
 {% else %}
 
+<ul class="helpModal helpModalSettings">
+  <img id="closeModalBg" class="helpModaCloseBtn" src="{% static 'img/svg/close-icon.svg' %}">
+  <p class="tag-primary">How-To</p>
+  <li>Temp</li>
+</ul>
+<div class="help-wrapper s-b-flx">
+  <p class="hide">0</p>
+  <img id="masteryHelp" class="helpIco" src="{% static 'img/svg/help-ico.svg' %}">
+</div>
+<hr>
+
 <form action="" method="post" class="tokenCalc">
   {% csrf_token %}
   <div class="iasg">

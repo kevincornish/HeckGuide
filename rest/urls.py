@@ -5,6 +5,7 @@ from rest import views
 router = routers.DefaultRouter()
 router.register(r'allies', views.AllyViewSet)
 router.register(r'world', views.MapViewSet)
+router.register(r'changes', views.HistoricalAllySerializerViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

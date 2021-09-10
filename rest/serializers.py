@@ -1,4 +1,4 @@
-from allies.models import Ally
+from allies.models import Ally, HistoricalAlly
 from world.models import WorldSegments
 from rest_framework import serializers
 		
@@ -6,6 +6,11 @@ class AllySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Ally
         fields = ['username', 'group_tag' , 'cost','biome3_attack_multiplier','biome4_attack_multiplier','biome5_attack_multiplier', 'last_modified']
+
+class HistoricalAllySerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = HistoricalAlly
+        fields = ['username', 'group_tag' , 'last_modified']
 
 		
 class MapSerializer(serializers.HyperlinkedModelSerializer):

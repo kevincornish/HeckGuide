@@ -1,12 +1,10 @@
-from allies.models import Ally
+from allies.models import Ally, HistoricalAlly
 from world.models import WorldSegments
 from rest_framework import viewsets
 from rest_framework import permissions
-from rest.serializers import AllySerializer, MapSerializer
-from rest_framework import filters
+from rest.serializers import AllySerializer, MapSerializer, HistoricalAllySerializer
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
-import json
 	
 class AllyViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -18,6 +16,16 @@ class AllyViewSet(viewsets.ReadOnlyModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['cost']
     search_fields = ['=owner__username', '=cost']
+
+class HistoricalAllySerializerViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint that allows historical allies to be viewed.
+    """
+    queryset = HistoricalAlly.objects.all().values("username", "user_id", "group_tag").order_by('username').distinct()
+    serializer_class = HistoricalAllySerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    search_fields = ['=username']
 	
 class MapViewSet(viewsets.ReadOnlyModelViewSet):
     """

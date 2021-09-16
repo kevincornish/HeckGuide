@@ -23,6 +23,8 @@ class Command(BaseCommand):
             token = settings.TOKEN_106
         elif options['token'] == 10:
             token = settings.TOKEN_10
+        elif options['token'] == 99:
+            token = settings.TOKEN_99
         elif options['token'] == 129:
             token = settings.TOKEN_129
         importer = WorldImporter(token=token, staytoken=staytoken)

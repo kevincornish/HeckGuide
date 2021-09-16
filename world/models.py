@@ -8,7 +8,7 @@ class WorldSegments(models.Model):
     inbound_marches = models.IntegerField(null=True)
     #level = models.IntegerField(null=True)
     name = models.CharField(max_length=255, null=True)
-    object_id = models.BigIntegerField(null=True)
+    object_id = models.BigIntegerField(null=True, db_index=True)
     #object_type = models.IntegerField(null=True)
     outbound_marches = models.BigIntegerField(null=True)
     owner_group_id = models.BigIntegerField(null=True)

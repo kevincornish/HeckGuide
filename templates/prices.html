@@ -3,37 +3,35 @@
 {% load static %}
 {% block head_title %}Prices{% endblock %}
 {% block content %}
-<div class="container">
-  {% for price in prices_1 %}
-  <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
-  {%endfor%}
-</div>
-
-<div class="container">
-  {% for price in prices_2 %}
-  <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
-  {%endfor%}
-</div>
-
-<div class="container">
-  {% for price in prices_3 %}
-  <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
-  {%endfor%}
-</div>
-
-<div class="container">
-  {% for price in prices_4 %}
-  <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
-  {%endfor%}
-</div>
-
-<div class="container">
-  {% for price in prices_5 %}
-  <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
-  {%endfor%}
-</div>
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-	<script>
-		new ClipboardJS('.btn');
-	</script>
+<section class="pricesTable">
+  <div class="priceWrapper">
+    {% for price in prices_1 %}
+    <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
+    {%endfor%}
+  </div>
+  <div class="priceWrapper">
+    {% for price in prices_2 %}
+    <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
+    {%endfor%}
+  </div>
+  <div class="priceWrapper">
+    {% for price in prices_3 %}
+    <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
+    {%endfor%}
+  </div>
+  <div class="priceWrapper">
+    {% for price in prices_4 %}
+    <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
+    {%endfor%}
+  </div>
+  <div class="priceWrapper">
+    {% for price in prices_5 %}
+    <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
+    {%endfor%}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+  <script>
+    new ClipboardJS('.btn');
+  </script>
+</section>
 {%endblock%}

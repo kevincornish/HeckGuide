@@ -3,39 +3,87 @@
 {% block head_title %}Raid Boss Calculator{% endblock %}
 {% block content %}
 
-{% if form.is_valid %}
-<p> Troops Needed: {{ joiners }} </p>
-<p> Total Troops in Rally: {{ totalrally }} </p>
-<a href="{% url 'RallyCalculator' %}">Try Again?</a>
-{% else %}
+<section class="rallyCalculator">
+  <!-- Help modal -->
+  <ul class="helpModal helpModalSettings">
+    <img id="closeModalBg" class="helpModaCloseBtn" src="{% static 'img/svg/close-icon.svg' %}">
+    <p class="tag-primary">How-To</p>
+    <li>Wondering how many troops you need to win a rally against the boss?</li>
+    <li>Fill out the details to calculate what you'll need for you rally.</li>
+  </ul>
+  <div class="help-wrapper s-b-flx">
+    <img id="masteryHelp" class="helpIco" src="{% static 'img/svg/help-ico.svg' %}">
+    <p class="hide">0</p>
+  </div>
+  <p class="formResults__TotalContainerText center-m-a">Calculate the amount of total tokens you own by entering your
+    current
+    balances below </p>
+  <!-- End Help modal -->
+  <form action="" method="post" class="formInputs-wrapper center-flx">
+    {% csrf_token %}
 
-<form action="" method="post" class="formInputs-wrapper center-flx">
-  {% csrf_token %}
-
-  <span>
-    {{ form.bossstrength.label_tag }}
-    <select name="{{ form.bossstrength.name }}" id="{{ form.bossstrength.id_for_label }}">
-      <option value="2000000000">Level 1 Hydra Boss</option>
-      <option value="15000000000">Level 2 Hydra Boss</option>
-      <option value="45000000000">Level 3 Hydra Boss</option>
-      <option value="13500000000">Level 4 Hydro Lava Boss</option>
-      <option value="71000000000">Level 4 Hydro Biome Boss</option>
-    </select>
-  </span>
-  <span>
-    {{ form.attackpower.label_tag }}
-    <input type="number" required name="{{ form.attackpower.name }}" id="{{ form.attackpower.id_for_label }}"
-      autocomplete="off" value="0">
-  </span>
-  <span>
-    {{ form.marchcap.label_tag }}
-    <input type="number" required name="{{ form.marchcap.name }}" id="{{ form.marchcap.id_for_label }}"
-      autocomplete="off" value="0">
-  </span>
-  <span>
-    <label class="hide">0</label>
-    <input type="submit" value="Submit">
-  </span>
-</form>
-{% endif %}
+    <span>
+      {{ form.bossstrength.label_tag }}
+      <select name="{{ form.bossstrength.name }}" id="{{ form.bossstrength.id_for_label }}">
+        <option value="2000000000">Level 1 Hydra Boss</option>
+        <option value="15000000000">Level 2 Hydra Boss</option>
+        <option value="45000000000">Level 3 Hydra Boss</option>
+        <option value="13500000000">Level 4 Hydro Lava Boss</option>
+        <option value="71000000000">Level 4 Hydro Biome Boss</option>
+      </select>
+    </span>
+    <span>
+      {{ form.attackpower.label_tag }}
+      <input type="number" required name="{{ form.attackpower.name }}" id="{{ form.attackpower.id_for_label }}"
+        autocomplete="off" value="" placeholder="0">
+    </span>
+    <span>
+      {{ form.marchcap.label_tag }}
+      <input type="number" required name="{{ form.marchcap.name }}" id="{{ form.marchcap.id_for_label }}"
+        autocomplete="off" value="" placeholder="0">
+    </span>
+    <span>
+      <label class="hide">0</label>
+      <input type="submit" value="Calculate">
+    </span>
+  </form>
+  <hr>
+  <!-- Start form results -->
+  <div class="formResults flx center-flx wrap-flx">
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">
+          <img class="tokenIco" src="{% static 'img/svg/rally-ico.svg' %}">
+        </p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content right-l-m-a">
+          {% if joiners is default %}
+          <p class="formResults__Text"><span>0</span></p>
+          {% else %}
+          <p class="formResults__Text">{{ joiners }}</p>
+          {% endif %}
+          <p class="labl-sml">Troops Needed</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">
+          <img class="tokenIco" src="{% static 'img/svg/rally-ico.svg' %}">
+        </p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content right-l-m-a">
+          {% if totalrally is default %}
+          <p class="formResults__Text"><span>0</span></p>
+          {% else %}
+          <p class="formResults__Text">{{ totalrally }}</p>
+          {% endif %}
+          <p class="labl-sml">Total Troops in Rally</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {%endblock%}

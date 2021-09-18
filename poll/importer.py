@@ -16,7 +16,7 @@ class ChatImporter:
         self.model_fields = [f.name for f in RealmChat._meta.get_fields()]
         self.created_count = 0
         self.updated_count = 0
-        self.webhooks = Webhooks.objects.all()
+        self.webhooks = Webhooks.objects.all().filter(item="Chatlog")
 
     def format_segments(self, segments) -> List[Dict]:
         results = []

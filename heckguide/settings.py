@@ -34,6 +34,7 @@ INSTALLED_APPS = [
 	'django_summernote',
     'allies',
     'world',
+    'poll',
     'mathfilters',
 	'rest_framework',
     'rest_framework.authtoken',

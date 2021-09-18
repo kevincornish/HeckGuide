@@ -85,6 +85,17 @@ class HeckfireApi(object):
         data = {'ally_user_id': username, 'expected_cost': cost}
         return self._post(url, data)
 
+    def poll_chat(self):
+        data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}
+        url = f"{self.base_url}/game/poll/chat"
+        req = requests.get(url, headers=data)
+        json_data = json.loads(req.text)
+        chats = json_data['global_messages']
+        if json_data.get('exception'):
+            raise TokenException(json_data['exception'])
+        return chats
+
+
     def _post(self, url: str, data: Dict) -> Dict:
         response = requests.post(url, headers=self.headers, data=data)
         json_data = json.loads(response.text)

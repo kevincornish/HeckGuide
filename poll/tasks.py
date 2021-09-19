@@ -1,9 +1,10 @@
 from celery import Celery
 from poll.importer import ChatImporter
 from django.conf import settings
+from celery import shared_task
 app = Celery('tasks', broker='redis://localhost')
 
-@app.task
+@shared_task
 def poll_chat(token):
   staytoken = settings.STAY_ALIVE_TOKEN
   if token == 1:

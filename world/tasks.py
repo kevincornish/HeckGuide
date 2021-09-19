@@ -1,9 +1,10 @@
 from celery import Celery
 from world.importer import WorldImporter
 from django.conf import settings
+from celery import shared_task
 app = Celery('tasks', broker='redis://localhost')
 
-@app.task
+@shared_task
 def scrape_world(token):
   staytoken = settings.STAY_ALIVE_TOKEN
   if token == 1:

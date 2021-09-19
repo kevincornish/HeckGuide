@@ -5,7 +5,6 @@ from typing import Dict, List
 from api import HeckfireApi, TokenException
 from .models import RealmChat
 from discord_webhook import DiscordWebhook
-from django.conf import settings
 from home.models import Webhooks
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -62,16 +61,15 @@ class ChatImporter:
         self.crawl_chat()
 
     def crawl_chat(self):
-        while True:
-            try:
-                data = self.api.poll_chat()
-            except TokenException as e:
-                logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
-                time.sleep(60)
-                data = self.api.poll_chat()
-            try:
-                segments = self.format_segments(data)
-                self.update_or_create_segments(segments)
-                time.sleep(20)
-            except IndexError as e:
-                logger.info(f"Index Error Exception: {e}")
+        try:
+            data = self.api.poll_chat()
+        except TokenException as e:
+            logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
+            time.sleep(60)
+            data = self.api.poll_chat()
+        try:
+            segments = self.format_segments(data)
+            self.update_or_create_segments(segments)
+            time.sleep(20)
+        except IndexError as e:
+            logger.info(f"Index Error Exception: {e}")

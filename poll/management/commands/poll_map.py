@@ -1,6 +1,4 @@
 from django.core.management.base import BaseCommand, CommandError
-from api import HeckfireApi, TokenException
-from poll.models import RealmChat
 from poll.importer import ChatImporter
 from django.conf import settings
 import logging

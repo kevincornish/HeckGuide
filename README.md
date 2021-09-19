@@ -86,3 +86,7 @@ Scrape the realm starting at the lower boundry of the map, loading 20 chunks and
 ```
 python manage.py crawl_world 1
 ```
+Scrape the realms chat history
+```
+python manage.py poll_map 1
+```

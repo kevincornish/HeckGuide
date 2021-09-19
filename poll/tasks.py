@@ -4,7 +4,7 @@ from django.conf import settings
 app = Celery('tasks', broker='redis://localhost')
 
 @app.task
-def poll_chat(token: int):
+def poll_chat(token):
   staytoken = settings.STAY_ALIVE_TOKEN
   if token == 1:
     token = settings.HECKFIRE_API_TOKEN

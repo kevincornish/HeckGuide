@@ -94,6 +94,9 @@ if not DEBUG:
 	MIDDLEWARE.append ('whitenoise.middleware.WhiteNoiseMiddleware')
 	CELERY_BROKER_URL = 'redis://localhost:6379'
 	CELERY_RESULT_BACKEND = "django-db"
+	CELERY_ACCEPT_CONTENT = ["json"]
+	CELERY_TASK_SERIALIZER = "json"
+	CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
 ROOT_URLCONF = 'heckguide.urls'
 

@@ -85,7 +85,5 @@ class WorldImporter:
                 logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
                 self.api.collect_loot()
                 logger.info(f"Collecting Loot")
-                if lowerbound > 6327:
-                    lowerbound = 1868
             except IndexError as e:
                 logger.info(f"Index Error Exception: {e}")

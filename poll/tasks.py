@@ -1,5 +1,5 @@
 from celery import Celery
-from importer import ChatImporter
+from poll.importer import ChatImporter
 from django.conf import settings
 app = Celery('tasks', broker='redis://localhost')
 

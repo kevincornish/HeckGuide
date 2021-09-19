@@ -88,7 +88,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 if not DEBUG:
-	INSTALLED_APPS.append('whitenoise.runserver_nostatic','django_celery_beat','django_celery_results')
+	INSTALLED_APPS.append('django_celery_beat')
+	INSTALLED_APPS.append('whitenoise.runserver_nostatic')
+	INSTALLED_APPS.append('django_celery_results')
 	MIDDLEWARE.append ('whitenoise.middleware.WhiteNoiseMiddleware')
 	CELERY_BROKER_URL = 'redis://localhost:6379'
 	CELERY_RESULT_BACKEND = "django-db"

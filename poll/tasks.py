@@ -5,7 +5,7 @@ from celery import shared_task
 app = Celery('tasks', broker='redis://localhost')
 
 @shared_task
-def poll_chat(token):
+def poll_chat():
   staytoken = settings.STAY_ALIVE_TOKEN
   tokens = [settings.HECKFIRE_API_TOKEN, settings.TOKEN_106,
             settings.TOKEN_10,settings.TOKEN_128,settings.TOKEN_129,

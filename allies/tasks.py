@@ -6,7 +6,7 @@ from allies.models import Ally
 app = Celery('tasks', broker='redis://localhost')
 
 @shared_task
-def scrape_allies_by_name(token):
+def scrape_allies_by_name():
   staytoken = settings.STAY_ALIVE_TOKEN
   tokens = [settings.HECKFIRE_API_TOKEN, settings.TOKEN_106,
             settings.TOKEN_10,settings.TOKEN_128,settings.TOKEN_129,
@@ -19,7 +19,7 @@ def scrape_allies_by_name(token):
     importer.execute(seed_list, depth=5)
 
 @shared_task
-def scrape_allies_by_rand_price(token):
+def scrape_allies_by_rand_price():
   staytoken = settings.STAY_ALIVE_TOKEN
   tokens = [settings.HECKFIRE_API_TOKEN, settings.TOKEN_106,
             settings.TOKEN_10,settings.TOKEN_128,settings.TOKEN_129,

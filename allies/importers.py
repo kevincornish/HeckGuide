@@ -92,26 +92,21 @@ class AllyByPriceImporter(BaseAllyImporter):
 class RandomAllyByPriceImporter(BaseAllyImporter):
     def execute(self):
         price = random.randint(0,8000000000)
-        offset = random.randint(0,10)
-        while True:
-            try:
-                logger.info(f"Starting ally crawler for price: {price} page {offset}")
-                data = self.api.get_allies_by_price(price, offset)
-            except TokenException as e:
-                logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
-                time.sleep(60)
-            price = random.randint(0,8000000000)
-            offset = random.randint(0,10)
-            data = self.api.get_allies_by_price(price, offset)
-            allies = self.format_allies(data['allies'])
-            self.update_or_create_allies(allies)
-            self.create_historical_allies(allies)
-            logger.info(f"Created {self.created_count} records")
-            logger.info(f"Updated {self.updated_count} records")
-            stay_alive = self.api.stay_alive()
-            logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
-            self.api.collect_loot()
-            logger.info(f"Collecting Loot")
+        try:
+            logger.info(f"Starting ally crawler for price: {price}")
+            data = self.api.get_allies_by_price(price, 1)
+        except TokenException as e:
+            logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
+            time.sleep(60)
+        allies = self.format_allies(data['allies'])
+        self.update_or_create_allies(allies)
+        self.create_historical_allies(allies)
+        logger.info(f"Created {self.created_count} records")
+        logger.info(f"Updated {self.updated_count} records")
+        stay_alive = self.api.stay_alive()
+        logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
+        self.api.collect_loot()
+        logger.info(f"Collecting Loot")
 
 
 class AllyByNameImporter(BaseAllyImporter):

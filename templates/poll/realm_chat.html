@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block head_title %}Realm Chat{% endblock %}
+{% load static %}
+{% block content %}
+<form action="{% url 'realmchat' %}" class="">
+  <span class="formInputs-wrapper center-flx">
+    <input type="text" placeholder="Player" aria-label="player" name='player'>
+    <select name="realm" id="realm">
+      <option value="">Realm</option>
+      {% for realm in realms %}
+      <option value="{{realm.region}}">{{realm.region}}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Search">
+  </span>
+</form>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="world">Username</th>
+      <th scope="col">Message</th>
+      <th scope="col">Realm</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for chat in realmchat %}
+    <tr>
+      <td class="world"><a href="{% url 'realmchat' %}?player={{chat.username}}">{{chat.username}}</a></td>
+      <td class="world">{{chat.message}}</td>
+      <td class="world">{{chat.region}}</td>
+         {% empty %}
+    <tr>
+      <td>No match</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if is_paginated %}
+{% include 'comps/pagination.html' %}
+{% endif %}
+
+{% endblock %}

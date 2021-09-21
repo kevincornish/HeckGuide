@@ -33,6 +33,16 @@ class TroopMightForm(forms.Form):
     trainkill = forms.ChoiceField(label='Train/Kill', choices=TROOPMIGHT_CHOICES)
     troops = forms.IntegerField(label='Troops', initial=0)
 
+ALLYSTAT_CHOICES =(
+    ("1", "Grasslands"),
+    ("2", "Badlands"),
+    ("3", "Swamplands"),
+)
+
+class AllyStatForm(forms.Form):
+    price = forms.IntegerField(label='Price', initial=0)
+    biome = forms.ChoiceField(label='Preferred Biome', choices=ALLYSTAT_CHOICES)
+
 class RallyCalculatorForm(forms.Form):
     attackpower = forms.IntegerField(label='Attack Power', initial=0)
     bossstrength = forms.IntegerField(label='Boss Strength', initial=0)

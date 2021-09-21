@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}Ally Stat Calculator{% endblock %}
+{% block content %}
+
+<div>
+  <!-- Start first target--->
+  <div>
+    <p>preferred biome</p>
+    <p>{{ target }}</p>
+  </div>
+  <div>
+    <span>
+      <p>grasslands</p>
+      <p>{{grasslands|default:"0" }}%</p>
+    </span>
+    <span>
+      <p>badlands</p>
+      <p>{{badlands|default:"0"}}%</p>
+    </span>
+    <span>
+      <p>swamp</p>
+      <p>{{swamplands|default:"0"}}%</p>
+    </span>
+  </div>
+  <div>
+    <p>total:</p>
+    <p>{{total|default:"0"}}%</p>
+  </div>
+</div>
+<!-- End first target--->
+<!-- Start second target--->
+<div>
+  <div">
+    <p>even biomes</p>
+    <p>{{target2}}</p>
+  </div>
+  <div>
+    <span>
+      <p>grasslands</p>
+      <p>{{grasslands2|default:"0"}}%</p>
+    </span>
+    <span>
+      <p>badlands</p>
+      <p>{{badlands2|default:"0"}}%</p>
+    </span>
+    <span>
+      <p>swamp</p>
+      <p>{{swamplands2|default:"0"}}%</p>
+    </span>
+  </div>
+  <div>
+    <p>total:</p>
+    <p>{{total2|default:"0"}}%</p>
+  </div>
+</div>
+<!-- End second target--->
+
+<form action="" method="post" class="formInputs-wrapper center-flx">
+  {% csrf_token %}
+  <span>
+    {{ form.biome.label_tag }}
+    <select name="{{ form.biome.name }}" id="{{ form.biome.id_for_label }}">
+      <option value="1">Grasslands</option>
+      <option value="2">Badlands</option>
+      <option value="3">Swamplands</option>
+    </select>
+  </span>
+  <span>
+    {{ form.price.label_tag }}
+    <input type="number" required name="{{ form.price.name }}" id="{{ form.price.id_for_label }}" autocomplete="off"
+      value="0">
+  </span>
+  <span>
+    <label class="hide">0</label>
+    <input type="submit" value="Submit">
+  </span>
+</form>
+{%endblock%}

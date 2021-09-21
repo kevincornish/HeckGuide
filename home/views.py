@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
-from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, RallyCalculatorForm, MasteryCalculatorForm, WebhookForm
+from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, RallyCalculatorForm, MasteryCalculatorForm, WebhookForm, AllyStatForm
 from .models import Webhooks
 from world.models import WorldSegments
 
@@ -15,7 +15,8 @@ def Timer(request):
 
 def Prices(request):
     return render(request, "prices.html", {'prices_1': settings.PRICES_1, 'prices_2': settings.PRICES_2, 'prices_3': settings.PRICES_3, 
-                                            'prices_4': settings.PRICES_4, 'prices_5': settings.PRICES_5})
+                                            'prices_4': settings.PRICES_4, 'prices_5': settings.PRICES_5, 'prices_6': settings.PRICES_6,
+                                            'prices_7': settings.PRICES_7})
 
 @login_required
 def Account(request):
@@ -113,6 +114,63 @@ def TroopMightView(request):
   else:
     form = TroopMightForm()       
     return render(request, 'calculators/TroopMight.html', {'form': form})
+
+def AllyStatView(request):
+  target = '40% / 30% / 30%' #Preferred Biome
+  target2 = '33% / 33% / 33%' #Even Biomes
+  if request.method == 'POST':
+    form = AllyStatForm(request.POST)
+    
+    if form.is_valid():
+        price = form.cleaned_data['price']
+        biome = form.cleaned_data['biome']
+        if biome == "1": #Grass
+          biome = "Grasslands"
+          target = '40% / 30% / 30%'
+          grasslands = round(((price/9000000)/100)*0.4*100,2)
+          badlands = round(((price/9000000)/100)*0.3*100,2)
+          swamplands = round(((price/9000000)/100)*0.3*100,2)
+        elif biome == "2": #Bad
+          biome = "Badlands"
+          target = '40% / 30% / 30%'
+          grasslands = round(((price/9000000)/100)*0.3*100,2)
+          badlands = round(((price/9000000)/100)*0.4*100,2)
+          swamplands = round(((price/9000000)/100)*0.3*100,2)
+        elif biome == "3": #Swamp
+          biome = "Swamplands"
+          grasslands = round(((price/9000000)/100)*0.3*100,2)
+          badlands = round(((price/9000000)/100)*0.3*100,2)
+          swamplands = round(((price/9000000)/100)*0.4*100,2)
+
+        grasslands2 = round(((price/9000000)/100)*0.33334*100,2)
+        badlands2 = round(((price/9000000)/100)*0.33334*100,2)
+        swamplands2 = round(((price/9000000)/100)*0.33334*100,2)
+
+        if (grasslands > 00.40):
+          grasslands = 00.40*100
+        if (badlands > 00.40):
+          badlands = 00.40*100
+        if (swamplands > 00.36):
+          swamplands = 00.36*100
+        total = grasslands + badlands + swamplands
+        
+        if (grasslands2 > 00.40):
+          grasslands2 = 00.40*100
+        if (badlands2 > 00.40):
+          badlands2 = 00.40*100
+        if (swamplands2 > 00.36):
+          swamplands2 = 00.36*100
+
+        total2 = grasslands2 + badlands2 + swamplands2
+
+    return render(request, 'calculators/AllyStatCalculator.html', {'form': form, 'price': price, 'biome': biome, 
+    'grasslands': grasslands, 'badlands': badlands, 'swamplands': swamplands, 'target': target, 
+    'target2': target2, 'grasslands2': grasslands2, 'badlands2': badlands2, 'swamplands2': swamplands2,
+    'total': total, 'total2': total2,
+    })
+  else:
+    form = AllyStatForm()       
+    return render(request, 'calculators/AllyStatCalculator.html', {'form': form, 'target': target, 'target2': target2})
 
 def RallyCalculatorView(request):
   if request.method == 'POST':

@@ -13,4 +13,5 @@ urlpatterns = [
     path('Troop-Might/', views.TroopMightView, name='TroopMight'),
     path('Rally-Calculator/', views.RallyCalculatorView, name='RallyCalculator'),
     path('Mastery-Calculator/', views.MasteryCalculatorView, name='MasteryCalculator'),
+    path('AllyStat-Calculator/', views.AllyStatView, name='AllyStatCalculator'),
 ]

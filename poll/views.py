@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from poll.models import RealmChat
 
 
-class RealmChatView(LoginRequiredMixin, ListView):
+class RealmChatView(ListView):
 
     model = RealmChat
     paginate_by = 20
@@ -17,7 +17,7 @@ class RealmChatView(LoginRequiredMixin, ListView):
             RealmChat.objects.all().order_by('-timestamp').exclude(message__isnull=True)
         )
         if player:
-            object_list = object_list.filter(username__iexact=player)
+            object_list = object_list.filter(username__icontains=player)
         if realm:
             object_list = object_list.filter(region__iexact=realm)
         return object_list

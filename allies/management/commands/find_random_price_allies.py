@@ -12,9 +12,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         staytoken = settings.STAY_ALIVE_TOKEN
-        tokens = [settings.HECKFIRE_API_TOKEN, settings.TOKEN_106,
-                settings.TOKEN_10,settings.TOKEN_128,settings.TOKEN_129,
-                settings.TOKEN_99]
+        tokens = settings.TOKENS
         for token in tokens:
             importer = RandomAllyByPriceImporter(token=token, staytoken=staytoken)
             importer.execute()

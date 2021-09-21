@@ -55,7 +55,7 @@ http://127.0.0.1:8000/
 ```
 Development website
 ```
-https://dev.heckguide.com/
+https://v2.heckguide.com/
 ```
 ## Commands 
 Scrapes a set number of allies '5000' already in the database without fully populated info and fills them, then scrapes the owner and that owner etc. Depth set to '3', option to pick a token

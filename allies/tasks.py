@@ -8,9 +8,7 @@ app = Celery('tasks', broker='redis://localhost')
 @shared_task
 def scrape_allies_by_name():
   staytoken = settings.STAY_ALIVE_TOKEN
-  tokens = [settings.HECKFIRE_API_TOKEN, settings.TOKEN_106,
-            settings.TOKEN_10,settings.TOKEN_128,settings.TOKEN_129,
-            settings.TOKEN_99]
+  tokens = settings.TOKENS
   for token in tokens:
     partial_allies = Ally.objects.all().order_by('-cost').values('username')
     seed_list = [a['username'] for a in partial_allies]
@@ -21,9 +19,18 @@ def scrape_allies_by_name():
 @shared_task
 def scrape_allies_by_rand_price():
   staytoken = settings.STAY_ALIVE_TOKEN
-  tokens = [settings.HECKFIRE_API_TOKEN, settings.TOKEN_106,
-            settings.TOKEN_10,settings.TOKEN_128,settings.TOKEN_129,
-            settings.TOKEN_99]
+  tokens = settings.TOKENS
   for token in tokens:
     importer = RandomAllyByPriceImporter(token=token, staytoken=staytoken)
     importer.execute()
+
+@shared_task
+def update_allies_by_name():
+  staytoken = settings.STAY_ALIVE_TOKEN
+  tokens = settings.TOKENS
+  for token in tokens:
+    partial_allies = Ally.objects.all().order_by('-cost').values('username')
+    seed_list = [a['username'] for a in partial_allies]
+    seed_list = seed_list[:100]
+    importer = AllyByNameImporter(token=token, staytoken=staytoken)
+    importer.execute(seed_list, depth=5)

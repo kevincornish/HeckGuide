@@ -71,6 +71,7 @@ TOKEN_106 = env("TOKEN_106")
 TOKEN_10 = env("TOKEN_10")
 TOKEN_99 = env("TOKEN_99")
 TOKEN_129 = env("TOKEN_129")
+TOKENS = [HECKFIRE_API_TOKEN, TOKEN_10, TOKEN_99, TOKEN_106, TOKEN_128, TOKEN_129]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -17,7 +17,7 @@ class Command(BaseCommand):
         Usage: python manage.py volly_ally username "kevz"
         """
         staytoken = settings.STAY_ALIVE_TOKEN
-        tokens = [settings.HECKFIRE_API_TOKEN,settings.TOKEN_10, settings.TOKEN_106,settings.TOKEN_128,settings.TOKEN_129]
+        tokens = settings.TOKENS
         username = options['username']
         for token in tokens:
           api = HeckfireApi(token=token, staytoken=staytoken)

@@ -143,3 +143,27 @@ class AllyByNameImporter(BaseAllyImporter):
                 self.crawl_name(owner.username, depth - 1)
         except IndexError as e:
             logger.info(f"Index Error (Ally changed name since scrape?) Exception: {e}")
+
+
+class UpdateAllyImporter(BaseAllyImporter):
+
+    def execute(self, name: str):
+        logger.info(f"Updating name: {name}")
+        stay_alive = self.api.stay_alive()
+        logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
+        self.api.collect_loot()
+        logger.info(f"Collecting Loot")
+        try:
+            data = self.api.get_ally_by_name(name)
+        except TokenException as e:
+            logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
+            time.sleep(60)
+            data = self.api.get_ally_by_name(name)
+        try:
+            ally = self.format_allies(data['allies'])[0]
+            self.update_or_create_ally(ally)
+            self.create_historical_allies([ally])
+        except IndexError as e:
+            logger.info(f"Index Error (Ally changed name since scrape?) Exception: {e}")
+        logger.info(f"Created {self.created_count} records")
+        logger.info(f"Updated {self.updated_count} records")

@@ -29,7 +29,7 @@ def update_allies_by_name():
   staytoken = settings.STAY_ALIVE_TOKEN
   tokens = settings.TOKENS
   for token in tokens:
-    partial_allies = Ally.objects.all().order_by('-cost').values('username')
+    partial_allies = Ally.objects.all().values('username')
     seed_list = [a['username'] for a in partial_allies]
     seed_list = seed_list[:100]
     importer = AllyByNameImporter(token=token, staytoken=staytoken)

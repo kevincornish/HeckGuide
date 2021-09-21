@@ -29,7 +29,7 @@ class WorldImporter:
                     item = webhook.item
                     hookurl = webhook.hookurl
                     realm = webhook.realm
-                    if data['name'] in item:
+                    if data['name'] == item:
                         if data['world_id'] == realm:
                             webhook = DiscordWebhook(url=(f'{hookurl}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
                             webhook.execute()

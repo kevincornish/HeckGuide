@@ -63,7 +63,7 @@
           <!-- Sub menu -->
           <ul class="realm-nav-sub">
             <li>
-              <a href="">Realm Chat</a>
+              <a href="{% url 'realmchat' %}">Realm Chat</a>
             </li>
             <li>
               <a href="{% url 'world' %}?realm=10">Realm 10</a>
@@ -99,7 +99,7 @@
           </a>
           <!-- Sub menu -->
           <ul class="mob-sub">
-            <a href="">
+            <a href="{% url 'AllyStatCalculator' %}">
               <li>Ally Stats</li>
             </a>
             <a href="{% url 'MasteryCalculator' %}">

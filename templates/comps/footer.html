@@ -30,6 +30,9 @@
           <ul class="flex-left">
             <li class="footer-ul-label">Heck Calculators</li>
             <li>
+              <a href="{% url 'AllyStatCalculator' %}">Ally Stats</a>
+            </li>
+            <li>
               <a href="{% url 'MasteryCalculator' %}">Mastery</a>
             </li>
             <li>
@@ -46,7 +49,10 @@
             </li>
           </ul>
           <ul class="flex-left">
-            <li class="footer-ul-label">World Maps</li>
+            <li class="footer-ul-label">Realm</li>
+            <li>
+              <a href="{% url 'realmchat' %}">Realm Chat</a>
+            </li>
             <li>
               <a href="{% url 'world' %}?realm=10">Realm 10</a>
             </li>

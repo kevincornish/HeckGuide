@@ -36,6 +36,9 @@
           <!-- Sub menu -->
           <ul class="main-nav-sub">
             <li>
+              <a href="{% url 'AllyStatCalculator' %}">Ally Stats</a>
+            </li>
+            <li>
               <a href="{% url 'MasteryCalculator' %}">Mastery Calculator</a>
             </li>
             <li>
@@ -55,11 +58,14 @@
         </div>
         <div>
           <li>
-            <a id="realm-sub-link" class="sub-link" href="#">Realm Maps <img class="sub-icon"
+            <a id="realm-sub-link" class="sub-link" href="#">Realm <img class="sub-icon"
                 src="{% static 'img/svg/arrow-down-icon.svg' %}"></a>
           </li>
           <!-- Sub menu -->
           <ul class="realm-nav-sub">
+            <li>
+              <a href="{% url 'realmchat' %}">Realm Chat</a>
+            </li>
             <li>
               <a href="{% url 'world' %}?realm=10">Realm 10</a>
             </li>

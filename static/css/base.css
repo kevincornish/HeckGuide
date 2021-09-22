@@ -341,7 +341,7 @@ label,
 }
 
 /* Landing Page */
-
+/* Packages */
 .prices {
   width: 33.3%;
   padding: 8px;
@@ -1442,6 +1442,33 @@ hr {
 
 .rallyCalculator .formResults__Container:nth-child(1) {
   margin-right: 24px;
+}
+
+/* Prices page */
+.pricesTable ul {
+  list-style: none;
+  margin-bottom: 1.125rem;
+}
+
+.pricesTable li {
+  display: block;
+  padding: 1rem 0;
+  width: 100%;
+  max-width: 55px;
+  background-color: var(--black);
+  border-radius: var(--border-radius);
+  margin-right: 0.5rem;
+}
+
+.pricesTable a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Font */
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 /* Table inputs and selects */

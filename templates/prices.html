@@ -4,6 +4,80 @@
 {% block head_title %}Prices{% endblock %}
 {% block content %}
 <section class="pricesTable">
+  <ul class="flx">
+    <li>
+      <a href="javascript:rudrSwitchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active">100k</a>
+    </li>
+    <li>
+      <a href="javascript:rudrSwitchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu">1m</a>
+    </li>
+    <li>
+      <a href="javascript:rudrSwitchTab('tb_3', 'content_3');" id="tb_3" class="tabmenu active">20m</a>
+    </li>
+    <li>
+      <a href="javascript:rudrSwitchTab('tb_4', 'content_4');" id="tb_4" class="tabmenu">100m</a>
+    </li>
+    <li>
+      <a href="javascript:rudrSwitchTab('tb_5', 'content_5');" id="tb_5" class="tabmenu active">1b</a>
+    </li>
+    <li>
+      <a href="javascript:rudrSwitchTab('tb_6', 'content_6');" id="tb_6" class="tabmenu">50b</a>
+    </li>
+    <li>
+      <a href="javascript:rudrSwitchTab('tb_7', 'content_7');" id="tb_7" class="tabmenu">100b</a>
+    </li>
+  </ul>
+
+  <div id="content_1" class="tabContent">
+    {% for price in prices_1 %}
+    <p>
+      <div data-clipboard-text="{{ price }}">{{ price }}</div>
+    </p>
+    {%endfor%}
+  </div>
+  <div id="content_2" class="tabContent" style="display:none;">
+    {% for price in prices_2 %}
+    <p>
+      <div data-clipboard-text="{{ price }}">{{ price }}</div>
+    </p>
+    {%endfor%}
+  </div>
+  <div id="content_3" class="tabContent" style="display:none;">
+    {% for price in prices_3 %}
+    <p>
+      <div data-clipboard-text="{{ price }}">{{ price }}</div>
+    </p>
+    {%endfor%}
+  </div>
+  <div id="content_4" class="tabContent" style="display:none;">
+    {% for price in prices_4 %}
+    <p>
+      <div data-clipboard-text="{{ price }}">{{ price }}</div>
+    </p>
+    {%endfor%}
+  </div>
+  <div id="content_5" class="tabContent" style="display:none;">
+    {% for price in prices_5 %}
+    <p>
+      <div data-clipboard-text="{{ price }}">{{ price }}</div>
+    </p>
+    {%endfor%}
+  </div>
+  <div id="content_6" class="tabContent" style="display:none;">
+    {% for price in prices_6 %}
+    <p>
+      <div data-clipboard-text="{{ price }}">{{ price }}</div>
+    </p>
+    {%endfor%}
+  </div>
+  <div id="content_7" class="tabContent" style="display:none;">
+    {% for price in prices_7 %}
+    <p>
+      <div data-clipboard-text="{{ price }}">{{ price }}</div>
+    </p>
+    {%endfor%}
+  </div>
+  <!--
   <div class="priceWrapper">
     {% for price in prices_1 %}
     <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
@@ -29,6 +103,7 @@
     <p><button class="btn" data-clipboard-text="{{ price }}">{{ price }}</button></p>
     {%endfor%}
   </div>
+-->
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
   <script>
     new ClipboardJS('.btn');

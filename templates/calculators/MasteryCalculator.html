@@ -3,276 +3,477 @@
 {% block head_title %}Mastery Calculator{% endblock %}
 {% block content %}
 
-{% if form.is_valid %}
-    <p>Dragon XP Boost:</p>
-    <p>Required Level: 19</p>
-    <p>Gold Cost: {{ xpgold }}m</p>
-
-    <p>Gather Rate Bonus:</p>
-    <p>Required Level: 19</p>
-    <p>Gold Cost: {{ gathergold }}m</p>
-
-    <p>Hunt Attack Bonus:</p>
-    <p>Required Level: 19</p>
-    <p>Gold Cost: {{ attackgold }}m</p>
-
-    <p>March Capacity:</p>
-    <p>Required Level: 19</p>
-    <p>Gold Cost: {{ marchgold }}m</p>
-
-    <p>City Defenders Cap:</p>
-    <p>Required Level: 19</p>
-    <p>Ore Cost: {{ defore }}m</p>
-
-    <p>Dragon Attack Boost:</p>
-    <p>Required Level: 19</p>
-    <p>Food Cost: {{ attackfood }}m</p>
-
-    <p>Attacker/Defender Bonus:</p>
-    <p>Required Level: 17</p>
-    <p>Gold Cost: {{ defgold }}m</p>
-
-    <p>Bonus Stats for Allies:</p>
-    <p>Required Level: 17</p>
-    <p>Gold Cost: {{ statsforalliesgold }}m</p>
-
-    <p>Bonus from Allies:</p>
-    <p>Required Level: 17</p>
-    <p>Gold Cost: {{ bonusforalliesgold }}m</p>
-
-    <p>Dragon March Speed Boost:</p>
-    <p>Required Level: 17</p>
-    <p>Gold Cost: {{ marchboostgold }}m</p>
-
-    <p>Dragon Ability Boost:</p>
-    <p>Required Level: 17</p>
-    <p>Gold Cost: {{ abilityboostgold }}m</p>
-
-    <p>March Capacity:</p>
-    <p>Required Level: 15</p>
-    <p>Gold Cost: {{ marchgold2 }}m</p>
-
-    <p>Total RSS Required</p>
-    <p>Gold Cost: {{ totalgold }}m</p>
-    <p>Food Cost: {{ totalfood }}m</p>
-    <p>Ore Cost: {{ totalore }}m</p>
-    <a href="{% url 'MasteryCalculator' %}">Again?</a>
-{% else %}
-<div>
-  <span><i></i>instructions</span>
-  <ul>
-    <li> - Type your actual level into boxes for each research.</li>
-    <li> - Minimum Level 6: (Max Level 19)</li>
-    <li> - For Attacker/Defender Bonus only one or the other research is required.</li>
+<section class="masteryCalculatorPg">
+  <!-- Start form results -->
+  <!-- Total results -->
+  <div class="formResults__Total formResults__Container flx">
+    <div class="formResults__TitleCard">
+      <p class="formResults__Title">Total RSS Required</p>
+    </div>
+    <div class="formResults__Wrapper flx center-flx s-b-flx">
+      <div class="formResults__Content">
+        {% if totalgold is default %}
+        <p class="formResults__Text"><span>0</span>M</p>
+        {% else %}
+        <p class="formResults__Text">{{ totalgold }}M</p>
+        {% endif %}
+        <p class="labl-sml">Gold Cost</p>
+      </div>
+      <div class="formResults__Content">
+        {% if totalfood is default %}
+        <p class="formResults__Text"><span>0</span>M</p>
+        {% else %}
+        <p class="formResults__Text">{{ totalfood }}M</p>
+        {% endif %}
+        <p class="labl-sml">Food Cost</p>
+      </div>
+      <div class="formResults__Content">
+        {% if totalore is default %}
+        <p class="formResults__Text"><span>0</span>M</p>
+        {% else %}
+        <p class="formResults__Text">{{ totalore }}M</p>
+        {% endif %}
+        <p class="labl-sml">Ore Cost</p>
+      </div>
+    </div>
+  </div>
+  <p class="formResults__TotalContainerText">Find out your path to mastery by submitting your current stats below </p>
+  <hr>
+  <!-- End total results -->
+  <div class="formResults flx center-flx s-b-flx wrap-flx">
+    {% if form.is_valid %}
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">Dragon XP Boost</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">19 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ xpgold }}M</p>
+          <p class="labl-sml">Gold Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">Gather Rate Bonus</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">19 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ gathergold }}M</p>
+          <p class="labl-sml">Gold Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">Hunt Attack Bonus</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">19 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ attackgold }}M</p>
+          <p class="labl-sml">Gold Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">March Capacity</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">19 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ marchgold }}M</p>
+          <p class="labl-sml">Gold Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">City Defenders Cap</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">19 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ defore }}M</p>
+          <p class="labl-sml">Ore Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">Dragon Attack Boost</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">19 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ attackfood }}M</p>
+          <p class="labl-sml">Food Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">Attacker/Defender Bonus</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">17 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ defgold }}M</p>
+          <p class="labl-sml">Gold Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">Bonus Stats for Allies</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">17 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ statsforalliesgold }}M</p>
+          <p class="labl-sml">Gold Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">Bonus from Allies</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">17 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ bonusforalliesgold }}M</p>
+          <p class="labl-sml">Gold Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">Dragon March Speed Boost</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">17 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ marchboostgold }}M</p>
+          <p class="labl-sml">Gold Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">Dragon Ability Boost</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">17 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ abilityboostgold }}M</p>
+          <p class="labl-sml">Gold Cost</p>
+        </div>
+      </div>
+    </div>
+    <div class="formResults__Container flx">
+      <div class="formResults__TitleCard">
+        <p class="formResults__Title">March Capacity</p>
+      </div>
+      <div class="formResults__Wrapper flx center-flx s-b-flx">
+        <div class="formResults__Content">
+          <p class="formResults__Text">15 +</p>
+          <p class="labl-sml">Level Required</p>
+        </div>
+        <div class="formResults__Content">
+          <p class="formResults__Text">{{ marchgold2 }}M</p>
+          <p class="labl-sml">Gold Cost</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+    {% endif %}
+  </div>
+  <!-- End form results -->
+  <!-- Help modal -->
+  <ul class="helpModal helpModalSettings">
+    <img id="closeModalBg" class="helpModaCloseBtn" src="{% static 'img/svg/close-icon.svg' %}">
+    <p class="tag-primary">How-To</p>
+    <li>Match your <b>in-game</b> stats for each research.</li>
+    <li>Minimum: Level 6 / Max: Level 19</li>
+    <li>For Attacker/Defender Bonus only one or the other research is <b>required</b>.</li>
   </ul>
-</div>
-<form action="" method="post">
-  {% csrf_token %}
-  {{ form.xpboost.label_tag }}
-  <select name="{{ form.xpboost.name }}">
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-  </select>
-  {{ form.gatherbonus.label_tag }}
-  <select name="{{ form.gatherbonus.name }}">
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-  </select>
-  {{ form.attackbonus.label_tag }}
-  <select name="{{ form.attackbonus.name }}">
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-  </select>
-  {{ form.marchcap.label_tag }}
-  <select name="{{ form.marchcap.name }}">
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-  </select>
-  {{ form.defcap.label_tag }}
-  <select name="{{ form.defcap.name }}">
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-  </select>
-  {{ form.attackboost.label_tag }}
-  <select name="{{ form.attackboost.name }}">
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-  </select>
-  {{ form.defbonus.label_tag }}
-  <select name="{{ form.defbonus.name }}">
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-  </select>
-    {{ form.statsforallies.label_tag }}
-    <select name="{{ form.statsforallies.name }}">
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-    </select>
-    {{ form.bonusforallies.label_tag }}
-    <select name="{{ form.bonusforallies.name }}">
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-    </select>
-    {{ form.marchboost.label_tag }}
-    <select name="{{ form.marchboost.name }}">
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-    </select>
-    {{ form.abilityboost.label_tag }}
-    <select name="{{ form.abilityboost.name }}">
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-    </select>
-    {{ form.marchcap2.label_tag }}
-    <select name="{{ form.marchcap2.name }}">
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-      <option value="13">13</option>
-      <option value="14">14</option>
-      <option value="15">15</option>
-      <option value="16">16</option>
-      <option value="17">17</option>
-      <option value="18">18</option>
-      <option value="19">19</option>
-    </select>
-   <input type="submit" value="Submit">
-</form>
-{% endif %}
+  <div class="help-wrapper s-b-flx">
+    <img id="masteryHelp" class="helpIco" src="{% static 'img/svg/help-ico.svg' %}">
+    <p class="hide">0</p>
+  </div>
+  <!-- End help modal -->
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="iasg">
+      <span>
+        {{ form.xpboost.label_tag }}
+        <select name="{{ form.xpboost.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.gatherbonus.label_tag }}
+        <select name="{{ form.gatherbonus.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.attackbonus.label_tag }}
+        <select name="{{ form.attackbonus.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.marchcap.label_tag }}
+        <select name="{{ form.marchcap.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.defcap.label_tag }}
+        <select name="{{ form.defcap.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.attackboost.label_tag }}
+        <select name="{{ form.attackboost.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.defbonus.label_tag }}
+        <select name="{{ form.defbonus.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.statsforallies.label_tag }}
+        <select name="{{ form.statsforallies.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.bonusforallies.label_tag }}
+        <select name="{{ form.bonusforallies.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.marchboost.label_tag }}
+        <select name="{{ form.marchboost.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.abilityboost.label_tag }}
+        <select name="{{ form.abilityboost.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+      <span>
+        {{ form.marchcap2.label_tag }}
+        <select name="{{ form.marchcap2.name }}">
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </select>
+      </span>
+    </div>
+    <div class="flx flx-jc-fe">
+      <input type="submit" value="Calculate">
+    </div>
+  </form>
+</section>
 {%endblock%}

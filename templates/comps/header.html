@@ -9,9 +9,25 @@
         <li>
           <a href="{% url 'timer' %}">Timer</a>
         </li>
-        <li>
-          <a href="{% url 'prices' %}">Ally Prices</a>
-        </li>
+        <div>
+          <li>
+            <a id="ally-sub-link" class="sub-link" href="#">Allies <img class="sub-icon"
+                src="{% static 'img/svg/arrow-down-icon.svg' %}"></a>
+          </li>
+          <!-- Sub menu -->
+          <ul class="ally-nav-sub">
+            <li>
+              <a href="{% url 'prices' %}">Ally Prices</a>
+            </li>
+            <li>
+              <a href="{% url 'allies' %}">Allies</a>
+            </li>
+            <li>
+              <a href="{% url 'namechanges' %}">Name Changes</a>
+            </li>
+          </ul>
+          <!-- End sub menu -->
+        </div>
         <div>
           <li>
             <a id="main-sub-link" class="sub-link" href="#">Heck Calculators <img class="sub-icon"
@@ -19,6 +35,9 @@
           </li>
           <!-- Sub menu -->
           <ul class="main-nav-sub">
+            <li>
+              <a href="">Ally Stats</a>
+            </li>
             <li>
               <a href="{% url 'MasteryCalculator' %}">Mastery Calculator</a>
             </li>
@@ -39,16 +58,25 @@
         </div>
         <div>
           <li>
-            <a id="realm-sub-link" class="sub-link" href="#">Realm Maps <img class="sub-icon"
+            <a id="realm-sub-link" class="sub-link" href="#">Realm <img class="sub-icon"
                 src="{% static 'img/svg/arrow-down-icon.svg' %}"></a>
           </li>
           <!-- Sub menu -->
           <ul class="realm-nav-sub">
             <li>
+              <a href="">Realm Chat</a>
+            </li>
+            <li>
               <a href="{% url 'world' %}?realm=10">Realm 10</a>
             </li>
             <li>
               <a href="{% url 'world' %}?realm=23">Realm 23</a>
+            </li>
+            <li>
+              <a href="{% url 'world' %}?realm=99">Realm 99</a>
+            </li>
+            <li>
+              <a href="{% url 'world' %}?realm=106">Realm 106</a>
             </li>
             <li>
               <a href="{% url 'world' %}?realm=128">Realm 128</a>
@@ -60,10 +88,7 @@
           <!-- End sub menu -->
         </div>
         <li>
-          <a href="{% url 'allies' %}">Allies</a>
-        </li>
-        <li>
-          <a href="{% url 'namechanges' %}">Name Changes</a>
+          <a href="#">Community</a>
         </li>
         <li>
           <a href="{% url 'DevBlog' %}">Blog</a>
@@ -75,21 +100,17 @@
       </ul>
     </span>
     <ul class="user-menu">
-      {% if user.is_authenticated %}
-      <a href="#">
-        <li class="btn round s-solid">Community</li>
-      </a>
-      {% endif %}
       <div>
         <div class="user-account-sub">
           {% if user.is_authenticated %}
           <a id="account-btn" href="#">
-            <li class="btn round s-outline">
-              <img src="{% static 'img/svg/burger-menu-icon.svg' %}"> {{ user.username }}
+            <li class="flx center-flx">
+              <img src="{% static 'img/svg/burger-menu-icon.svg' %}">
             </li>
           </a>
           <!-- Sub menu -->
           <ul class="main-account-sub">
+            <p class="userMenu-Greeting flx">Hello,<span class="usernameTitle">{{ user.username }}</span>!</p>
             <li><a class="replace-0" href="{% url 'account' %}">View Account</a></li>
             {% if user.is_staff %}
             <li><a href="{% url 'admin:index' %}">Admin</a></li>

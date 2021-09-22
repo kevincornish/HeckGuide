@@ -7,9 +7,7 @@ app = Celery('tasks', broker='redis://localhost')
 @shared_task
 def scrape_world():
   staytoken = settings.STAY_ALIVE_TOKEN
-  tokens = [settings.HECKFIRE_API_TOKEN, settings.TOKEN_106,
-            settings.TOKEN_10,settings.TOKEN_128,settings.TOKEN_129,
-            settings.TOKEN_99]
+  tokens = settings.TOKENS
   for token in tokens:
     importer = WorldImporter(token=token, staytoken=staytoken)
     importer.execute(lowerbound=1868, upperbound=6328)

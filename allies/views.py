@@ -39,12 +39,15 @@ class NameChangeListView(LoginRequiredMixin, ListView):
     context_object_name = 'historicalallies'
 
     def get_queryset(self):
-        username = self.request.GET.get('username')
-        object_list = HistoricalAlly.objects.all().values("username", "user_id", "group_tag").order_by('username').distinct()
-        if username:
-            user_list = object_list.filter(username__iexact=username)
-            user_id = user_list[0]["user_id"]
-            object_list = user_list.filter(user_id=user_id)
+        try:
+            username = self.request.GET.get('username')
+            object_list = HistoricalAlly.objects.all().values("username", "user_id", "group_tag").order_by('username').distinct()
+            if username:
+                user_list = object_list.filter(username__iexact=username)
+                user_id = user_list[0]["user_id"]
+                object_list = user_list.filter(user_id=user_id)
+        except IndexError:
+            pass
         return object_list
 
     def get_context_data(self, **kwargs):

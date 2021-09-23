@@ -61,9 +61,9 @@ Scrapes a set number of allies '5000' already in the database without fully popu
 ```
 python manage.py crawl_allies_by_name 5000 3
 ```
-Scrapes allys by initial price '500000' and set number of pages '1' then increments price, option to pick a token
+Scrapes allys by price '500000' and set number of pages '1', a random token will be picked to scrape.
 ```
-python manage.py find_allies_by_price 500000 1 1
+python manage.py find_allies_by_price 500000 1
 ```
 Scrapes allys by random price and random number of pages
 ```

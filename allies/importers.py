@@ -62,32 +62,24 @@ class BaseAllyImporter:
 
 class AllyByPriceImporter(BaseAllyImporter):
     def execute(self,  price: int, page_count: int):
-        while price < 7800000000:
-            logger.info(f"Starting ally crawler for price: {price} with page count: {page_count}")
-            for i in range(page_count):
-                try:
-                    data = self.api.get_allies_by_price(price, i)
-                except TokenException as e:
-                    logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
-                    time.sleep(60)
+        logger.info(f"Starting ally crawler for price: {price} with page count: {page_count}")
+        for i in range(page_count):
+            try:
                 data = self.api.get_allies_by_price(price, i)
-                allies = self.format_allies(data['allies'])
-                self.update_or_create_allies(allies)
-                self.create_historical_allies(allies)
+            except TokenException as e:
+                logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
+                time.sleep(60)
+            data = self.api.get_allies_by_price(price, i)
+            allies = self.format_allies(data['allies'])
+            self.update_or_create_allies(allies)
+            self.create_historical_allies(allies)
 
-            logger.info(f"Created {self.created_count} records")
-            logger.info(f"Updated {self.updated_count} records")
-            price += 100000
-            if price > 1000000000:
-                price += 10000000
-            if price > 1100000000:
-                price += 40000000
-            stay_alive = self.api.stay_alive()
-            logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
-            self.api.collect_loot()
-            logger.info(f"Collecting Loot")
-            if price > 7700000000:
-                price = 100000
+        logger.info(f"Created {self.created_count} records")
+        logger.info(f"Updated {self.updated_count} records")
+        stay_alive = self.api.stay_alive()
+        logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
+        self.api.collect_loot()
+        logger.info(f"Collecting Loot")
 
 class RandomAllyByPriceImporter(BaseAllyImporter):
     def execute(self):

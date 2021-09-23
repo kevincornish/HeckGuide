@@ -22,7 +22,6 @@ Windows
 
 Install requirements for local development
 ```
-pip install -r requirements/base.txt
 pip install -r requirements/local.txt
 ```
 
@@ -58,17 +57,17 @@ Development website
 https://v2.heckguide.com/
 ```
 ## Commands 
-Scrapes a set number of allies '5000' already in the database without fully populated info and fills them, then scrapes the owner and that owner etc. Depth set to '3', option to pick a token
+Scrapes a set number of allies '5000' already in the database without fully populated info and fills them, then scrapes the owner and that owner etc. Depth set to '3'
 ```
-python manage.py crawl_allies_by_name 5000 3 1
+python manage.py crawl_allies_by_name 5000 3
 ```
 Scrapes allys by initial price '500000' and set number of pages '1' then increments price, option to pick a token
 ```
 python manage.py find_allies_by_price 500000 1 1
 ```
-Scrapes allys by random price and random number of pages, option to pick a token
+Scrapes allys by random price and random number of pages
 ```
-python manage.py find_random_price_allies 1
+python manage.py find_random_price_allies
 ```
 Purchase an ally via supplied username with token
 ```
@@ -80,7 +79,7 @@ python manage.py volley kevz
 ```
 Strip a users allies, token must be given
 ```
-python manage.py strip_allies kevz
+python manage.py strip_allies kevz 23
 ```
 Scrape the realm starting at the lower boundry of the map, loading 20 chunks and stepping through to the upper end, pick which realm to crawl passing the token argument
 ```

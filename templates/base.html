@@ -57,11 +57,13 @@
             <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Allies</li>
           </a>
           <a id="realm-expand-link" href="#">
-            <li><img src="{% static 'img/svg/mob-bolt-icon.svg' %}"> Realm Maps <img class="sub-icon"
-                src="{% static 'img/svg/arrow-down-icon.svg' %}"></li>
+            <li>
+              <img src="{% static 'img/svg/mob-bolt-icon.svg' %}"> Realm Maps 
+              <img class="sub-icon" src="{% static 'img/svg/arrow-down-icon.svg' %}">
+            </li>
           </a>
-          <!-- Sub menu -->
-          <ul class="realm-nav-sub">
+          <!-- Realm Maps sub menu -->
+          <ul class="realm-mob-sub">
             <li>
               <a href="{% url 'realmchat' %}">Realm Chat</a>
             </li>

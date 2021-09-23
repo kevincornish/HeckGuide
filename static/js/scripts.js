@@ -23,7 +23,7 @@ $('#calc-expand-link').click(function () {
 });
 
 $('#realm-expand-link').click(function () {
-  $(".mob-sub-realm").toggleClass("mob-sub-show");
+  $(".realm-mob-sub").toggleClass("mob-sub-show");
 });
 
 $('#main-sub-link, .main-nav-sub').hover(function () {

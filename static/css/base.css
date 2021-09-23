@@ -1071,9 +1071,6 @@ footer li {
 
   .mob-nav ul {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 
   .mob-nav a {
@@ -1101,26 +1098,20 @@ footer li {
     margin-bottom: 64px;
   }
 
-  .top-c,
-  .mob-sub,
-  .mob-sub-realm {
+  .top-c {
     margin-left: calc(20px + 24px);
   }
 
   .mob-sub,
-  .mob-sub-realm {
+  .realm-mob-sub {
     height: 0;
     overflow: hidden;
   }
 
-  .mob-sub,
-  .mob-sub-realm a {
+  .mob-sub a,
+  .realm-mob-sub a {
     color: var(--white);
-  }
-
-  .mob-sub,
-  .mob-sub-realm li {
-    margin-bottom: 8px !important;
+    opacity: 0.65;
   }
 
   .mob-sub-show {

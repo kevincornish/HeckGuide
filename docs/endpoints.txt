@@ -1,0 +1,134 @@
+https://api.kingdomsofheckfire.com/game/ally/get_allies - returns the logged in accounts allys
+https://api.kingdomsofheckfire.com/game/ally/get_ally?ally_user_id=2126503881 - same as search user ally name i think?
+https://api.kingdomsofheckfire.com/game/ally/get_ally?ally_user_id=2126503881 - looks like it returns the logged accs in ally stats
+https://api.kingdomsofheckfire.com/game/ally/get_status - as if ur searching ur own name on allys
+https://api.kingdomsofheckfire.com/game/ally/search_allies?max_cost=32343434 - search ally by price
+https://api.kingdomsofheckfire.com/game/ally/search_allies_by_username?ally_username=BattleKitty - search ally by name
+
+https://api.kingdomsofheckfire.com/game/auth/create_user - not tested
+https://api.kingdomsofheckfire.com/game/auth/resume_connection - not tested
+https://api.kingdomsofheckfire.com/game/check_in/advance_user_check_in_reward - idk
+https://api.kingdomsofheckfire.com/game/check_in/collect_user_check_in_reward - idk
+https://api.kingdomsofheckfire.com/game/check_in/get_user_check_in_reward_status - idk
+https://api.kingdomsofheckfire.com/game/city/poll_land - this has a clusterfuck of data?
+
+https://api.kingdomsofheckfire.com/game/clan_reward/clear_all_user_clan_chest 
+https://api.kingdomsofheckfire.com/game/clan_reward/clear_user_clan_chest 
+https://api.kingdomsofheckfire.com/game/clan_reward/collect_all_user_clan_chest 
+https://api.kingdomsofheckfire.com/game/clan_reward/get_group_clan_chest_reward_stats
+https://api.kingdomsofheckfire.com/game/clan_reward/get_user_clan_chest_reward_stats
+https://api.kingdomsofheckfire.com/game/clan_reward/open_user_clan_chest
+https://api.kingdomsofheckfire.com/game/competition/get_leaderboards
+
+//These are those crappy quests u can do for like 25 gems // might be good to grab these and start them to look human
+https://api.kingdomsofheckfire.com/game/duration_quests/get_city_quests
+https://api.kingdomsofheckfire.com/game/duration_quests/start_city_quest
+https://api.kingdomsofheckfire.com/game/duration_quests/get_clan_quests
+https://api.kingdomsofheckfire.com/game/duration_quests/start_clan_quest
+https://api.kingdomsofheckfire.com/game/duration_quests/get_quests
+
+//Clan Management
+https://api.kingdomsofheckfire.com/game/group/accept_join
+https://api.kingdomsofheckfire.com/game/group/create_group
+https://api.kingdomsofheckfire.com/game/group/delete_group
+https://api.kingdomsofheckfire.com/game/group/drop_memeber
+https://api.kingdomsofheckfire.com/game/group/change_group_owner
+https://api.kingdomsofheckfire.com/game/group/get_group
+
+
+//Search Clans
+https://api.kingdomsofheckfire.com/game/group/get_group?group_id=537623183
+https://api.kingdomsofheckfire.com/game/group/get_members?group_id=1871412095
+https://api.kingdomsofheckfire.com/game/group/get_user_group_status
+https://api.kingdomsofheckfire.com/game/group/get_group_for_user
+https://api.kingdomsofheckfire.com/game/group/get_join_requests
+https://api.kingdomsofheckfire.com/game/group/get_recommended_groups
+https://api.kingdomsofheckfire.com/game/group/leave_group
+https://api.kingdomsofheckfire.com/game/group/reject_join
+https://api.kingdomsofheckfire.com/game/group/search_groups
+https://api.kingdomsofheckfire.com/game/group/set_allow_join
+https://api.kingdomsofheckfire.com/game/group/set_auto_accept_join
+https://api.kingdomsofheckfire.com/game/group/set_description
+https://api.kingdomsofheckfire.com/game/group/set_group_avatar
+https://api.kingdomsofheckfire.com/game/group/set_group_coordinate
+https://api.kingdomsofheckfire.com/game/group/set_language
+https://api.kingdomsofheckfire.com/game/group/set_member_role
+https://api.kingdomsofheckfire.com/game/group_wall/get_blocked_users
+https://api.kingdomsofheckfire.com/game/group_wall/get_comments
+https://api.kingdomsofheckfire.com/game/group_wall/is_blocked_user
+https://api.kingdomsofheckfire.com/game/group_wall/set_blocked_user
+https://api.kingdomsofheckfire.com/game/group_wall/post_comment
+
+
+//Heros (Dragons)
+https://api.kingdomsofheckfire.com/game/hero/gamestate/
+https://api.kingdomsofheckfire.com/game/hero/speedup_rank_up
+https://api.kingdomsofheckfire.com/game/hero/speedup_tier_up_with_tokens
+https://api.kingdomsofheckfire.com/game/hero/rank_up
+https://api.kingdomsofheckfire.com/game/hero/hire
+https://api.kingdomsofheckfire.com/game/hero/tier_up
+https://api.kingdomsofheckfire.com/game/invite/collect_chests
+https://api.kingdomsofheckfire.com/game/invite/get_info
+https://api.kingdomsofheckfire.com/game/invite/get_members
+https://api.kingdomsofheckfire.com/game/invite/gift_chests
+https://api.kingdomsofheckfire.com/game/invite/set_inviter
+
+//Leaderboards
+https://api.kingdomsofheckfire.com/game/leaderboard/get_group_power_leaderboard/
+https://api.kingdomsofheckfire.com/game/leaderboard/get_group_troopkill_leaderboard/
+https://api.kingdomsofheckfire.com/game/leaderboard/get_user_power_leaderboard/
+https://api.kingdomsofheckfire.com/game/leaderboard/get_user_rule_realm_scores/
+https://api.kingdomsofheckfire.com/game/leaderboard/get_user_troopkill_leaderboard/
+
+//Account
+https://api.kingdomsofheckfire.com/game/link/ata_create_account/
+
+//Mail
+https://api.kingdomsofheckfire.com/game/mail_receipt/cancel_mail_receipt/
+https://api.kingdomsofheckfire.com/game/message/clear_mails/
+https://api.kingdomsofheckfire.com/game/message/get_blocked_users_data/
+https://api.kingdomsofheckfire.com/game/message/is_blocked_user/
+https://api.kingdomsofheckfire.com/game/message/mark_mail_read/
+https://api.kingdomsofheckfire.com/game/message/remove_mail/
+https://api.kingdomsofheckfire.com/game/message/send_global_message/
+https://api.kingdomsofheckfire.com/game/message/send_group_chat/
+https://api.kingdomsofheckfire.com/game/message/send_group_combat_result/
+https://api.kingdomsofheckfire.com/game/message/send_group_mail/
+https://api.kingdomsofheckfire.com/game/message/send_group_scout_result/
+https://api.kingdomsofheckfire.com/game/message/send_mail/
+https://api.kingdomsofheckfire.com/game/message/set_blocked_user/
+https://api.kingdomsofheckfire.com/game/message/set_notices_last_viewed_id/
+https://api.kingdomsofheckfire.com/game/message/update_group_topic/
+https://api.kingdomsofheckfire.com/game/nonessential/get_combat
+https://api.kingdomsofheckfire.com/game/nonessential/get_resource_node_instance
+https://api.kingdomsofheckfire.com/game/nonessential/get_user_activities
+https://api.kingdomsofheckfire.com/game/nonessential/get_user_activity
+https://api.kingdomsofheckfire.com/game/nonessential/get_user_march
+https://api.kingdomsofheckfire.com/game/nonessential/get_user_marches
+https://api.kingdomsofheckfire.com/game/nonessential/get_world_pve_instance
+https://api.kingdomsofheckfire.com/game/nonessential/poll_clan_realm_state/
+https://api.kingdomsofheckfire.com/game/nonessential/poll_segments_realm_state
+https://api.kingdomsofheckfire.com/game/nonessential/poll_shard_realm_state/
+https://api.kingdomsofheckfire.com/game/nonessential/world_user_state/
+https://api.kingdomsofheckfire.com/game/quests/get_city_quests/
+https://api.kingdomsofheckfire.com/game/quests/get_clan_timer_quests/
+https://api.kingdomsofheckfire.com/game/quests/get_quests/
+https://api.kingdomsofheckfire.com/game/quests/get_realm_quests/
+https://api.kingdomsofheckfire.com/game/quests/get_story_quests/
+https://api.kingdomsofheckfire.com/game/quests/start_city_timer_quest/
+https://api.kingdomsofheckfire.com/game/quests/start_realm_quest/
+https://api.kingdomsofheckfire.com/game/quests/start_story_quest/
+https://api.kingdomsofheckfire.com/game/raid/cancel_raid_instance
+https://api.kingdomsofheckfire.com/game/raid/create_raid_instance
+https://api.kingdomsofheckfire.com/game/timer/get_timer_help_requests/
+https://api.kingdomsofheckfire.com/game/timer/send_timer_helps/
+https://api.kingdomsofheckfire.com/game/user/get_other_user_packet/
+https://api.kingdomsofheckfire.com/game/user/get_other_users_packet/
+https://api.kingdomsofheckfire.com/game/user/get_user_packet/
+https://api.kingdomsofheckfire.com/game/user/search_by_name/
+https://api.kingdomsofheckfire.com/game/user/select_avatar/
+https://api.kingdomsofheckfire.com/game/version/get_tech_tree_branch
+https://api.kingdomsofheckfire.com/game/world/find_site
+https://api.kingdomsofheckfire.com/game/world/get_user_city
+https://api.kingdomsofheckfire.com/game/world/get_world_state_by_coordinates
+https://api.kingdomsofheckfire.com/game/world/spawn_site

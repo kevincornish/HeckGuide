@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'invitations',
 	'home',
     'blog',
+    'discordbot',
 	'django_summernote',
     'allies',
     'world',
@@ -62,6 +63,13 @@ REST_FRAMEWORK = {
     ],
 }
 
+#Discord
+DISCORD_BOT_PREFIX = env("discord_bot_prefix")
+DISCORD_TOKEN = env("discord_token")
+DISCORD_API_TOKEN = env("discord_api_token")
+DISCORD_BASE_URL = env("discord_base_url")
+DISCORD_APPLICATION_ID = env("discord_application_id")
+DISCORD_OWNERS = env.list("discord_owners")
 
 #Tokens
 HECKFIRE_API_TOKEN = env("TOKEN")

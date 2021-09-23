@@ -1,8 +1,6 @@
 import random
 from django.core.management.base import BaseCommand, CommandError
-from api import HeckfireApi, TokenException
 from allies.importers import UpdateAllyImporter
-from allies.models import Ally
 
 from django.conf import settings
 

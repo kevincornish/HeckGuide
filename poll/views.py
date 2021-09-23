@@ -24,6 +24,6 @@ class RealmChatView(ListView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        object_list = (RealmChat.objects.all())
+        object_list = (RealmChat.objects.all().exclude(region__isnull=True))
         data['realms'] = object_list.distinct('region')
         return data

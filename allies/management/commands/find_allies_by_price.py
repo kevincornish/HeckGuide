@@ -27,5 +27,7 @@ class Command(BaseCommand):
             token = settings.TOKEN_128
         elif options['token'] == 129:
             token = settings.TOKEN_129
+        elif options['token'] == 121:
+            token = settings.TOKEN_121
         importer = AllyByPriceImporter(token=token, staytoken=staytoken)
         importer.execute(options['price'], options['page_count'])

@@ -30,7 +30,7 @@
           <ul class="flex-left">
             <li class="footer-ul-label">Heck Calculators</li>
             <li>
-              <a href="">Ally Stats</a>
+              <a href="{% url 'AllyStatCalculator' %}">Ally Stats</a>
             </li>
             <li>
               <a href="{% url 'MasteryCalculator' %}">Mastery</a>
@@ -51,7 +51,7 @@
           <ul class="flex-left">
             <li class="footer-ul-label">Realm</li>
             <li>
-              <a href="">Realm Chat</a>
+              <a href="{% url 'realmchat' %}">Realm Chat</a>
             </li>
             <li>
               <a href="{% url 'world' %}?realm=10">Realm 10</a>
@@ -64,6 +64,9 @@
             </li>
             <li>
               <a href="{% url 'world' %}?realm=106">Realm 106</a>
+            </li>
+            <li>
+              <a href="{% url 'world' %}?realm=121">Realm 121</a>
             </li>
             <li>
               <a href="{% url 'world' %}?realm=128">Realm 128</a>

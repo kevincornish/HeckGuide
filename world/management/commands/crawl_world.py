@@ -27,5 +27,7 @@ class Command(BaseCommand):
             token = settings.TOKEN_99
         elif options['token'] == 129:
             token = settings.TOKEN_129
+        elif options['token'] == 121:
+            token = settings.TOKEN_121
         importer = WorldImporter(token=token, staytoken=staytoken)
         importer.execute(lowerbound=1868, upperbound=6328)

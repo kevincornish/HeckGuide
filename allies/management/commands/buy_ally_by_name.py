@@ -31,6 +31,8 @@ class Command(BaseCommand):
             token = settings.TOKEN_128
         elif options['token'] == 129:
             token = settings.TOKEN_129
+        elif options['token'] == 121:
+            token = settings.TOKEN_121
         username = options['username']
         api = HeckfireApi(token=token, staytoken=staytoken)
         ally = api.get_ally_by_name(username)

@@ -27,6 +27,8 @@ class Command(BaseCommand):
             token = settings.TOKEN_128
         elif options['token'] == 129:
             token = settings.TOKEN_129
+        elif options['token'] == 121:
+            token = settings.TOKEN_121
         username = options['username']
         user_list = Ally.objects.filter(owner__username__iexact=username).values("user_id", "cost", "username")
         api = HeckfireApi(token=token, staytoken=staytoken)

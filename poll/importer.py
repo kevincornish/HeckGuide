@@ -70,6 +70,5 @@ class ChatImporter:
         try:
             segments = self.format_segments(data)
             self.update_or_create_segments(segments)
-            time.sleep(20)
         except IndexError as e:
             logger.info(f"Index Error Exception: {e}")

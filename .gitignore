@@ -163,6 +163,6 @@ pip-selfcheck.json
 
 # Local History for Visual Studio Code
 .history/
-
+.DS_Store
 #Django
 /media/django-summernote/*

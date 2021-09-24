@@ -1,1 +1,42 @@
-{"ally": {"user_id": 2125612517, "username": "Bhong", "avatar_type": 1, "avatar_id": 1901020003, "owner": {"user_id": 1287492654, "username": "Barley44", "id": 1287492654, "avatar_type": 1, "avatar_id": 168, "last_shard_transfer": null, "home_world_id": null, "group_tag": "DBZ", "group_id": 1800108922, "power": null, "troop_kills": null, "active": true}, "cost": 251575473, "previous_cost": 239595689, "group_tag": null, "group_id": null, "active": true, "ally_id": 0, "biome1_attack_multiplier": 0, "biome2_attack_multiplier": 0, "biome3_attack_multiplier": 572, "biome4_attack_multiplier": 538, "biome5_attack_multiplier": 803, "biome6_attack_multiplier": 0, "biome7_attack_multiplier": 0, "biome8_attack_multiplier": 0}, "unlootable_resources": {"1": 0.0, "2": 0.0, "3": 0.0, "4": 0.0}}
+{
+  "ally": {
+    "user_id": 2125612517,
+    "username": "Bhong",
+    "avatar_type": 1,
+    "avatar_id": 1901020003,
+    "owner": {
+      "user_id": 1287492654,
+      "username": "Barley44",
+      "id": 1287492654,
+      "avatar_type": 1,
+      "avatar_id": 168,
+      "last_shard_transfer": null,
+      "home_world_id": null,
+      "group_tag": "DBZ",
+      "group_id": 1800108922,
+      "power": null,
+      "troop_kills": null,
+      "active": true
+    },
+    "cost": 251575473,
+    "previous_cost": 239595689,
+    "group_tag": null,
+    "group_id": null,
+    "active": true,
+    "ally_id": 0,
+    "biome1_attack_multiplier": 0,
+    "biome2_attack_multiplier": 0,
+    "biome3_attack_multiplier": 572,
+    "biome4_attack_multiplier": 538,
+    "biome5_attack_multiplier": 803,
+    "biome6_attack_multiplier": 0,
+    "biome7_attack_multiplier": 0,
+    "biome8_attack_multiplier": 0
+  },
+  "unlootable_resources": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0
+  }
+}

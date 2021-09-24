@@ -1,1 +1,13 @@
-{"user_rule_realm_scores": [{"season_id": 11000222, "season_name": "Hoarding Heckstones", "season_start_date": 1630540800.0, "score": 0}, {"season_id": 11000211, "season_name": "Hoarding Heckstones", "season_start_date": 1628121600.0, "score": 0}]}
+{
+  "user_rule_realm_scores": [{
+    "season_id": 11000222,
+    "season_name": "Hoarding Heckstones",
+    "season_start_date": 1630540800.0,
+    "score": 0
+  }, {
+    "season_id": 11000211,
+    "season_name": "Hoarding Heckstones",
+    "season_start_date": 1628121600.0,
+    "score": 0
+  }]
+}

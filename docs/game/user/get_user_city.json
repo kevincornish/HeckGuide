@@ -1,1 +1,101 @@
-{"world_state": {"game_id": 19, "world_id": 99, "marches": {}, "sites": {"(100, 2125612517)": {"game_id": 19, "world_id": 99, "object_type": 100, "object_id": 2125612517, "x": 481, "y": 707, "level": 15, "size": 47688022, "state": null, "state_expiry_time": null, "name": "Bhong", "description": null, "owner_user_id": 2125612517, "owner_username": "Bhong", "owner_group_id": null, "owner_group_name": null, "components": [{"game_id": 19, "world_id": 99, "model_type": 1, "object_type": 100, "object_id": 2125612517, "component_type": 6, "component_id": 1, "level": 1, "size": 1901020003, "start_time": null, "end_time": null}, {"game_id": 19, "world_id": 99, "model_type": 1, "object_type": 100, "object_id": 2125612517, "component_type": 10, "component_id": 0, "level": 1, "size": 1445000, "start_time": null, "end_time": null}, {"game_id": 19, "world_id": 99, "model_type": 1, "object_type": 100, "object_id": 2125612517, "component_type": 11, "component_id": 0, "level": 1, "size": 0, "start_time": null, "end_time": null}, {"game_id": 19, "world_id": 99, "model_type": 1, "object_type": 100, "object_id": 2125612517, "component_type": 70, "component_id": 0, "level": 99, "size": 0, "start_time": null, "end_time": null}], "timestamp": 1632425070.0, "row_version": 2, "inbound_marches": null, "outbound_marches": null, "activities": null, "z": 0}}, "activities": {}, "events": {}, "segments": {}, "last_marches": {}, "last_sites": {}, "last_activities": {}}, "user_city": {"site_object_id": 2125612517, "shield_expiry_time": 1632183914.0, "last_casting_time": 0.0, "user_city_statuses": {"1000": {"0": 1631751914.0}, "1100": {"0": 0.0}}}}
+{
+  "world_state": {
+    "game_id": 19,
+    "world_id": 99,
+    "marches": {},
+    "sites": {
+      "(100, 2125612517)": {
+        "game_id": 19,
+        "world_id": 99,
+        "object_type": 100,
+        "object_id": 2125612517,
+        "x": 481,
+        "y": 707,
+        "level": 15,
+        "size": 47688022,
+        "state": null,
+        "state_expiry_time": null,
+        "name": "Bhong",
+        "description": null,
+        "owner_user_id": 2125612517,
+        "owner_username": "Bhong",
+        "owner_group_id": null,
+        "owner_group_name": null,
+        "components": [{
+          "game_id": 19,
+          "world_id": 99,
+          "model_type": 1,
+          "object_type": 100,
+          "object_id": 2125612517,
+          "component_type": 6,
+          "component_id": 1,
+          "level": 1,
+          "size": 1901020003,
+          "start_time": null,
+          "end_time": null
+        }, {
+          "game_id": 19,
+          "world_id": 99,
+          "model_type": 1,
+          "object_type": 100,
+          "object_id": 2125612517,
+          "component_type": 10,
+          "component_id": 0,
+          "level": 1,
+          "size": 1445000,
+          "start_time": null,
+          "end_time": null
+        }, {
+          "game_id": 19,
+          "world_id": 99,
+          "model_type": 1,
+          "object_type": 100,
+          "object_id": 2125612517,
+          "component_type": 11,
+          "component_id": 0,
+          "level": 1,
+          "size": 0,
+          "start_time": null,
+          "end_time": null
+        }, {
+          "game_id": 19,
+          "world_id": 99,
+          "model_type": 1,
+          "object_type": 100,
+          "object_id": 2125612517,
+          "component_type": 70,
+          "component_id": 0,
+          "level": 99,
+          "size": 0,
+          "start_time": null,
+          "end_time": null
+        }],
+        "timestamp": 1632425070.0,
+        "row_version": 2,
+        "inbound_marches": null,
+        "outbound_marches": null,
+        "activities": null,
+        "z": 0
+      }
+    },
+    "activities": {},
+    "events": {},
+    "segments": {},
+    "last_marches": {},
+    "last_sites": {},
+    "last_activities": {}
+  },
+  "user_city": {
+    "site_object_id": 2125612517,
+    "shield_expiry_time": 1632183914.0,
+    "last_casting_time": 0.0,
+    "user_city_statuses": {
+      "1000": {
+        "0": 1631751914.0
+      },
+      "1100": {
+        "0": 0.0
+      }
+    }
+  }
+}

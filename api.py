@@ -95,6 +95,45 @@ class HeckfireApi(object):
             raise TokenException(json_data['exception'])
         return chats
 
+    def poll_group_power_leaderboard(self):
+        data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}
+        url = f"{self.base_url}/game/leaderboard/get_group_power_leaderboard"
+        req = requests.get(url, headers=data)
+        json_data = json.loads(req.text)
+        group_power_leaderboard = json_data['group_power_leaderboard_leaders']
+        if json_data.get('exception'):
+            raise TokenException(json_data['exception'])
+        return group_power_leaderboard
+        
+    def poll_group_troopkill_leaderboard(self):
+        data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}
+        url = f"{self.base_url}/game/leaderboard/get_group_troopkill_leaderboard"
+        req = requests.get(url, headers=data)
+        json_data = json.loads(req.text)
+        group_troopkill_leaderboard = json_data['group_troopkill_leaderboard_leaders']
+        if json_data.get('exception'):
+            raise TokenException(json_data['exception'])
+        return group_troopkill_leaderboard
+
+    def poll_user_power_leaderboard(self):
+        data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}
+        url = f"{self.base_url}/game/leaderboard/get_user_power_leaderboard"
+        req = requests.get(url, headers=data)
+        json_data = json.loads(req.text)
+        user_power_leaderboard = json_data['user_power_leaderboard_leaders']
+        if json_data.get('exception'):
+            raise TokenException(json_data['exception'])
+        return user_power_leaderboard
+
+    def poll_user_troopkill_leaderboard(self):
+        data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}
+        url = f"{self.base_url}/game/leaderboard/get_user_troopkill_leaderboard"
+        req = requests.get(url, headers=data)
+        json_data = json.loads(req.text)
+        user_troopkill_leaderboard = json_data['user_troopkill_leaderboard_leaders']
+        if json_data.get('exception'):
+            raise TokenException(json_data['exception'])
+        return user_troopkill_leaderboard
 
     def _post(self, url: str, data: Dict) -> Dict:
         response = requests.post(url, headers=self.headers, data=data)

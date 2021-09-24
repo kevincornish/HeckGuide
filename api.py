@@ -70,6 +70,11 @@ class HeckfireApi(object):
             raise TokenException(json_data['exception'])
         return json_data
 
+    def get_user_by_name(self, username: str) -> Dict:
+        url = f"{self.base_url}/game/user/search_by_name/"
+        data = {"username": username}
+        return self._post(url, data)
+
     def get_ally_by_name(self, username: str) -> Dict:
         url = f"{self.base_url}/game/ally/search_allies_by_username/"
         data = {"ally_username": username}
@@ -94,6 +99,16 @@ class HeckfireApi(object):
         if json_data.get('exception'):
             raise TokenException(json_data['exception'])
         return chats
+
+    def poll_realm_list(self):
+        data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}
+        url = f"{self.base_url}/game/shard/get_transferable_shards/"
+        req = requests.get(url, headers=data)
+        json_data = json.loads(req.text)
+        realms = json_data['shards']
+        if json_data.get('exception'):
+            raise TokenException(json_data['exception'])
+        return realms
 
     def poll_group_power_leaderboard(self):
         data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}

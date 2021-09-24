@@ -10,3 +10,12 @@ class RealmChat(models.Model):
     user_avatar_type = models.IntegerField(null=True)
     type = models.IntegerField(null=True)
     region = models.IntegerField(null=True)
+
+class RealmList(models.Model):
+    id = models.IntegerField(primary_key=True, db_index=True)
+    spawned_user_count = models.IntegerField(null=True)
+    maximum_transfer_power = models.IntegerField(null=True)
+    maximum_transfer_townhall_level = models.IntegerField(null=True)
+    name = models.CharField(max_length=255, null=True)
+    subname = models.CharField(max_length=255, null=True)
+    pvp_rating = models.CharField(max_length=255, null=True)

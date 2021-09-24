@@ -1,0 +1,111 @@
+{
+  "other_users": {
+    "515112140": {
+      "user": {
+        "user_id": 515112140,
+        "username": "BattleKitty",
+        "id": 515112140,
+        "avatar_type": 1,
+        "avatar_id": 147,
+        "last_shard_transfer": 1630700617.0,
+        "home_world_id": 23,
+        "group_tag": "CK2",
+        "group_id": 1893432190,
+        "power": 8473460059,
+        "troop_kills": 67483287,
+        "active": true
+      },
+      "group_info": {
+        "group_id": 1893432190,
+        "group_name": "Cuties Only",
+        "role": 1,
+        "title": null,
+        "group_tag": "CK2",
+        "group_avatar_id": null
+      },
+      "ally": {
+        "user_id": 515112140,
+        "username": "BattleKitty",
+        "avatar_type": 1,
+        "avatar_id": 147,
+        "owner": {
+          "user_id": 213107338,
+          "username": "Naughty",
+          "id": 213107338,
+          "avatar_type": 1,
+          "avatar_id": 223,
+          "last_shard_transfer": null,
+          "home_world_id": null,
+          "group_tag": "HJR",
+          "group_id": 1311472270,
+          "power": null,
+          "troop_kills": null,
+          "active": true
+        },
+        "cost": 2152769044,
+        "previous_cost": 2050256233,
+        "group_tag": "CK2",
+        "group_id": 1893432190,
+        "active": true,
+        "ally_id": 0,
+        "biome1_attack_multiplier": 0,
+        "biome2_attack_multiplier": 0,
+        "biome3_attack_multiplier": 4376,
+        "biome4_attack_multiplier": 4732,
+        "biome5_attack_multiplier": 4376,
+        "biome6_attack_multiplier": 0,
+        "biome7_attack_multiplier": 0,
+        "biome8_attack_multiplier": 0
+      },
+      "allies": [{
+        "user_id": 515112140,
+        "username": "BattleKitty",
+        "avatar_type": 1,
+        "avatar_id": 147,
+        "owner": {
+          "user_id": 213107338,
+          "username": "Naughty",
+          "id": 213107338,
+          "avatar_type": 1,
+          "avatar_id": 223,
+          "last_shard_transfer": null,
+          "home_world_id": null,
+          "group_tag": "HJR",
+          "group_id": 1311472270,
+          "power": null,
+          "troop_kills": null,
+          "active": true
+        },
+        "cost": 2152769044,
+        "previous_cost": 2050256233,
+        "group_tag": "CK2",
+        "group_id": 1893432190,
+        "active": true,
+        "ally_id": 0,
+        "biome1_attack_multiplier": 0,
+        "biome2_attack_multiplier": 0,
+        "biome3_attack_multiplier": 4376,
+        "biome4_attack_multiplier": 4732,
+        "biome5_attack_multiplier": 4376,
+        "biome6_attack_multiplier": 0,
+        "biome7_attack_multiplier": 0,
+        "biome8_attack_multiplier": 0
+      }],
+      "ally_stats_info": {
+        "count": 134,
+        "max_count": 136,
+        "total_cost": 18362165112,
+        "biome1_attack_multiplier": 0,
+        "biome2_attack_multiplier": 0,
+        "biome3_attack_multiplier": 41373,
+        "biome4_attack_multiplier": 61810,
+        "biome5_attack_multiplier": 39552,
+        "biome6_attack_multiplier": 0,
+        "biome7_attack_multiplier": 0,
+        "biome8_attack_multiplier": 0,
+        "resource_bonus": 17494
+      },
+      "user_rule_realm_scores": null
+    }
+  }
+}

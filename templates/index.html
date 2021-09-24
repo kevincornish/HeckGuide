@@ -8,34 +8,17 @@
   <h2>Welcome {{ user.username }} !</h2>
   <p>Join the <a href="https://discord.gg/TRutDYrw9K">Discord</a> to gain access to our Heckguide Discord bots.</p>
 </div>
-{%else%}
-Donate and unlock access to these features
-<div class="subscription s-b-flx">
-  <ul class="prices">
-    <li class="header">Basic</li>
-    <li class="grey">$ 1 / month</li>
-    <li>Ally Scraper (Web) ✔</li>
-    <li>Realm Scraper (Web) ✔</li>
-    <li>Name/Clan Changes (Web) ✔</li>
-  </ul>
-  <ul class="prices">
-    <li class="header">Premium</li>
-    <li class="grey">$ 2 / month</li>
-    <li>Ally and Realm Bots (Discord) ✔</li>
-    <li>Name/Clan Changes (Discord) ✔</li>
-  </ul>
-  <ul class="prices">
-    <li class="header">Full Access</li>
-    <li class="grey">$ 3 / month</li>
-    <li>Titan Alert Notifications ✔</li>
-</div>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-  <input type="hidden" name="cmd" value="_s-xclick" />
-  <input type="hidden" name="hosted_button_id" value="RJ4K9TMNMYX9A" />
-  <input type="hidden" name="return" value="https://heckguide.com/">
-  <div>
-    <input type="submit" name="submit" alt="Donate with PayPal button" value="Donate">
-  </div>
-</form>
 {%endif%}
+<div class="realm-list">
+  {% for realm in realm_list %}
+  <ul class="realms">
+    <li class="header">{{ realm.name }}</li>
+    <li class="grey">{{ realm.subname }}</li>
+    <li>Max Power: {{ realm.maximum_transfer_power }}</li>
+    <li>Max Townhall: {{ realm.maximum_transfer_townhall_level }}</li>
+    <li>Usercount: {{ realm.spawned_user_count }}</li>
+    <li>PVP Rating: {{ realm.pvp_rating }}</li>
+  </ul>
+  {%endfor%}
+</div>
 {%endblock%}

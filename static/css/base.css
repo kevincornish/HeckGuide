@@ -341,52 +341,33 @@ label,
 }
 
 /* Landing Page */
-/* Packages */
-.prices {
+/* Realm List */
+.realms {
   width: 33.3%;
   padding: 8px;
   list-style-type: none;
-  border: 1px solid #eee;
   margin: 0;
   padding: 0;
+  padding-bottom: 25px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.prices .header {
+.realms .header {
   background-color: var(--gray-blue);
   color: white;
-  font-size: 25px;
+  font-size: 15px;
 }
 
-.prices li {
-  border-bottom: 1px solid #eee;
+.realms li {
   background-color: var(--green-1);
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
-.prices .grey {
+.realms .grey {
   background-color: #eee;
   font-size: 20px;
-}
-
-.donate {
-  background-color: var(--yellow-1);
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-/* Change the width of the three columns to 100%
-(to stack horizontally on small screens) */
-@media only screen and (max-width: 600px) {
-  .subscription {
-    width: 100%;
-  }
 }
 
 /* Sign In/Sign Up */

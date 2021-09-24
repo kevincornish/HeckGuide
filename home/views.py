@@ -5,10 +5,12 @@ from django.contrib import messages
 from django.conf import settings
 from .forms import TokenCalculatorForm, BrewCalculatorForm, TroopMightForm, RallyCalculatorForm, MasteryCalculatorForm, WebhookForm, AllyStatForm
 from .models import Webhooks
+from poll.models import RealmList
 from world.models import WorldSegments
 
 def Index(request):
-    return render(request, "index.html")
+  realm_list = RealmList.objects.all().order_by('id')
+  return render(request, "index.html", {'realm_list': realm_list})
 
 def Timer(request):
     return render(request, "timer.html")

@@ -3,7 +3,7 @@ import time
 from typing import Dict, List
 
 from api import HeckfireApi, TokenException
-from .models import RealmChat
+from .models import RealmChat, RealmList
 from discord_webhook import DiscordWebhook
 from home.models import Webhooks
 # Get an instance of a logger
@@ -67,6 +67,62 @@ class ChatImporter:
             logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
             time.sleep(60)
             data = self.api.poll_chat()
+        try:
+            segments = self.format_segments(data)
+            self.update_or_create_segments(segments)
+        except IndexError as e:
+            logger.info(f"Index Error Exception: {e}")
+
+class RealmListImporter:
+    def __init__(self, token: str, staytoken: str):
+        self.api = HeckfireApi(token=token, staytoken=staytoken)
+        self.model_fields = [f.name for f in RealmList._meta.get_fields()]
+        self.created_count = 0
+        self.updated_count = 0
+
+    def format_segments(self, segments) -> List[Dict]:
+        results = []
+        for segment in segments:
+            try:
+                data = {key: value for key, value in segment.items() if key in self.model_fields}
+                data['id'] = self.process_component(data['id'])
+            except (TypeError, AttributeError) as e:
+                pass
+            results.append(data)
+        return results
+
+    def process_component(self, component_data: Dict) -> RealmList:
+        data = {key: value for key, value in component_data.items() if key in self.model_fields}
+        return self.update_or_create_segment(data)
+
+    def update_or_create_segments(self, data: List[Dict]) -> None:
+        for row in data:
+            self.update_or_create_segment(row)
+
+    def update_or_create_segment(self, data: Dict) -> RealmList:
+        segment_data = data.copy()
+        id = segment_data.pop('id')
+        obj, created = RealmList.objects.update_or_create(id=id, defaults=segment_data)
+        self.record_count(created, data)
+        return obj
+
+    def record_count(self, created, data):
+        if created:
+            self.created_count += 1
+        else:
+            self.updated_count += 1
+
+    def execute(self):
+        logger.info(f"Polling Realm List")
+        self.crawl_realm_list()
+
+    def crawl_realm_list(self):
+        try:
+            data = self.api.poll_realm_list()
+        except TokenException as e:
+            logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
+            time.sleep(60)
+            data = self.api.poll_realm_list()
         try:
             segments = self.format_segments(data)
             self.update_or_create_segments(segments)

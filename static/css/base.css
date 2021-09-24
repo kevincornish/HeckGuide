@@ -1443,6 +1443,15 @@ hr {
   text-transform: uppercase;
 }
 
+/* Ally Stat page */
+.allyStat .formInputs-wrapper {
+  margin-bottom: 32px;
+}
+
+.allyStat .formResults__TotalContainerText {
+  text-align: left;
+}
+
 /* Table inputs and selects */
 .margin-r-Inputs input,
 .margin-r-Inputs select,

@@ -1452,6 +1452,23 @@ hr {
   text-align: left;
 }
 
+.allyStat .formResults__Container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.allyStat .formResults__Title p span {
+  color: var(--white);
+}
+
+.allyStat .formResults__Title:nth-child(1) {
+margin-bottom: 1rem;
+}
+
+.allyStat .formResults__Container:nth-child(1) {
+  margin-right: 24px;
+}
+
 /* Table inputs and selects */
 .margin-r-Inputs input,
 .margin-r-Inputs select,

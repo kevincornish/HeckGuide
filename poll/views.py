@@ -12,6 +12,7 @@ class RealmChatView(ListView):
 
     def get_queryset(self):
         player = self.request.GET.get('player')
+        user_id = self.request.GET.get('user_id')
         realm = self.request.GET.get('realm')
         object_list = (
             RealmChat.objects.all().order_by('-timestamp').exclude(message__isnull=True)
@@ -20,6 +21,8 @@ class RealmChatView(ListView):
             object_list = object_list.filter(username__icontains=player)
         if realm:
             object_list = object_list.filter(region__iexact=realm)
+        if user_id:
+            object_list = object_list.filter(user_id__exact=user_id)
         return object_list
 
     def get_context_data(self, **kwargs):

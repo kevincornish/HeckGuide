@@ -4,7 +4,7 @@ import random
 from typing import Dict, List
 
 from api import HeckfireApi, TokenException
-from .models import Ally, HistoricalAlly
+from .models import Ally, HistoricalAlly, Clan
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -159,3 +159,55 @@ class UpdateAllyImporter(BaseAllyImporter):
             logger.info(f"Index Error (Ally changed name since scrape?) Exception: {e}")
         logger.info(f"Created {self.created_count} records")
         logger.info(f"Updated {self.updated_count} records")
+
+class ClanImporter:
+    def __init__(self, token: str, staytoken: str):
+        self.api = HeckfireApi(token=token, staytoken=staytoken)
+        self.model_fields = [f.name for f in Clan._meta.get_fields()]
+        self.created_count = 0
+        self.updated_count = 0
+
+    def format_clan(self, data) -> List[Dict]:
+        results = []
+        try:
+            data = {key: value for key, value in Clan.items() if key in self.model_fields}
+            logger.info(f"Found clan: {data['name']}")
+        except (TypeError, AttributeError) as e:
+            logger.info(f"NoneType Error Exception: {e}")
+        results.append(data)
+        return results
+
+    def update_or_create_allies(self, data: List[Dict]) -> None:
+        for row in data:
+            self.update_or_create_ally(row)
+
+    def update_or_create_ally(self, data: Dict) -> Clan:
+        clan_data = data.copy()
+        id = clan_data.pop('id')
+        obj, created = Clan.objects.update_or_create(id=id, defaults=clan_data)
+        self.record_count(created)
+        return obj
+
+    def record_count(self, created):
+        if created:
+            self.created_count += 1
+        else:
+            self.updated_count += 1
+
+    def execute(self,  group_id: int):
+        logger.info(f"Starting clan crawler: {group_id}")
+        try:
+            data = self.api.get_clan_by_id(group_id)
+        except TokenException as e:
+            logger.info(f"Token exception found, sleeping for 60 seconds before retry. Exception: {e}")
+            time.sleep(60)
+        data = self.api.get_clan_by_id(group_id)
+        clans = self.format_clan(data)
+        self.update_or_create_allies(clans)
+
+        logger.info(f"Created {self.created_count} records")
+        logger.info(f"Updated {self.updated_count} records")
+        stay_alive = self.api.stay_alive()
+        logger.info(f"Keeping token alive: {stay_alive['timestamp']}")
+        self.api.collect_loot()
+        logger.info(f"Collecting Loot")

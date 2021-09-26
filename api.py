@@ -79,6 +79,11 @@ class HeckfireApi(object):
         url = f"{self.base_url}/game/ally/search_allies_by_username/"
         data = {"ally_username": username}
         return self._post(url, data)
+
+    def get_clan_by_id(self, group_id: int) -> Dict:
+        url = f"{self.base_url}/game/group/get_group/"
+        data = {"group_id": group_id}
+        return self._post(url, data)
 	
     def get_allies_by_price(self, price: int, offset: int = 0) -> Dict:
         url = f"{self.base_url}/game/ally/search_allies"

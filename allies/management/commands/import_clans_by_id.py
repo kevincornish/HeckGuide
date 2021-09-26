@@ -14,7 +14,7 @@ class Command(BaseCommand):
         parser.add_argument('seed',  type=int)
 
     def handle(self, *args, **options):
-        clan_list = Ally.objects.all().values('group_id').distinct('group_id')
+        clan_list = Ally.objects.all().exclude(group_id__isnull=True).order_by('-last_modified').values('group_id')
         seed_list = [a['group_id'] for a in clan_list]
         seed_list = seed_list[:options['seed']]
         staytoken = settings.STAY_ALIVE_TOKEN

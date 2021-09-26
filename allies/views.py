@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.db.models import Count
 
-from allies.models import Ally, HistoricalAlly
+from allies.models import Ally, HistoricalAlly, Clan
 
 class AllyListView(LoginRequiredMixin, ListView):
     model = Ally
@@ -48,6 +48,23 @@ class NameChangeListView(LoginRequiredMixin, ListView):
                 object_list = user_list.filter(user_id=user_id)
         except IndexError:
             pass
+        return object_list
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        return data
+
+class ClanListView(ListView):
+    model = Clan
+    paginate_by = 20
+    context_object_name = 'clans'
+
+    def get_queryset(self):
+        realm = self.request.GET.get('realm')
+        object_list = (Clan.objects.all().order_by('-id'))
+        if realm:
+            object_list = object_list.filter(region__exact=realm)
+            
         return object_list
 
     def get_context_data(self, **kwargs):

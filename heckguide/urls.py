@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from allies.views import AllyListView, NameChangeListView
+from allies.views import AllyListView, NameChangeListView, ClanListView
 from world.views import WorldListView
 from poll.views import RealmChatView
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('accounts/', include('allauth.urls')),
     path('allies/', AllyListView.as_view(template_name="allies/allies.html"), name='allies'),
+    path('clans/', ClanListView.as_view(template_name="allies/clans.html"), name='clans'),
     path('name-changes/', NameChangeListView.as_view(template_name="allies/name_changes.html"), name='namechanges'),
     path('world/', WorldListView.as_view(template_name="world/world.html"), name='world'),
     path('realm-chat/', RealmChatView.as_view(template_name="poll/realm_chat.html"), name='realmchat'),

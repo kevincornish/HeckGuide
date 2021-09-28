@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.http.response import Http404
+from django.shortcuts import get_object_or_404, render
+from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.db.models import Count
@@ -66,6 +67,19 @@ class ClanListView(ListView):
             object_list = object_list.filter(region__exact=realm)
             
         return object_list
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['realms'] = Clan.objects.all().distinct('region')
+        return data
+
+class ClanDetailView(DetailView):
+    model = Clan
+    context_object_name = 'clan'
+    def get(self, request, *args, **kwargs):
+        clan = get_object_or_404(Clan, tag=kwargs['tag'])
+        context = {'clan': clan}
+        return render(request, 'allies/clan_detail.html', context)
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)

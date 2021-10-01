@@ -25,13 +25,14 @@ class WorldImporter:
                 data = {key: value for key, value in segment.items() if key in self.model_fields}
                 if data['owner_username']:
                     logger.info(f"Found player: {data['owner_username']} Clan: {data['owner_group_name']}")
+                if "Titan [Lv" in data['name']:
+                    self.api.message_clan(f"{data['name']} X: {data['x']} Y: {data['y']}")
                 for webhook in self.webhooks.iterator():
                     item = webhook.item
                     hookurl = webhook.hookurl
                     realm = webhook.realm
                     if data['name'] == item and data['owner_username'] is None:
                         if data['world_id'] == realm:
-                            self.api.message_clan(f"{data['name']} X: {data['x']} Y: {data['y']}")
                             webhook = DiscordWebhook(url=(f'{hookurl}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
                             webhook.execute()
                 data['name'] = self.process_component(data['name'])

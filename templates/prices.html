@@ -28,53 +28,116 @@
     </li>
   </ul>
 
-  <div id="content_1" class="tabContent">
+  <div id="content_1" class="tabContent" data-clipboard-text="{{ price }}">
     {% for price in prices_1 %}
-    <p>
-      <div data-clipboard-text="{{ price }}">{{ price }}</div>
-    </p>
+    <div class="pricesTable__Wrapper flx">
+      <div class="pricesTable__Content flx s-b-flx">
+        <div class="center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/coin-prices-icon.svg' %}">
+          <div class="pricesTable__Price">{{ price }}</div>
+        </div>
+        <div class="pricesCopyBtn center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/copy-prices-icon.svg' %}">
+          <p>Copy Price</p>
+        </div>
+      </div>
+    </div>
     {%endfor%}
   </div>
-  <div id="content_2" class="tabContent" style="display:none;">
+  <div id="content_2" class="tabContent">
     {% for price in prices_2 %}
-    <p>
-      <div data-clipboard-text="{{ price }}">{{ price }}</div>
-    </p>
+    <div class="pricesTable__Wrapper flx" data-clipboard-text="{{ price }}">
+      <div class="pricesTable__Content flx s-b-flx">
+        <div class="center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/coin-prices-icon.svg' %}">
+          <div class="pricesTable__Price">{{ price }}</div>
+        </div>
+        <div class="pricesCopyBtn center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/copy-prices-icon.svg' %}">
+          <p>Copy Price</p>
+        </div>
+      </div>
+    </div>
     {%endfor%}
   </div>
-  <div id="content_3" class="tabContent" style="display:none;">
+  <div id="content_3" class="tabContent">
     {% for price in prices_3 %}
-    <p>
-      <div data-clipboard-text="{{ price }}">{{ price }}</div>
-    </p>
+    <div class="pricesTable__Wrapper flx" data-clipboard-text="{{ price }}">
+      <div class="pricesTable__Content flx s-b-flx">
+        <div class="center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/coin-prices-icon.svg' %}">
+          <div class="pricesTable__Price">{{ price }}</div>
+        </div>
+        <div class="pricesCopyBtn center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/copy-prices-icon.svg' %}">
+          <p>Copy Price</p>
+        </div>
+      </div>
+    </div>
     {%endfor%}
   </div>
-  <div id="content_4" class="tabContent" style="display:none;">
+  <div id="content_4" class="tabContent">
     {% for price in prices_4 %}
-    <p>
-      <div data-clipboard-text="{{ price }}">{{ price }}</div>
-    </p>
+    <div class="pricesTable__Wrapper flx" data-clipboard-text="{{ price }}">
+      <div class="pricesTable__Content flx s-b-flx">
+        <div class="center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/coin-prices-icon.svg' %}">
+          <div class="pricesTable__Price">{{ price }}</div>
+        </div>
+        <div class="pricesCopyBtn center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/copy-prices-icon.svg' %}">
+          <p>Copy Price</p>
+        </div>
+      </div>
+    </div>
     {%endfor%}
   </div>
-  <div id="content_5" class="tabContent" style="display:none;">
+  <div id="content_5" class="tabContent">
     {% for price in prices_5 %}
-    <p>
-      <div data-clipboard-text="{{ price }}">{{ price }}</div>
-    </p>
+    <div class="pricesTable__Wrapper flx" data-clipboard-text="{{ price }}">
+      <div class="pricesTable__Content flx s-b-flx">
+        <div class="center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/coin-prices-icon.svg' %}">
+          <div class="pricesTable__Price">{{ price }}</div>
+        </div>
+        <div class="pricesCopyBtn center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/copy-prices-icon.svg' %}">
+          <p>Copy Price</p>
+        </div>
+      </div>
+    </div>
     {%endfor%}
   </div>
-  <div id="content_6" class="tabContent" style="display:none;">
+  <div id="content_6" class="tabContent">
     {% for price in prices_6 %}
-    <p>
-      <div data-clipboard-text="{{ price }}">{{ price }}</div>
-    </p>
+    <div class="pricesTable__Wrapper flx" data-clipboard-text="{{ price }}">
+      <div class="pricesTable__Content flx s-b-flx">
+        <div class="center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/coin-prices-icon.svg' %}">
+          <div class="pricesTable__Price">{{ price }}</div>
+        </div>
+        <div class="pricesCopyBtn center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/copy-prices-icon.svg' %}">
+          <p>Copy Price</p>
+        </div>
+      </div>
+    </div>
     {%endfor%}
   </div>
-  <div id="content_7" class="tabContent" style="display:none;">
+  <div id="content_7" class="tabContent">
     {% for price in prices_7 %}
-    <p>
-      <div data-clipboard-text="{{ price }}">{{ price }}</div>
-    </p>
+    <div class="pricesTable__Wrapper flx" data-clipboard-text="{{ price }}">
+      <div class="pricesTable__Content flx s-b-flx">
+        <div class="center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/coin-prices-icon.svg' %}">
+          <div class="pricesTable__Price">{{ price }}</div>
+        </div>
+        <div class="pricesCopyBtn center-flx">
+          <img class="pricesIcon" src="{% static 'img/svg/copy-prices-icon.svg' %}">
+          <p>Copy Price</p>
+        </div>
+      </div>
+    </div>
     {%endfor%}
   </div>
   <!--
@@ -106,7 +169,7 @@
 -->
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
   <script>
-    new ClipboardJS('.btn');
+    new ClipboardJS('.priceBtn');
   </script>
 </section>
 {%endblock%}

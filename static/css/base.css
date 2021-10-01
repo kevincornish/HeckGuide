@@ -26,6 +26,9 @@
   --gray-1: #F0F4F8;
   --gray2: #222222;
   --gray3: #888888;
+  --gray4: #E5E5E5;
+  --gray5: #CFCFCF;
+  --gray6: #AAAAAA;
   --hotpink-1: #EF5DE0;
   --hotpink-hover: #CD60C2;
   --hotpink-active: #CD60C2;
@@ -34,6 +37,9 @@
   /* Fonts */
   --karla-font: 'Karla', sans-serif;
   --troika-font: 'Troika', sans-serif;
+  /* Font Sizes */
+  --fs-14: 0.875rem;
+  --fs-18: 1.125rem;
   /* Border */
   --border-radius: 6px;
   --border: 2px solid transparent;
@@ -42,6 +48,8 @@
   --transition1: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   --transition2: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   --transition3: 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  /* Spacing 8pt grid */
+  --px8: 0.5rem;
 }
 
 /* Reset */
@@ -1441,6 +1449,40 @@ hr {
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+.pricesTable__Wrapper {
+  flex-direction: column;
+  margin-bottom: var(--px8);
+}
+
+.pricesTable__Content {
+  max-width: 340px;
+  padding: calc(var(--px8) * 1.4) calc(var(--px8) * 2);
+  background-color: var(--gray4);
+  border-radius: var(--border-radius);
+}
+
+.pricesIcon {
+  margin-right: var(--px8);
+}
+
+.pricesTable__Price {
+  font-size: var(--fs-18);
+  font-weight: 500;
+}
+
+.pricesCopyBtn {
+  padding: calc(var(--px8) * 1) calc(var(--px8) * 2);
+  background-color: var(--gray5);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.pricesCopyBtn p {
+  font-size: var(--fs-14);
+  font-weight: 500;
+  color: var(--gray6);
 }
 
 /* Ally Stat page */

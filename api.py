@@ -173,3 +173,19 @@ class HeckfireApi(object):
             tiles.append(sites[tile])
         data["segment_ids"] = [d + 20 for d in data["segment_ids"]]
         return tiles
+
+    def get_clan_for_user(self):
+        data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}
+        url = f"{self.base_url}/game/group/get_group_for_user/"
+        req = requests.get(url, headers=data)
+        json_data = json.loads(req.text)
+        group_id = json_data['id']
+        if json_data.get('exception'):
+            raise TokenException(json_data['exception'])
+        return group_id
+
+    def message_clan(self, message: str) -> Dict:
+        group_id = self.get_clan_for_user()
+        url = f"{self.base_url}/game/message/send_group_chat/"
+        data = {"group_id": group_id, "message": message}
+        return self._post(url, data)

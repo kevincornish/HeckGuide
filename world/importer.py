@@ -31,6 +31,7 @@ class WorldImporter:
                     realm = webhook.realm
                     if data['name'] == item and data['owner_username'] is None:
                         if data['world_id'] == realm:
+                            self.api.message_clan(f"{data['name']} X: {data['x']} Y: {data['y']}")
                             webhook = DiscordWebhook(url=(f'{hookurl}'), content=(f"{data['name']} X: {data['x']} Y: {data['y']}"))
                             webhook.execute()
                 data['name'] = self.process_component(data['name'])

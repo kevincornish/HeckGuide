@@ -12,7 +12,7 @@
     <li>Fill out the details to calculate what you'll need for you rally.</li>
   </ul>
   <div class="help-wrapper s-b-flx">
-    <img id="masteryHelp" class="helpIco" src="{% static 'img/svg/help-ico.svg' %}">
+    <img id="modalHelp" class="helpIco" src="{% static 'img/svg/help-ico.svg' %}">
     <p class="hide">0</p>
   </div>
   <p class="formResults__TotalContainerText center-m-a">Calculate the amount of total tokens you own by entering your
@@ -35,12 +35,12 @@
     <span>
       {{ form.attackpower.label_tag }}
       <input type="number" required name="{{ form.attackpower.name }}" id="{{ form.attackpower.id_for_label }}"
-        autocomplete="off" value="" placeholder="0">
+        autocomplete="off" value="0" placeholder="0">
     </span>
     <span>
       {{ form.marchcap.label_tag }}
       <input type="number" required name="{{ form.marchcap.name }}" id="{{ form.marchcap.id_for_label }}"
-        autocomplete="off" value="" placeholder="0">
+        autocomplete="off" value="0" placeholder="0">
     </span>
     <span>
       <label class="hide">0</label>

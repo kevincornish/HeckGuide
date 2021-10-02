@@ -48,7 +48,7 @@ $('#closebtn').click(function () {
 
 // Modal Windows
 
-$('#masteryHelp, #modalOverlay').click(function () {
+$('#modalHelp, #modalOverlay').click(function () {
   $(".helpModal").toggleClass("helpModal-open");
   /* Activate modal background */
   $(".modalBg").toggleClass("modalActive");

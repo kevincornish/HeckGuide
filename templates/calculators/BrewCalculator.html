@@ -12,9 +12,9 @@
     <div class="formResults__Wrapper flx center-flx s-b-flx">
       <div class="formResults__Content center-m-a">
         {% if total is default %}
-        <p class="formResults__Text"><span>0</span>M</p>
+        <p class="formResults__Text"><span>0</span></p>
         {% else %}
-        <p class="formResults__Text">{{ total }}M</p>
+        <p class="formResults__Text">{{ total }}</p>
         {% endif %}
         <p class="labl-sml">Brew in Tokens</p>
       </div>
@@ -38,7 +38,7 @@
           <p class="labl-sml">Token type</p>
         </div>
         <div class="formResults__Content">
-          <p class="formResults__Text">{{ token1 }}M</p>
+          <p class="formResults__Text">{{ token1 }}</p>
           <p class="labl-sml">Brew total</p>
         </div>
       </div>
@@ -55,7 +55,7 @@
           <p class="labl-sml">Token type</p>
         </div>
         <div class="formResults__Content">
-          <p class="formResults__Text">{{ token2 }}M</p>
+          <p class="formResults__Text">{{ token2 }}</p>
           <p class="labl-sml">Brew total</p>
         </div>
       </div>
@@ -72,7 +72,7 @@
           <p class="labl-sml">Token type</p>
         </div>
         <div class="formResults__Content">
-          <p class="formResults__Text">{{ token3 }}M</p>
+          <p class="formResults__Text">{{ token3 }}</p>
           <p class="labl-sml">Brew total</p>
         </div>
       </div>
@@ -89,7 +89,7 @@
           <p class="labl-sml">Token type</p>
         </div>
         <div class="formResults__Content">
-          <p class="formResults__Text">{{ token4 }}M</p>
+          <p class="formResults__Text">{{ token4 }}</p>
           <p class="labl-sml">Brew total</p>
         </div>
       </div>
@@ -106,7 +106,7 @@
           <p class="labl-sml">Token type</p>
         </div>
         <div class="formResults__Content">
-          <p class="formResults__Text">{{ token5 }}M</p>
+          <p class="formResults__Text">{{ token5 }}</p>
           <p class="labl-sml">Brew total</p>
         </div>
       </div>
@@ -120,7 +120,7 @@
     <li>Temp</li>
   </ul>
   <div class="help-wrapper s-b-flx">
-    <img id="masteryHelp" class="helpIco" src="{% static 'img/svg/help-ico.svg' %}">
+    <img id="modalHelp" class="helpIco" src="{% static 'img/svg/help-ico.svg' %}">
     <p class="hide">0</p>
   </div>
   <!-- End Help modal -->
@@ -130,27 +130,27 @@
       <span>
         {{ form.token1.label_tag }}
         <input type="number" required name="{{ form.token1.name }}" id="{{ form.token1.id_for_label }}"
-          autocomplete="off" value="" placeholder="0">
+          autocomplete="off" value="0" placeholder="0">
       </span>
       <span>
         {{ form.token2.label_tag }}
         <input type="number" required name="{{ form.token2.name }}" id="{{ form.token2.id_for_label }}"
-          autocomplete="off" value="" placeholder="0">
+          autocomplete="off" value="0" placeholder="0">
       </span>
       <span>
         {{ form.token3.label_tag }}
         <input type="number" required name="{{ form.token3.name }}" id="{{ form.token3.id_for_label }}"
-          autocomplete="off" value="" placeholder="0">
+          autocomplete="off" value="0" placeholder="0">
       </span>
       <span>
         {{ form.token4.label_tag }}
         <input type="number" required name="{{ form.token4.name }}" id="{{ form.token4.id_for_label }}"
-          autocomplete="off" value="" placeholder="0">
+          autocomplete="off" value="0" placeholder="0">
       </span>
       <span>
         {{ form.token5.label_tag }}
         <input type="number" required name="{{ form.token5.name }}" id="{{ form.token5.id_for_label }}"
-          autocomplete="off" value="" placeholder="0">
+          autocomplete="off" value="0" placeholder="0">
       </span>
     </div>
     <div class="flx flx-jc-fe">

@@ -9,6 +9,9 @@
           <ul class="flex-left">
             <li class="footer-ul-label">Heckguide</li>
             <li>
+              <a href="{% url 'timer' %}">Timer</a>
+            </li>
+            <li>
               <a href="{% url 'MasteryCalculator' %}">Blog</a>
             </li>
           </ul>
@@ -17,12 +20,14 @@
             <li>
               <a href="{% url 'prices' %}">Ally Prices</a>
             </li>
+            {% if user.is_authenticated %}
             <li>
               <a href="{% url 'allies' %}">Allies</a>
             </li>
             <li>
               <a href="{% url 'allies' %}">Name Changes</a>
             </li>
+            {% endif %}
           </ul>
           <ul class="flex-left">
             <li class="footer-ul-label">Heck Calculators</li>
@@ -50,6 +55,7 @@
             <li>
               <a href="{% url 'realmchat' %}">Realm Chat</a>
             </li>
+            {% if user.is_authenticated %}
             <li>
               <a href="{% url 'world' %}?realm=10">Realm 10</a>
             </li>
@@ -71,6 +77,7 @@
             <li>
               <a href="{% url 'world' %}?realm=129">Realm 129</a>
             </li>
+            {% endif %}
           </ul>
           <ul class="flex-left">
             <li class="footer-ul-label">Stay Updated</li>

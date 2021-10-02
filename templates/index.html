@@ -4,21 +4,22 @@
 {% block head_title %}Home{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-<div class="container">
+
   <h2>Welcome {{ user.username }} !</h2>
   <p>Join the <a href="https://discord.gg/TRutDYrw9K">Discord</a> to gain access to our Heckguide Discord bots.</p>
-</div>
-{%endif%}
-<div class="realm-list">
+
+{% endif %}
+
   {% for realm in realm_list %}
-  <ul class="realms">
-    <li class="header">{{ realm.name }}</li>
-    <li class="grey">{{ realm.subname }}</li>
-    <li>Max Power: {{ realm.maximum_transfer_power }}</li>
-    <li>Max Townhall: {{ realm.maximum_transfer_townhall_level }}</li>
-    <li>Usercount: {{ realm.spawned_user_count }}</li>
-    <li>PVP Rating: {{ realm.pvp_rating }}</li>
-  </ul>
-  {%endfor%}
-</div>
-{%endblock%}
+  <div class="realms">
+    <ul>
+      <li class="header">{{ realm.name }}</li>
+      <li class="grey">{{ realm.subname|default:"Untitled Realm" }}</li>
+      <li>Max Power: {{ realm.maximum_transfer_power }}</li>
+      <li>Max Townhall: {{ realm.maximum_transfer_townhall_level }}</li>
+      <li>Usercount: {{ realm.spawned_user_count }}</li>
+      <li>PVP Rating: {{ realm.pvp_rating }}</li>
+    </ul>
+  </div>
+  {% endfor %}
+{% endblock %}

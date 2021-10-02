@@ -16,16 +16,16 @@
   </thead>
   <tbody>
     <tr>
-      <td class="ally">{{clan.name}}</td>
-      <td class="ally">{{clan.tag}}</td>
-      <td class="ally">{{clan.description}}</td>
-      <td class="ally">{{clan.language}}</td>
-      <td class="ally">{{clan.member_count}}</td>
-      <td class="ally">{{clan.region}}</td>
+      <td class="clans">{{clan.name}}</td>
+      <td class="clans">{{clan.tag}}</td>
+      <td class="clans">{{clan.description}}</td>
+      <td class="clans">{{clan.language}}</td>
+      <td class="clans">{{clan.member_count}}</td>
+      <td class="clans">{{clan.region}}</td>
       {% if clan.auto_accept_join == True %}
-      <td class="ally"><p>Open</p></td>
+      <td class="clans"><p>Open</p></td>
      {% else %}
-     <td class="ally"><p>Closed</p></td>
+     <td class="clans"><p>Closed</p></td>
      {% endif %}
       </td>
     </tr>

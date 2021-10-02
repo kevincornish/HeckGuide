@@ -28,7 +28,7 @@
   <tbody>
     {% for clan in clans %}
     <tr>
-      <td class="clans"><a href="{% url 'clans' %}{{clan.tag}}">{{clan.name}}</td>
+      <td class="clans"><a href="{% url 'clans' %}{{clan.tag}}/{{clan.region}}">{{clan.name}}</td>
       <td class="clans">{{clan.tag}}</td>
       <td class="clans">{{clan.description|slice:":100"}}{% if clan.description|length >= 100 %}...{% endif %}</td>
       <td class="clans">{{clan.language}}</td>

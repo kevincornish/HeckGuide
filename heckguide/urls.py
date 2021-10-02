@@ -14,7 +14,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('allies/', AllyListView.as_view(template_name="allies/allies.html"), name='allies'),
     path('clans/', ClanListView.as_view(template_name="allies/clans.html"), name='clans'),
-    path('clans/<tag>/', ClanDetailView.as_view(), name='clandetail'),
+    path('clans/<tag>/<region>', ClanDetailView.as_view(), name='clandetail'),
     path('name-changes/', NameChangeListView.as_view(template_name="allies/name_changes.html"), name='namechanges'),
     path('world/', WorldListView.as_view(template_name="world/world.html"), name='world'),
     path('realm-chat/', RealmChatView.as_view(template_name="poll/realm_chat.html"), name='realmchat'),

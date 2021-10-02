@@ -77,7 +77,7 @@ class ClanDetailView(DetailView):
     model = Clan
     context_object_name = 'clan'
     def get(self, request, *args, **kwargs):
-        clan = get_object_or_404(Clan, tag=kwargs['tag'])
+        clan = get_object_or_404(Clan, tag=kwargs['tag'], region=kwargs['region'])
         context = {'clan': clan}
         return render(request, 'allies/clan_detail.html', context)
 

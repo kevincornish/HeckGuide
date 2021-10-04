@@ -114,6 +114,18 @@ class HeckfireApi(object):
             raise TokenException(json_data['exception'])
         return chats
 
+    def poll_clan_chat(self):
+        """Polls the logged in users global/clan and announcement chats.
+        Currently only returning the global chat."""
+        data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}
+        url = f"{self.base_url}/game/poll/chat"
+        req = requests.get(url, headers=data)
+        json_data = json.loads(req.text)
+        chats = json_data['group_chat']
+        if json_data.get('exception'):
+            raise TokenException(json_data['exception'])
+        return chats
+
     def poll_realm_list(self):
         """Polls the list of active realms usercounts, names and descriptions, returns the shards response only"""
         data = {"authorization": f"Bearer {self.token}", "Accept": "application/json"}

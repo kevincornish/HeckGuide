@@ -11,6 +11,18 @@ class RealmChat(models.Model):
     type = models.IntegerField(null=True)
     region = models.IntegerField(null=True)
 
+class ClanChat(models.Model):
+    mail_id = models.IntegerField(null=True)
+    username = models.CharField(max_length=255, null=True)
+    message = models.CharField(max_length=255, null=True)
+    timestamp = models.IntegerField(null=True)
+    user_id = models.IntegerField(null=True)
+    user_avatar_id = models.IntegerField(null=True)
+    user_avatar_type = models.IntegerField(null=True)
+    message_type = models.IntegerField(null=True)
+    item_id = models.IntegerField(null=True)
+    realm = models.IntegerField(null=True)
+
 class RealmList(models.Model):
     id = models.IntegerField(primary_key=True, db_index=True)
     spawned_user_count = models.IntegerField(null=True)

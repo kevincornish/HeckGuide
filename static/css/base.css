@@ -26,6 +26,9 @@
   --gray-1: #F0F4F8;
   --gray2: #222222;
   --gray3: #888888;
+  --gray4: #E5E5E5;
+  --gray5: #CFCFCF;
+  --gray6: #AAAAAA;
   --hotpink-1: #EF5DE0;
   --hotpink-hover: #CD60C2;
   --hotpink-active: #CD60C2;
@@ -34,6 +37,9 @@
   /* Fonts */
   --karla-font: 'Karla', sans-serif;
   --troika-font: 'Troika', sans-serif;
+  /* Font Sizes */
+  --fs-14: 0.875rem;
+  --fs-18: 1.125rem;
   /* Border */
   --border-radius: 6px;
   --border: 2px solid transparent;
@@ -42,6 +48,8 @@
   --transition1: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   --transition2: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   --transition3: 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  /* Spacing 8pt grid */
+  --px8: 0.5rem;
 }
 
 /* Reset */
@@ -77,7 +85,7 @@ body {
 
 /*Heading, Subheadings and paragraph */
 p {
-  font-size: 1rem ;
+  font-size: 1rem;
 }
 
 h1,
@@ -621,7 +629,7 @@ header nav span {
   font-weight: 700;
 }
 
-.user-menu li { 
+.user-menu li {
   /* Font - Text */
   letter-spacing: -0.32px;
 }
@@ -876,7 +884,7 @@ and also iPads specifically.
   }
 
   td.ally:nth-of-type(6):before {
-    content: "S/W";
+    content: "S/L";
     font-weight: bold;
   }
 
@@ -902,6 +910,7 @@ and also iPads specifically.
     content: "Realm";
     font-weight: bold;
   }
+
   td.clans:nth-of-type(1):before {
     content: "Name";
     font-weight: bold;
@@ -1256,7 +1265,7 @@ label,
   display: none;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.85);
+  background-color: rgba(0, 0, 0, 0.85);
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -1350,10 +1359,10 @@ label,
 /* Hr */
 hr {
   border: 0;
-  clear:both;
-  display:block;
-  width: 100%;               
-  background-color:var(--gray-hover);
+  clear: both;
+  display: block;
+  width: 100%;
+  background-color: var(--gray-hover);
   height: 1px;
 }
 
@@ -1481,6 +1490,40 @@ hr {
   text-transform: uppercase;
 }
 
+.pricesTable__Wrapper {
+  flex-direction: column;
+  margin-bottom: var(--px8);
+}
+
+.pricesTable__Content {
+  max-width: 340px;
+  padding: calc(var(--px8) * 1.4) calc(var(--px8) * 2);
+  background-color: var(--gray4);
+  border-radius: var(--border-radius);
+}
+
+.pricesIcon {
+  margin-right: var(--px8);
+}
+
+.pricesTable__Price {
+  font-size: var(--fs-18);
+  font-weight: 500;
+}
+
+.pricesCopyBtn {
+  padding: calc(var(--px8) * 1) calc(var(--px8) * 2);
+  background-color: var(--gray5);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.pricesCopyBtn p {
+  font-size: var(--fs-14);
+  font-weight: 500;
+  color: var(--gray6);
+}
+
 /* Ally Stat page */
 .allyStat .formInputs-wrapper {
   margin-bottom: 32px;
@@ -1500,7 +1543,7 @@ hr {
 }
 
 .allyStat .formResults__Title:nth-child(1) {
-margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .allyStat .formResults__Container:nth-child(1) {

@@ -48,16 +48,20 @@ $('#closebtn').click(function () {
 
 // Modal Windows
 
-$('#modalHelp, #modalOverlay').click(function () {
-  $(".helpModal").toggleClass("helpModal-open");
-  /* Activate modal background */
-  $(".modalBg").toggleClass("modalActive");
-});
-
-/*  Deactivate modal background */
-$('#closeModalBg').click(function () {
-  $(".helpModal").toggleClass("helpModal-open");
-  $(".modalBg").toggleClass("modalActive");
+$(function () {
+  $("#modalHelp, #modalOverlay").on("click", function (e) {
+    $(".helpModal").addClass("helpModal-open");
+    /* Activate modal background */
+    $(".modalBg").addClass("modalActive");
+    e.stopPropagation()
+  });
+  $(document).on("click", function (e) {
+    if ($(e.target).is(".helpModal") === false) {
+      $(".helpModal").removeClass("helpModal-open");
+      /* Deativate modal background */
+      $(".modalBg").removeClass("modalActive");
+    }
+  });
 });
 
 // Tabbed content 

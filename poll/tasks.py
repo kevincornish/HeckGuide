@@ -32,6 +32,8 @@ def poll_clan_chat(realm):
       token = settings.TOKEN_129
   elif realm == 121:
       token = settings.TOKEN_121
+  elif realm == 130:
+      token = settings.TOKEN_130
   importer = ClanChatImporter(token=token, staytoken=staytoken, realm=realm)
   importer.execute()
 

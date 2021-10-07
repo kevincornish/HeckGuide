@@ -85,7 +85,7 @@ body {
 
 /*Heading, Subheadings and paragraph */
 p {
-  font-size: 1rem ;
+  font-size: 1rem;
 }
 
 h1,
@@ -351,14 +351,9 @@ label,
 /* Landing Page */
 /* Realm List */
 .realms {
-  width: 33.3%;
-  padding: 8px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 25px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  width: 300px;
+  float: left;
+  margin: 5px;
 }
 
 .realms .header {
@@ -371,6 +366,7 @@ label,
   background-color: var(--green-1);
   padding: 10px;
   text-align: center;
+  list-style-type: none;
 }
 
 .realms .grey {
@@ -632,7 +628,7 @@ header nav span {
   font-weight: 700;
 }
 
-.user-menu li { 
+.user-menu li {
   /* Font - Text */
   letter-spacing: -0.32px;
 }
@@ -898,6 +894,56 @@ and also iPads specifically.
 
   td.ally:nth-of-type(8):before {
     content: "Owned By";
+    font-weight: bold;
+  }
+
+  td.chat:nth-of-type(1):before {
+    content: "Username";
+    font-weight: bold;
+  }
+
+  td.chat:nth-of-type(2):before {
+    content: "Message";
+    font-weight: bold;
+  }
+
+  td.chat:nth-of-type(3):before {
+    content: "Realm";
+    font-weight: bold;
+  }
+
+  td.clans:nth-of-type(1):before {
+    content: "Name";
+    font-weight: bold;
+  }
+
+  td.clans:nth-of-type(2):before {
+    content: "Tag";
+    font-weight: bold;
+  }
+
+  td.clans:nth-of-type(3):before {
+    content: "Description";
+    font-weight: bold;
+  }
+
+  td.clans:nth-of-type(4):before {
+    content: "Language";
+    font-weight: bold;
+  }
+
+  td.clans:nth-of-type(5):before {
+    content: "Members";
+    font-weight: bold;
+  }
+
+  td.clans:nth-of-type(6):before {
+    content: "Realm";
+    font-weight: bold;
+  }
+
+  td.clans:nth-of-type(7):before {
+    content: "Open?";
     font-weight: bold;
   }
 }
@@ -1226,7 +1272,7 @@ label,
   display: none;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.85);
+  background-color: rgba(0, 0, 0, 0.85);
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -1320,10 +1366,10 @@ label,
 /* Hr */
 hr {
   border: 0;
-  clear:both;
-  display:block;
-  width: 100%;               
-  background-color:var(--gray-hover);
+  clear: both;
+  display: block;
+  width: 100%;
+  background-color: var(--gray-hover);
   height: 1px;
 }
 
@@ -1504,7 +1550,7 @@ hr {
 }
 
 .allyStat .formResults__Title:nth-child(1) {
-margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .allyStat .formResults__Container:nth-child(1) {

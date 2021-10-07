@@ -43,3 +43,27 @@ def scrape_allies_by_price(price):
   token = random.choice(tokens)
   importer = AllyByPriceImporter(token=token, staytoken=staytoken)
   importer.execute(price, 1)
+
+@shared_task
+def scrape_allies_by_price_high():
+  staytoken = settings.STAY_ALIVE_TOKEN
+  tokens = settings.TOKENS
+  token = random.choice(tokens)
+  importer = AllyByPriceImporter(token=token, staytoken=staytoken)
+  importer.execute(random.choice(settings.PRICES_7), 1)
+
+@shared_task
+def scrape_allies_by_price_mid():
+  staytoken = settings.STAY_ALIVE_TOKEN
+  tokens = settings.TOKENS
+  token = random.choice(tokens)
+  importer = AllyByPriceImporter(token=token, staytoken=staytoken)
+  importer.execute(random.choice(settings.PRICES_6), 1)
+
+@shared_task
+def scrape_allies_by_price_low():
+  staytoken = settings.STAY_ALIVE_TOKEN
+  tokens = settings.TOKENS
+  token = random.choice(tokens)
+  importer = AllyByPriceImporter(token=token, staytoken=staytoken)
+  importer.execute(random.choice(settings.PRICES_5), 1)

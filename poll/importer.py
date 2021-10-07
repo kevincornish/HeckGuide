@@ -153,7 +153,7 @@ class RealmListImporter:
         for segment in segments:
             try:
                 data = {key: value for key, value in segment.items() if key in self.model_fields}
-                data['realm'] = self.process_component(data['realm'])
+                data['id'] = self.process_component(data['id'])
             except (TypeError, AttributeError) as e:
                 pass
             results.append(data)
@@ -169,8 +169,8 @@ class RealmListImporter:
 
     def update_or_create_segment(self, data: Dict) -> RealmList:
         segment_data = data.copy()
-        realm = segment_data.pop('realm')
-        obj, created = RealmList.objects.update_or_create(realm=realm, defaults=segment_data)
+        id = segment_data.pop('id')
+        obj, created = RealmList.objects.update_or_create(id=id, defaults=segment_data)
         self.record_count(created, data)
         return obj
 

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block head_title %}Clans{% endblock %}
+{% load static %}
+{% block content %}
+<form action="{% url 'clans' %}" class="margin-r-Inputs">
+  <span class="formInputs-wrapper center-flx flx-jc-fe">
+    <select name="realm" id="realm">
+      <option value="">Realm</option>
+      {% for realm in realms %}
+      <option value="{{realm.region}}">{{realm.region}}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Search"></span>
+</form>
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Tag</th>
+      <th scope="col">Description</th>
+      <th scope="col">Language</th>
+      <th scope="col">Members</th>
+      <th scope="col">Realm</th>
+      <th scope="col">Open?</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for clan in clans %}
+    <tr>
+      <td class="clans"><a href="{% url 'clans' %}{{clan.tag}}/{{clan.region}}">{{clan.name}}</td>
+      <td class="clans">{{clan.tag}}</td>
+      <td class="clans">{{clan.description|slice:":100"}}{% if clan.description|length >= 100 %}...{% endif %}</td>
+      <td class="clans">{{clan.language}}</td>
+      <td class="clans">{{clan.member_count}}</td>
+      <td class="clans">{{clan.region}}</td>
+      {% if clan.auto_accept_join == True %}
+      <td class="clans"><p>Open</p></td>
+     {% else %}
+     <td class="clans"><p>Closed</p></td>
+     {% endif %}
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td>No match</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if is_paginated %}
+{% include 'comps/pagination.html' %}
+{% endif %}
+{% endblock %}

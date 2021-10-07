@@ -53,12 +53,12 @@
       </div>
       <nav class="mob-nav">
         <ul>
-          <a href="{% url 'allies' %}">
-            <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Allies</li>
+          <a href="{% url 'clans' %}">
+            <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Clans</li>
           </a>
           <a id="realm-expand-link" href="#">
             <li>
-              <img src="{% static 'img/svg/mob-bolt-icon.svg' %}"> Realm Maps 
+              <img src="{% static 'img/svg/mob-bolt-icon.svg' %}"> Realm 
               <img class="sub-icon" src="{% static 'img/svg/arrow-down-icon.svg' %}">
             </li>
           </a>
@@ -67,11 +67,15 @@
             <li>
               <a href="{% url 'realmchat' %}">Realm Chat</a>
             </li>
+            {% if user.is_authenticated %}
             <li>
               <a href="{% url 'world' %}?realm=10">Realm 10</a>
             </li>
             <li>
               <a href="{% url 'world' %}?realm=23">Realm 23</a>
+            </li>
+            <li>
+              <a href="{% url 'world' %}?realm=92">Realm 92</a>
             </li>
             <li>
               <a href="{% url 'world' %}?realm=99">Realm 99</a>
@@ -88,12 +92,21 @@
             <li>
               <a href="{% url 'world' %}?realm=129">Realm 129</a>
             </li>
+            {% endif %}
           </ul>
           <a href="{% url 'prices' %}">
             <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Ally Prices</li>
           </a>
+          {% if user.is_authenticated %}
+          <a href="{% url 'allies' %}">
+            <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Allies</li>
+          </a>
           <a href="{% url 'namechanges' %}">
             <li><img src="{% static 'img/svg/mob-flame-icon.svg' %}"> Name Changes</li>
+          </a>
+          {% endif %}
+          <a href="{% url 'timer' %}">
+            <li><img src="{% static 'img/svg/mob-clock-icon.svg' %}"> Hourly Quest Timer</li>
           </a>
           <a id="calc-expand-link" href="#">
             <li><img src="{% static 'img/svg/mob-bolt-icon.svg' %}"> Heck Calculators <img class="sub-icon"

@@ -1,10 +1,11 @@
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.http.response import Http404
+from django.shortcuts import get_object_or_404, render
+from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.db.models import Count
 
-from allies.models import Ally, HistoricalAlly
+from allies.models import Ally, HistoricalAlly, Clan
 
 class AllyListView(LoginRequiredMixin, ListView):
     model = Ally
@@ -49,6 +50,36 @@ class NameChangeListView(LoginRequiredMixin, ListView):
         except IndexError:
             pass
         return object_list
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        return data
+
+class ClanListView(ListView):
+    model = Clan
+    paginate_by = 20
+    context_object_name = 'clans'
+
+    def get_queryset(self):
+        realm = self.request.GET.get('realm')
+        object_list = (Clan.objects.all().order_by('-id'))
+        if realm:
+            object_list = object_list.filter(region__exact=realm)
+            
+        return object_list
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['realms'] = Clan.objects.all().distinct('region')
+        return data
+
+class ClanDetailView(DetailView):
+    model = Clan
+    context_object_name = 'clan'
+    def get(self, request, *args, **kwargs):
+        clan = get_object_or_404(Clan, tag=kwargs['tag'], region=kwargs['region'])
+        context = {'clan': clan}
+        return render(request, 'allies/clan_detail.html', context)
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)

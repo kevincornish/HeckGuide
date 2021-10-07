@@ -26,9 +26,9 @@
   <tbody>
     {% for chat in realmchat %}
     <tr>
-      <td class="world"><a href="{% url 'realmchat' %}?player={{chat.username}}">{{chat.username}}</a></td>
-      <td class="world">{{chat.message}}</td>
-      <td class="world">{{chat.region}}</td>
+      <td class="chat"><a href="{% url 'realmchat' %}?user_id={{chat.user_id}}">{{chat.username}}</a></td>
+      <td class="chat">{{chat.message}}</td>
+      <td class="chat">{{chat.region}}</td>
          {% empty %}
     <tr>
       <td>No match</td>

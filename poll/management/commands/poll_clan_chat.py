@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
-from poll.importer import ChatImporter
+from poll.importer import ClanChatImporter
 from django.conf import settings
 class Command(BaseCommand):
-    help = 'Scrape chat log of realm'
+    help = 'Scrape clan chat log of realm'
 
     def add_arguments(self, parser):
         parser.add_argument('token',  type=int)
@@ -31,5 +31,5 @@ class Command(BaseCommand):
             token = settings.TOKEN_129
         elif options['token'] == 121:
             token = settings.TOKEN_121
-        importer = ChatImporter(token=token, staytoken=staytoken)
+        importer = ClanChatImporter(token=token, staytoken=staytoken, realm=options['token'])
         importer.execute()

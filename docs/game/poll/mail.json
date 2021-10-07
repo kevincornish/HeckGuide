@@ -1,0 +1,221 @@
+{
+  "mails": [{
+    "id": 1,
+    "type": 2,
+    "data": {
+      "sender_user_id": 448769073,
+      "sender_username": "swagdaddiekevz",
+      "subject_template": "Time to blame your friend {inviter_username} for inviting you to Heckfire.",
+      "subject_data": {
+        "invitee_username": "titanlevel5",
+        "inviter_username": "swagdaddiekevz"
+      },
+      "message_template": "Welcome to Heckfire, {invitee_username}. Now you've gone and done it - prepare for some crazy times and even crazier battles. Since you were invited by your friend,  {inviter_username}, they'll reap the rewards of your blood, sweat, and tears. \n\nGet to Town Hall level 10, and they'll be forever in your debt. Might even name their first child after you, too. Feel free to message them in the game to ask for advice and questions. That username again, if you are need help is: {inviter_username}. You should send them a message. They're probably thinking about you right now. ",
+      "message_data": {
+        "invitee_username": "titanlevel5",
+        "inviter_username": "swagdaddiekevz"
+      },
+      "language": "en",
+      "message_localization_whitelist_keys": [],
+      "subject_localization_whitelist_keys": [],
+      "read": true,
+      "replied": false,
+      "skip_localization_tracking": false,
+      "message": "Welcome to Heckfire, titanlevel5. Now you've gone and done it - prepare for some crazy times and even crazier battles. Since you were invited by your friend,  swagdaddiekevz, they'll reap the rewards of your blood, sweat, and tears. \n\nGet to Town Hall level 10, and they'll be forever in your debt. Might even name their first child after you, too. Feel free to message them in the game to ask for advice and questions. That username again, if you are need help is: swagdaddiekevz. You should send them a message. They're probably thinking about you right now. ",
+      "subject": "Time to blame your friend swagdaddiekevz for inviting you to Heckfire."
+    },
+    "timestamp": 1630591234.0
+  }, {
+    "id": 2,
+    "type": 1,
+    "data": {
+      "sender_user_id": 616539793,
+      "sender_username": "[NOP]OreHorde",
+      "subject": "Welcome all!",
+      "message": "Welcome to PugsBeDammed. This will be a competive clan aiming to be top 3 on this realm. This clan will have requirements but nothing impossible. Discord server will be created soon. \n\nMake sure to ask questions for all the new players. I'll be mailing daily during the meta event on what you should be doing daily\n\nClan is now full so I've enabled application only.\n\nPlease reply if interested in leadership positions. I'll be looking for 4 R4s (second in command)",
+      "read": true,
+      "replied": false
+    },
+    "timestamp": 1630598753.0
+  }, {
+    "id": 3,
+    "type": 1,
+    "data": {
+      "sender_user_id": 616539793,
+      "sender_username": "[NOP]OreHorde",
+      "subject": "Today Quests",
+      "message": "Stockpile daily quest- hit monsters or mine resource nodes to complete this quest. Pretty easy\n\nDragon quest (changes daily): Hit swamp monsters or mine swamp resource nodes. This helps you and the clan!\n\nHourly quest change per hour. Complete them if you can for rewards",
+      "read": true,
+      "replied": false
+    },
+    "timestamp": 1630601999.0
+  }, {
+    "id": 4,
+    "type": 1,
+    "data": {
+      "sender_user_id": 616539793,
+      "sender_username": "[NOP]OreHorde",
+      "subject": "Daily Quest 9/2",
+      "message": "Daily Dragon quest - Grassland. Make sure to kill goblins and mine grassland nodes! This helps you and the clan!\n\nMeta event - Troops/Construction. Make sure to build buildings and train troops for this one. The event gives event tokens which give huge rewards\n\nNote thru this event the market will have a new tab. Make sure to grab your FREE daily chest from this tab",
+      "read": true,
+      "replied": false
+    },
+    "timestamp": 1630617520.0
+  }, {
+    "id": 5,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "Upcoming Event Schedule",
+      "message": "Greetings Citizens of Heckfire,\r\n\r\nHere is the upcoming event schedule:\r\n\r\n[Thursday] September 2nd\r\nHardcore Troop Training & Construction\r\n\r\n[Friday] September 3rd\r\nTomes From the Crypt + Sepulcher Mulcher\r\n\r\n[Saturday] September 4th\r\nHardcore Free For All + Clan Slaughter\r\nSacrificin' Soldiers\r\n\r\n[Sunday] September 5th\r\nUltra Hardcore Might Growth\r\n\r\n[Monday] September 6th\r\nFighting Opreston\r\n\r\n[Tuesday] September 7th\r\nLord of the Hoard\r\nRaid Racer\r\n\r\n[Wednesday] September 8th\r\nHardcore Construction & Research\r\n\r\n[Thursday] September 9th\r\nSupply Stockpile\r\nStimulus Package\r\n\r\nHappy slaying!\r\n\r\n- The Heckfire Team",
+      "read": true,
+      "replied": false
+    },
+    "timestamp": 1630618969.0
+  }, {
+    "id": 6,
+    "type": 1,
+    "data": {
+      "sender_user_id": 616539793,
+      "sender_username": "[NOP]OreHorde",
+      "subject": "Referal System",
+      "message": "I need everyone to set a referal to ensure we get max rewards. You can use my name or another clan members name but their account has to be older for it to work\n\nHow to:\n\nPurple arrow - > Extra - > scroll down to referal - > enter players name\n\nYou can send daily chests to each other containing resources and brew. Make sure to add someone active (I'm active \ud83d\ude0a)",
+      "read": true,
+      "replied": false
+    },
+    "timestamp": 1630619462.0
+  }, {
+    "id": 7,
+    "type": 1,
+    "data": {
+      "sender_user_id": 616539793,
+      "sender_username": "[NOP]OreHorde",
+      "subject": "Referal System",
+      "message": "I need everyone to set a referal to ensure we get max rewards. You can use my name or another clan members name but their account has to be older for it to work\n\nHow to:\n\nPurple arrow - > Extra - > scroll down to referal - > enter players name\n\nYou can send daily chests to each other containing resources and brew. Make sure to add someone active (I'm active \ud83d\ude0a)",
+      "read": true,
+      "replied": false
+    },
+    "timestamp": 1630619470.0
+  }, {
+    "id": 10,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "*Hardcore* Free For All Reminder !",
+      "message": "Greeting Citizens of Heckfire,\r\n\r\nThis is a reminder that the quest \"Hardcore Free For All\" is kills only. A good way to remember this is that it always runs with \"Sacrificin' Soldiers\" which rewards *own* troop death. For further information, please read the details section of each quest.\r\n\r\n- The Heckfire Team",
+      "read": true,
+      "replied": false
+    },
+    "timestamp": 1630740699.0
+  }, {
+    "id": 11,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "Raid Issue Update",
+      "message": "Greeting Citizen of Heckfire,\r\n\r\nThere is currently a Raid issue that is preventing players from scoring in their raids, collecting the rewards, and sometimes making the Daily Events tab disappear. We have identified the cause and are currently looking into the fix, so hang tight!\r\n\r\nA comp plan will also be worked on after the fix is released. In the meantime, please refrain from starting any new raids. Your patience is greatly appreciated as we sort this out!\r\n\r\nSincerely,\r\nThe Heckfire Team",
+      "read": false,
+      "replied": false
+    },
+    "timestamp": 1631206469.0
+  }, {
+    "id": 12,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "Raid Issue Update 2",
+      "message": "Greetings Citizens of Heckfire,\r\n\r\nJust to update you! Unfortunately the fix will probably be deployed after reset. But we are working as fast as we can as we know it's going to be Supply Stockpile!",
+      "read": false,
+      "replied": false
+    },
+    "timestamp": 1631217676.0
+  }, {
+    "id": 13,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "Upcoming Event Schedule",
+      "message": "Greetings Citizens of Heckfire,\r\n\r\nHere is the upcoming event schedule:\r\n\r\n[Thursday] September 9th\r\nSupply Stockpile\r\nStimulus Package\r\n\r\n[Friday] September 10th\r\nHardcore Troop Training & Construction\r\nStimulus Package\r\n\r\n[Saturday] September 11th\r\nUltra Free For All + Clan Slaughter\r\nStimulus Package\r\n\r\n[Sunday] September 12th\r\nTooth & Scale\r\nAltar-native Options\r\nStimulus Package\r\n\r\n[Monday] September 13th\r\nSupply Stockpile\r\nStimulus Package\r\nShrines Activate\r\n\r\n[Tuesday] September 14th\r\nHardcore Might Growth\r\nBalance The Books\r\nRaid Racer\r\nRule the Realm\r\n\r\n[Wednesday] September 15th\r\nTomes From the Crypt + Sepulcher Mulcher\r\nRule the Realm\r\n\r\n[Thursday] September 16th\r\nFighting Opreston\r\nRule the Realm\r\n\r\nHappy slaying!\r\n\r\n- The Heckfire Team",
+      "read": false,
+      "replied": false
+    },
+    "timestamp": 1631221918.0
+  }, {
+    "id": 14,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "Raid Issue Update 3",
+      "message": "Greetings Citizens of Heckfire,\r\n\r\nThanks for hanging tight! A fix should be on the way around 10am (PT). It's not as soon as we would like but we want to make sure it fully works before being releasing to you, wonderful folks.\r\n\r\nAs mentioned before, a comp will be released after the fix! Your patience is ever appreciated <3\r\n\r\nSincerely,\r\nThe Heckfire Team",
+      "read": false,
+      "replied": false
+    },
+    "timestamp": 1631245796.0
+  }, {
+    "id": 15,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "Raid Issue Update 4: Raid is fixed!",
+      "message": "Greetings Citizens of Heckfire,\r\n\r\nThe raid issues have now been fixed. Raid away!!!\r\n\r\nA comp will be out as soon as we can. Thanks for the patience!\r\n\r\nSincerely,\r\nThe Heckfire Team",
+      "read": false,
+      "replied": false
+    },
+    "timestamp": 1631305237.0
+  }, {
+    "id": 16,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "Upcoming Event Schedule",
+      "message": "Greetings Citizens of Heckfire,\r\n\r\nHere is the upcoming event schedule:\r\n\r\n[Thursday] September 16th\r\nFighting Opreston\r\nRule the Realm\r\n\r\n[Friday] September 17th\r\nHardcore Research & Troop Training\r\n\r\n[Saturday] September 18th\r\nUltra Free For All + Clan Slaughter\r\n\r\n[Sunday] September 19th\r\nHardcore Might Growth\r\n\r\n[Monday] September 20th\r\nTooth & Scale\r\nAltar-native Options\r\n\r\n[Tuesday] September 21st\r\nHardcore Research & Troop Training\r\nRaid Racer\r\n\r\n[Wednesday] September 22nd\r\nA Tax on Titan\r\n\r\n[Thursday] September 23rd\r\nEnd of Event\r\n\r\nFinish Strong!\r\n\r\n- The Heckfire Team",
+      "read": false,
+      "replied": false
+    },
+    "timestamp": 1631821207.0
+  }, {
+    "id": 17,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "Raids Information Update",
+      "message": "Greetings Citizens of Heckfire,\r\n\r\nWe have searched far and wide for the cause of bugged raids last week.\r\n\r\nIt appears that the issues are due to the Town Hall levels of clan leaders are lower than the feature/competition requirement. Clan leaders need to be at least Town Hall 7 or higher in order for the Raids to work properly!\r\n\r\nThis information will also provided in the quest details for Raid Racer.\r\n\r\nThank you for your patience as we worked through this issue!\r\n\r\n-The Heckfire Team",
+      "read": false,
+      "replied": false
+    },
+    "timestamp": 1631831006.0
+  }, {
+    "id": 18,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "\u2728\ud83d\udd25 Heckin' MEGA SALE\ud83d\udd25 \u2728",
+      "message": "Greetings Citizens of Heckfire!\r\n\r\nNew content means new, more brutal challenges ahead. It's time to level up with our HECKIN' MEGA SALE!\r\n\r\nAll weekend long, starting at Friday @ 2:00PM PT and going all the way until Monday @ 2:00PM PT head to the shop to check out awesome deals, with special offers on ways to grow your Dragons into realm ending terrors, bust out mad scientist levels of research, and whip your raiding party into a Mermolga mincing MACHINE.\r\n\r\n<link=https://forums.kingdomsofheckfire.com/threads/%E2%9C%A8%F0%9F%94%A5-heckin-mega-sale%F0%9F%94%A5-%E2%9C%A8.2488/>Check out our forum post for more info!</link>\r\n\r\nGood luck and happy slaying!\r\n-The Heckfire Team",
+      "read": false,
+      "replied": false
+    },
+    "timestamp": 1631913044.0
+  }, {
+    "id": 19,
+    "type": 2,
+    "data": {
+      "sender_user_id": 313754657,
+      "sender_username": "A Thinking Ape",
+      "subject": "End of Event Wrap Up Schedule!",
+      "message": "Greetings Citizens of Heckfire,\r\n\r\nBig Ham on Campus and A Very Special Heckfire\u2026 events will be ending soon.\r\n\r\nHere are the dates and times when event items will expire:\r\n\r\nEvent quests and meta event ends: - Thursday, September 23rd - 3PM (PT)\r\n\r\nEvent chests with event points ends: - Thursday, September 23rd - 3PM (PT)\r\n\r\nEvent in-app purchases end: - Thursday, September 23rd- 2PM (PT)\r\n\r\nEvent chests without event points are available between: - Starts on Thursday, September 23rd - 3PM PT active until Thursday, September 30th - 2PM (PT)\r\n\r\nPost-event in-app purchases are available between: - Starts on Thursday, September 23rd - 3PM PT active until Thursday, September 30th - 2PM (PT) Daily Reset\r\n\r\nFinish strong!\r\n\r\n- The Heckfire Team",
+      "read": false,
+      "replied": false
+    },
+    "timestamp": 1632364907.0
+  }]
+}

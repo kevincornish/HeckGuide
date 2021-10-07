@@ -6,6 +6,12 @@
         <img class="nav-heckguide-logo" src="{% static 'img/svg/heckguide-logo.svg' %}">
       </a>
       <ul>
+        <li>
+          <a href="{% url 'timer' %}">Timer</a>
+        </li>
+        <li>
+          <a href="{% url 'clans' %}">Clans</a>
+        </li>
         <div>
           <li>
             <a id="ally-sub-link" class="sub-link" href="#">Allies <img class="sub-icon"
@@ -16,12 +22,14 @@
             <li>
               <a href="{% url 'prices' %}">Ally Prices</a>
             </li>
+            {% if user.is_authenticated %}
             <li>
               <a href="{% url 'allies' %}">Allies</a>
             </li>
             <li>
               <a href="{% url 'namechanges' %}">Name Changes</a>
             </li>
+            {% endif %}
           </ul>
           <!-- End sub menu -->
         </div>
@@ -63,11 +71,15 @@
             <li>
               <a href="{% url 'realmchat' %}">Realm Chat</a>
             </li>
+            {% if user.is_authenticated %}
             <li>
               <a href="{% url 'world' %}?realm=10">Realm 10</a>
             </li>
             <li>
               <a href="{% url 'world' %}?realm=23">Realm 23</a>
+            </li>
+            <li>
+              <a href="{% url 'world' %}?realm=92">Realm 92</a>
             </li>
             <li>
               <a href="{% url 'world' %}?realm=99">Realm 99</a>
@@ -84,6 +96,7 @@
             <li>
               <a href="{% url 'world' %}?realm=129">Realm 129</a>
             </li>
+            {% endif %}
           </ul>
           <!-- End sub menu -->
         </div>

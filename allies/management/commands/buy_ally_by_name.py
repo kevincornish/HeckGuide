@@ -25,6 +25,8 @@ class Command(BaseCommand):
             token = settings.TOKEN_106
         elif options['token'] == 10:
             token = settings.TOKEN_10
+        elif options['token'] == 92:
+            token = settings.TOKEN_92
         elif options['token'] == 99:
             token = settings.TOKEN_99
         elif options['token'] == 128:
